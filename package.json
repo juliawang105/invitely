@@ -2,10 +2,10 @@
   "name": "invitely",
   "version": "1.0.0",
   "description": "Event planning app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "repository": {
     "type": "git",
