@@ -31,4 +31,4 @@ const EventSchema = new Schema({
 
 const Event = mongoose.model('event', EventSchema);
 
-module.exports = Tweet; 
+module.exports = Event; 
