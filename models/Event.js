@@ -13,8 +13,10 @@ const EventSchema = new Schema({
     },
 
     guest_emails: {
-        type: Array,
-        required: true
+        emails: [{
+            type: String
+        }],
+        // required: true
     }, 
 
     date: {
