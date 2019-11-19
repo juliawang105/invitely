@@ -7,6 +7,12 @@ class CreateEvent extends React.Component{
 
         this.state = this.props.event; 
     }
+
+    render(){
+        return (
+            <div>Form</div>
+        )
+    }
 };
 
 export default CreateEvent;
