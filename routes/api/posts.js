@@ -9,20 +9,20 @@ mongoose.set("useFindAndModify", false)
 
 // router.get("/test", (req, res) => res.json({ msg: "This is the posts route" }));
 
-router.get("/", (req, res) => { //post index
-    Post
-        .find()
-        .sort({ date: -1 })
-        .then(posts => res.json(posts))
-        .catch(err => res.status(400).json(err))
+router.get("/event/:event_id", (req, res) => {
+  //post index
+  Post.find()
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json(err));
 });
 
-router.get("/post/:post_id", (req, res) => { //post show page 
-   Post.find({ post: req.params.post_id })
-        .then(posts => res.json(posts))
-        .catch(err => res.status(400).json(err));
+// router.get("/post/:post_id", (req, res) => { //post show page 
+//    Post.find({ post: req.params.post_id })
+//         .then(posts => res.json(posts))
+//         .catch(err => res.status(400).json(err));
 
-});
+// });
 
 router.patch("/:id", (req, res, next ) => {
     const { errors, isValid } = validatePostInput(req.body);
