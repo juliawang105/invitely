@@ -50,25 +50,26 @@ router.get("/:id", (req, res) => { //post show
         .catch(err => res.status(400).json(err));
 })
 
-router.post("/", //create post 
-    passport.authenticate("jwt", { session: false }), (req, res) => {
-        const { errors, isValid } = validatePostInput(req.body);
+router.post(
+  "/event/:event_id", //create post
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validatePostInput(req.body);
 
-        if(!isValid){
-            return res.status(400).json(errors);
-        };
-
-        const newPost = new post({
-            user: req.user.id,
-            body: req.body.body, 
-            event: req.event.id
-        });
-
-        newPost
-        .save()
-        .then(post => res.json(post));
+    if (!isValid) {
+      return res.status(400).json(errors);
     }
-)
+
+    console.log(req.event);
+    const newPost = new Post({
+      user: req.user.id,
+      body: req.body.body,
+      event: req.params.event_id
+    });
+
+    newPost.save().then(post => res.json(post));
+  }
+);
 
 
 
