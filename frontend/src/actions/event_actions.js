@@ -19,9 +19,11 @@ export const getEvents = () => dispatch =>
         .then(events => dispatch(receiveEvents(events)))
         .catch(err => console.log(err))
 
-export const getEvent = event => dispatch =>
-    EventAPIUtil.getEvents(event.id)
-        .then(event => dispatch(receiveEvent(event)))
+export const getEvent = id => dispatch =>
+    EventAPIUtil.getEvent(id)
+        .then(event => {
+            dispatch(receiveEvent(event))
+        })
         .catch(err => console.log(err));
 
 export const createEvent = event => dispatch =>

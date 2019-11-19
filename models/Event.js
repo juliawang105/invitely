@@ -20,7 +20,7 @@ const EventSchema = new mongoose.Schema({
     time: {
         type: String,
         require: true 
-    }
+    },
 
     guest_emails: {
         type: []

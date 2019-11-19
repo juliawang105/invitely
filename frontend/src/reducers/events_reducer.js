@@ -13,7 +13,8 @@ const EventsReducer = (
             return newState; 
         
         case RECEIVE_EVENT:
-            newState.new = action.tweet.data; 
+            // debugger
+            newState.new = action.event.data; 
             return newState;
         
         default:

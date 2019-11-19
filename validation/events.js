@@ -2,6 +2,7 @@ const Validator = require("validator");
 const validText = require("./valid-text");
 
 module.exports = function validateEventInput(data){
+  
     let errors = {};
 
     data.name = validText(data.name)? data.name : "";
