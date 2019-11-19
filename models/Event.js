@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EventSchema = new Schema({
+const EventSchema = new mongoose.Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -13,9 +13,12 @@ const EventSchema = new Schema({
     },
 
     guest_emails: {
-        type: Array,
-        required: true
-    }, 
+        type: []
+    },
+    
+   email: {
+       type: String
+   },
 
     date: {
         type: Date,
@@ -24,6 +27,12 @@ const EventSchema = new Schema({
 
     location: {
         type: String,
+        required: true
+    },
+
+    private: {
+        type: Boolean,
+        default: false,
         required: true
     }
 
