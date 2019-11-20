@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import * as EventsCss from './events.css'
+import { Switch, Route } from "react-router-dom";
+import * as EventsCss from './events.css';
+import PostsContainer from '../posts/posts_container';
 
 class EventShow extends React.Component{
     constructor(props){
@@ -25,15 +27,20 @@ class EventShow extends React.Component{
         console.log(event);
 
         return (
-          <div className="event-show">
+          <div>
+            <div className="event-show">
               <div className="sidebar">
                 <div>sidebar</div>
               </div>
-            <div className='event-info'>
-              <div>{event.name}</div>
-              <div>{event.body}</div>
-              <div>{event.location}</div>
-              <div>{event.time}</div>
+                <div className="event-info">
+                  <div>{event.name}</div>
+                  <div>{event.body}</div>
+                  <div>{event.location}</div>
+                  <div>{event.time}</div>
+                <Switch>
+                  <Route exact path="/events/:id/" component={PostsContainer} />
+                </Switch>
+              </div>
             </div>
           </div>
         );
