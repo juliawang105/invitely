@@ -14,13 +14,13 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+
+      {/* <ProtectedRoute exact path="/events" component={TweetsContainer} /> */}
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
       {/* MODIFY to authroute */}
       <Route exact path="/" component={MainPage} />
 
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
-      {/* <ProtectedRoute exact path="/tweets" component={TweetsContainer} /> */}
       {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
       {/* <ProtectedRoute exact path="/new_tweet" component={TweetComposeContainer} /> */}
     </Switch>

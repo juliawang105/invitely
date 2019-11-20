@@ -9,11 +9,11 @@ class MainPage extends React.Component {
           <h1 className="main-title fadeIn">
             <i className="fas fa-paper-plane"></i> invitely
           </h1>
-          <img
+          {/* <img
             src="background_003.jpg"
             alt="background-image"
             className="main-background-image"
-          />
+          /> */}
         </div>
         <div className="main-second-section"></div>
         <div className="main-third-section"></div>
