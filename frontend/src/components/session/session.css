@@ -10,20 +10,71 @@
   background-image: url("background_004.jpg");
   background-size: cover;
   z-index: -1;
+  background-color: rgb(26, 26, 26);
 }
 
 .session-form {
-  padding-top: 36vh;
-
-
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
 }
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes fade-in-down {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -5vh, 0);
+    transform: translate3d(0, -5vh, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -5vh, 0);
+    transform: translate3d(0, -5vh, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-down {
+  -webkit-animation-name: fade-in-down;
+  animation-name: fade-in-down;
+  animation-duration: 0.8s;
+  padding-top: 36vh;
+}
+
+
+
+
+
+
+
 
 
 
 .session-form-items {
   display: flex;
   flex-direction: column;
-
 }
 
 .session-form-item {

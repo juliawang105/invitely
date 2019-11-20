@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <form className="session-form fade-in-down" onSubmit={this.handleSubmit}>
           <div className="session-form-items">
             <input
               type="text"
@@ -82,7 +82,7 @@ class LoginForm extends React.Component {
 
             <input
               type="submit"
-              value="Submit"
+              value="Log In"
               // className="session-form-item"
               className="session-form-submit"
             />

@@ -5,7 +5,7 @@
     align-items: center;
     padding: 10px 30px;
     background-color: transparent;
-    /* background-color: lightcoral; */
+    background-color: lightcoral;
     color: white;
     z-index: 100;
 }
