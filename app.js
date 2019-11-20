@@ -11,6 +11,7 @@ const users = require("./routes/api/users");
 const events = require("./routes/api/events");
 const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
+const reservations = require("./routes/api/reservations");
 
 mongoose
   .connect(db, {
@@ -33,6 +34,7 @@ app.use("/api/users", users);
 app.use("/api/events", events);
 app.use("/api/posts", posts);
 app.use("/api/chats", chats);
+app.use("/api/reservations", reservations);
 
 io.on('connection', () =>{
  console.log('a user is connected');

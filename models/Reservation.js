@@ -6,6 +6,9 @@ const ReservationSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users"
   },
+  email: {
+    type: String
+  },
   event: {
     type: Schema.Types.ObjectId,
     ref: "events"
@@ -13,7 +16,7 @@ const ReservationSchema = new Schema({
   status: {
     type: String,
     default: "invited"
-  }
+  },
   date: {
     type: Date,
     default: Date.now
