@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class CreateEvent extends React.Component {
   };
 
   handleClick(e){
-      debugger
+      // debugger
     e.preventDefault();
     this.setState( {guest_emails: this.state.guest_emails.concat([this.state.email])
     });
@@ -25,13 +26,32 @@ class CreateEvent extends React.Component {
   };
 
   handleSubmit(e) {
-      debugger
+      // debugger
     e.preventDefault();
-    this.props.action(this.state);
+    if(this.props.formType === 'Create Event'){
+      this.props.createEvent(this.state);
+    } else {
+      this.props.updateEvent(this.state)
+    }
+    
   }
 
   render() {
-    //   debugger
+    // debugger
+    let emails = this.state.guest_emails.map( (email) => {
+      let format = <li>{email}</li>
+      return format;
+        
+    })
+    
+    let button;
+
+    if(this.props.formType === 'Create Event'){
+      button = <button onClick={this.handleSubmit}>Create Event</button>;
+    } else {
+      button = <button onClick={this.handleSubmit}>Update Event</button>;
+    };
+
     return (
       <div>
         <div>
@@ -71,9 +91,14 @@ class CreateEvent extends React.Component {
               placeholder="Guest Emails"
             />
             <button onClick={this.handleClick}>Add Email</button>
-          </div>
 
-          <button onClick={this.handleSubmit}>Create Event</button>
+          </div>
+          {button}
+        </div>
+
+        <div className="list">
+          <h2>Your Guest List</h2>
+            {emails}
         </div>
       </div>
     );
