@@ -11,15 +11,15 @@ module.exports = function validateRegisterInput(data) {
   data.password2 = validText(data.password2) ? data.password2 : '';
 
   if (!Validator.isLength(data.firstName, { min: 1, max: 30 })) {
-    errors.handle = 'First name must be between 1 and 30 characters';
+    errors.firstName = 'First name must be between 1 and 30 characters';
   }
 
   if (!Validator.isLength(data.lastName, { min: 1, max: 30 })) {
-    errors.handle = 'Last name must be between 1 and 30 characters';
+    errors.lastName = 'Last name must be between 1 and 30 characters';
   }
 
   if (Validator.isEmpty(data.firstName)) {
-    errors.handle = 'First name field is required';
+    errors.firstName = 'First name field is required';
   }
 
   if (Validator.isEmpty(data.lastName)) {
