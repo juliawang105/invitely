@@ -2,6 +2,20 @@ import React from "react";
 import "./main_page.css"
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  handleScroll(e) {
+  
+
+    // element.scrollIntoView();
+    // element.scrollIntoView(false);
+    // element.scrollIntoView({ block: "end" });
+    // element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  } 
+
   render() {
     return (
       <div className="main-container">
@@ -15,8 +29,8 @@ class MainPage extends React.Component {
             className="main-background-image"
           /> */}
         </div>
-        <div className="main-second-section"></div>
-        <div className="main-third-section"></div>
+        <div className="main-second-section" onClick={this.handleScroll}></div>
+        <div id="main-third-section"></div>
         <div className="main-fourth-section"></div>
         <div className="main-fifth-section"></div>
         <footer className="main-footer">

@@ -65,7 +65,7 @@
   height: 100vh;
   z-index: 100;
   top: 95vh;
-  background-color: tomato;
+  background-color: lightsteelblue;
 }
 
 .main-third-section {
@@ -74,7 +74,7 @@
   height: 100vh;
   z-index: 101;
   top: 190vh;
-  background-color: wheat;
+  background-color: rgb(26, 26, 26);
 }
 
 .main-fourth-section {
@@ -83,7 +83,7 @@
   height: 100vh;
   z-index: 102;
   top: 285vh;
-  background-color: lavender;
+  background-color: lightsteelblue;
 }
 
 .main-fifth-section {
@@ -92,7 +92,7 @@
   height: 100vh;
   z-index: 102;
   top: 380vh;
-  background-color: lightpink;
+  background-color: rgb(26, 26, 26);
 }
 
 .main-footer {
