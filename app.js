@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const sgMail = require('@sendgrid/mail');
 
 const users = require("./routes/api/users");
 const events = require("./routes/api/events");
@@ -39,6 +40,19 @@ app.use("/api/reservations", reservations);
 io.on('connection', () =>{
  console.log('a user is connected');
 });
+
+app.post('/api/send_email', (req, res) => {
+  // DEFINE API KEY FOR SENDGRID
+  const msg = {
+    to: 'isomdurm@gmail.com',
+    from: 'isomdurm@gmail.com',
+    subject: 'New Message From Portfolio',
+    text: 'test',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  };
+
+  sgMail.send(msg);
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
