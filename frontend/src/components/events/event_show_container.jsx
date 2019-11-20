@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getEvent, getEvents } from '../../actions/event_actions';
+import { getEvent } from '../../actions/event_actions';
 import EventShow from './event_show'
 
 const mSTP = (state, ownProps) => {

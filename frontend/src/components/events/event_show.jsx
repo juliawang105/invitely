@@ -41,4 +41,4 @@ class EventShow extends React.Component{
 
 };
 
-export default EventShow;
+export default withRouter(EventShow);

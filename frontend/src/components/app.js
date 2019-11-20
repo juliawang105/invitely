@@ -8,6 +8,7 @@ import MainPage from "./main/main_page";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import EventShowContainer from "./events/event_show_container";
+import CreateEventContainer from "./events/create_event_container"
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
 
@@ -20,6 +21,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path = "/events/:id" component={EventShowContainer} />
+      <Route exact path="/events" component={CreateEventContainer}/>
 
       {/* <ProtectedRoute exact path="/tweets" component={TweetsContainer} /> */}
       {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}

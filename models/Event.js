@@ -42,7 +42,7 @@ const EventSchema = new mongoose.Schema({
 
     private: {
         type: Boolean,
-        default: false,
+        default: true,
         required: true
     }
 
