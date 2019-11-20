@@ -7,29 +7,33 @@ class CreateEvent extends React.Component {
 
     this.state = this.props.event;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
     return e => {
-      this.setState({ [field]: e.target.value });
+        this.setState({ [field]: e.target.value })    
     };
-  }
+  };
 
-//   update_emails(){
-//       let newEmails = this.state.guest_emails.push
-//     return e => {
-//         this.setState({[guest_emails]: this})
-//     }
-//   }
+  handleClick(e){
+      debugger
+    e.preventDefault();
+    this.setState( {guest_emails: this.state.guest_emails.concat([this.state.email])
+    });
+    this.setState( {email: ""})
+  };
 
   handleSubmit(e) {
+      debugger
     e.preventDefault();
     this.props.action(this.state);
   }
 
   render() {
+    //   debugger
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
         <div>
           <input
             onChange={this.update("name")}
@@ -59,16 +63,19 @@ class CreateEvent extends React.Component {
             placeholder="Event Time"
           />
 
-          <input
-            onChange={this.update("email")}
-            type="text"
-            value={this.state.email}
-            placeholder="Guest Emails"
-          />
+          <div>
+            <input
+              onChange={this.update("email")}
+              type="text"
+              value={this.state.email}
+              placeholder="Guest Emails"
+            />
+            <button onClick={this.handleClick}>Add Email</button>
+          </div>
 
-          <button>Create Event</button>
+          <button onClick={this.handleSubmit}>Create Event</button>
         </div>
-      </form>
+      </div>
     );
   }
 };
