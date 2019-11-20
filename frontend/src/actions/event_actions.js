@@ -1,5 +1,5 @@
 import * as EventAPIUtil from "../util/event_api_util";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";

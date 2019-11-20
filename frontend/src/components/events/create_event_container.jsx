@@ -10,7 +10,7 @@ const mSTP = state => ({
         time: "",
         guest_emails: [],
         email: "",
-        private: false
+        private: true
     },
 
     formType: "Create Event"
