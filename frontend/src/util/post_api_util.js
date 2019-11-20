@@ -5,11 +5,12 @@ export const fetchEventPosts = (eventId) => {
 };
 
 export const createPost = data => {
-  return axios.post(`/api/posts/event/${data.event.id}`, data);
+  // debugger;
+  return axios.post(`/api/posts/event/${data.event}`, data);
 };
 
 export const updatePost = data => {
-  return axios.patch(`/api/posts/${data.id}`);
+  return axios.patch(`/api/posts/${data.id}`, data);
 };
 
 export const getPost = id => {

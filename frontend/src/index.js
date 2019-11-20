@@ -4,6 +4,8 @@ import Root from "./components/root";
 import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { getEvent, getEvents, createEvent, updateEvent } from "./actions/event_actions"
+import { fetchEventPosts, createPost, updatePost } from "./actions/post_actions";
+// import { fetchEventPosts, createPost } from "./util/post_api_util";
 
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
@@ -39,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getEvent = getEvent; 
   window.createEvent = createEvent; 
   window.updateEvent = updateEvent; 
-  
+  window.fetchEventPosts = fetchEventPosts;
+  window.createPost = createPost;
+  window.updatePost = updatePost;
 
   ReactDOM.render(<Root store={store} />, root);
 });

@@ -13,14 +13,21 @@ const receivePost = post => ({
   post
 });
 
-export const fetchEventPosts = id => dispatch => {
-  PostAPIUtil.fetchEventPosts(id)
+export const fetchEventPosts = eventId => dispatch => {
+  PostAPIUtil.fetchEventPosts(eventId)
     .then( posts => dispatch(receiveEventPosts(posts)))
     .catch(err => console.log(err));
 };
 
 export const createPost = data => dispatch => {
+  // console.log(data)
   PostAPIUtil.createPost(data)
     .then(post => dispatch(receivePost(post)))
     .catch(err => console.log(err));
 };
+
+export const updatePost = data => dispatch => {
+  PostAPIUtil.updatePost(data)
+    .then( post => dispatch(receivePost(post)))
+    .catch(err => console.log(err));
+}
