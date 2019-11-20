@@ -9,7 +9,7 @@ const PostSchema = new Schema({
 
     event: {
         type: Schema.Types.ObjectId,
-        ref: 'events'
+        ref: 'event'
     },
 
     body: {

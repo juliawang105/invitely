@@ -31,6 +31,36 @@
     <div id="root">
       <marquee behavior="" direction="">fuck this shit</marquee>
     </div>
+    <script>
+      $(() => {
+          $("#send").click(() => {
+            sendChat({
+              message: $("#message").val()
+            });
+          })
+          getChats()
+        })
+
+        function addChat(chat) {
+          $("#messages").append(`
+            <p>  ${chat.message} </p>`)
+        }
+
+        function getChats() {
+          $.get('http://localhost:3000/api/chats', (data) => {
+            data.forEach(addChats);
+          })
+        }
+
+        function sendChat(chat) {
+          $.post('http://localhost:3000/api/chats', chat)
+        }
+
+        var socket = io();
+
+        socket.on('message', addMessages)
+    </script>
+    <script src=”/socket.io/socket.io.js”> </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
