@@ -40,7 +40,7 @@ io.on('connection', () =>{
 });
 
 app.post('/api/send_email', (req, res) => {
-
+  // DEFINE API KEY FOR SENDGRID
   const msg = {
     to: 'isomdurm@gmail.com',
     from: 'isomdurm@gmail.com',
