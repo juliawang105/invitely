@@ -64,8 +64,8 @@
   width: 100%;
   height: 100vh;
   z-index: 100;
-  top: 95vh;
-  background-color: lightsteelblue;
+  top: 98vh;
+  background-color: lavender;
 }
 
 .main-third-section {
@@ -83,7 +83,7 @@
   height: 100vh;
   z-index: 102;
   top: 285vh;
-  background-color: lightsteelblue;
+  background-color: lavender;
 }
 
 .main-fifth-section {
