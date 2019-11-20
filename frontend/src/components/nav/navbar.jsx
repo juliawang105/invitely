@@ -19,16 +19,24 @@ class NavBar extends React.Component {
       return (
         <div>
           {/* <Link to={"/tweets"}>All Tweets</Link> */}
-          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/profile"} className="nav-button">
+            Profile
+          </Link>
           {/* <Link to={"/new_tweet"}>Write a Tweet</Link> */}
-          <button onClick={this.logoutUser}>Logout</button>
+          <span onClick={this.logoutUser} className="nav-button">
+            Logout
+          </span>
         </div>
       );
     } else {
       return (
         <div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/signup"} className="nav-button">
+            sign up
+          </Link>
+          <Link to={"/login"} className="nav-button">
+            log in
+          </Link>
         </div>
       );
     }
@@ -36,8 +44,12 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>invitely</h1>
+      <div className="nav-bar">
+        <h1 className="nav-title">
+          <Link to={"/"} className="nav-button">
+            <i className="fas fa-paper-plane"></i> invitely
+          </Link>
+        </h1>
         {this.getLinks()}
       </div>
     );

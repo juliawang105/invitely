@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./session.css";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentDidUpdate(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push("/login");
     }
@@ -43,61 +44,78 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history);
-
   }
 
   renderErrors() {
+    let errorsArray = Object.keys(this.state.errors);
+    let error = this.state.errors[errorsArray[0]];
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
+      // <ul>
+      //   {Object.keys(this.state.errors).map((error, i) => (
+      //     <li key={`error-${i}`} className="session-form-item error">
+      //       {this.state.errors[error]}
+      //     </li>
+      //   ))}
+      // </ul>
+      <div className="error">
+        <div className="error-text">
+          {error}
+        </div>
+      </div>
     );
   }
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
-            <br />
+      <div className="session-form-container">
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <div className="session-form-items">
             <input
               type="text"
               value={this.state.firstName}
               onChange={this.update("firstName")}
               placeholder="First Name"
+              className="session-form-item"
             />
-            <br />
+
             <input
               type="text"
               value={this.state.lastName}
               onChange={this.update("lastName")}
               placeholder="Last Name"
+              className="session-form-item"
             />
-            <br />
+
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
+              className="session-form-item"
             />
-            <br />
+
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
+              className="session-form-item"
             />
-            <br />
+
             <input
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
+              className="session-form-item"
             />
-            <br />
-            <input type="submit" value="Submit" />
+
+            <input
+              type="submit"
+              value="Sign up"
+              // className="session-form-item"
+              className="session-form-submit"
+            />
             {this.renderErrors()}
           </div>
         </form>

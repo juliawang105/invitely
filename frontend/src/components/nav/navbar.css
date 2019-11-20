@@ -1,11 +1,43 @@
-.NavBar {
+.nav-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: transparent;
+    /* background-color: lightcoral; */
+    color: white;
+    z-index: 100;
 }
 
-.NavBar button {
+.nav-title {
+  font-size: 24px;
+  /* box-sizing: border-box; */
+  transition: 300ms ease;
+}
+.nav-title:hover {
+  opacity: 0.8;
+  transition: 300ms ease;
+}
+
+.nav-bar a {
     height: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-bar a:hover {
+  opacity: 0.8;
+  transition: 300ms ease;
+}
+
+.nav-button {
+  margin: 0px 10px;
+}
+
+.nav-button:hover {
+  opacity: 0.8;
+  transition: 300ms ease;
 }
 
 .Links1 {

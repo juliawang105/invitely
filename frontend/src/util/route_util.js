@@ -7,7 +7,9 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     path={path}
     exact={exact}
     render={props =>
-      !loggedIn ? <Component {...props} /> : <Redirect to="/tweets" />
+
+      // MODIFY redirect to
+      !loggedIn ? <Component {...props} /> : <Redirect to="/" />
     }
   />
 );

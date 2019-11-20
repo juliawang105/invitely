@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./session.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,9 +16,9 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentDidUpdate(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/tweets");
+      // this.props.history.push("/tweets");
     }
 
     this.setState({ errors: nextProps.errors });
@@ -42,36 +43,49 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    let errorsArray = Object.keys(this.state.errors);
+    let error = this.state.errors[errorsArray[0]];
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
+      // <ul>
+      //   {Object.keys(this.state.errors).map((error, i) => (
+      //     <li key={`error-${i}`} className="session-form-item error">
+      //       {this.state.errors[error]}
+      //     </li>
+      //   ))}
+      // </ul>
+      <div className="error">
+        <div className="error-text">{error}</div>
+      </div>
     );
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
+      <div className="session-form-container">
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <div className="session-form-items">
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
+              className="session-form-item"
             />
-            <br />
+
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
+              className="session-form-item"
             />
-            <br />
-            <input type="submit" value="Submit" />
+
+            <input
+              type="submit"
+              value="Submit"
+              // className="session-form-item"
+              className="session-form-submit"
+            />
             {this.renderErrors()}
           </div>
         </form>

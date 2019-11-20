@@ -1,0 +1,82 @@
+.session-form-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: top;
+  width: 100%;
+  height: 100vh;
+  background-image: url("background_004.jpg");
+  background-size: cover;
+  z-index: -1;
+}
+
+.session-form {
+  padding-top: 36vh;
+
+
+}
+
+
+
+.session-form-items {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.session-form-item {
+  width: 300px;
+  /* background: rgba(255, 255, 255, 0.7); */
+  transition: 300ms ease;
+}
+
+.session-form-item {
+  margin-bottom: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: 300ms ease;
+}
+
+.session-form-item:hover {
+  opacity: 0.9;
+}
+
+.session-form-item:focus {
+  opacity: 1;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.session-form-items input[type="submit"] {
+  background-color: rgb(134, 240, 199);
+  border: none;
+  font-weight: bold;
+  margin-bottom: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  transition: 300ms ease;
+}
+
+.session-form-items input[type="submit"]:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transition: 300ms ease;
+}
+.session-form-items input[type="submit"]:active {
+  background-color: lightsalmon;
+  transition: 300ms ease;
+}
+
+.error {
+  color: rgb(128, 128, 128);
+  background-color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 2em;
+  font-style: italic;
+}
