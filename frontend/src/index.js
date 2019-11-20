@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
+import { getEvent, getEvents, createEvent, updateEvent } from "./actions/event_actions"
+import { fetchEventPosts, createPost, updatePost } from "./actions/post_actions";
+// import { fetchEventPosts, createPost } from "./util/post_api_util";
 
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import "./index.css";
 import "./animate.css";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -31,6 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore({});
   }
   const root = document.getElementById("root");
+
+  window.store = store;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.getEvents = getEvents;
+  window.getEvent = getEvent; 
+  window.createEvent = createEvent; 
+  window.updateEvent = updateEvent; 
+  window.fetchEventPosts = fetchEventPosts;
+  window.createPost = createPost;
+  window.updatePost = updatePost;
 
   ReactDOM.render(<Root store={store} />, root);
 });

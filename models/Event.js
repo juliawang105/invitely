@@ -12,6 +12,16 @@ const EventSchema = new mongoose.Schema({
         required: true
     },
 
+    body: {
+        type: String,
+        require: true 
+    },
+
+    time: {
+        type: String,
+        require: true 
+    },
+
     guest_emails: {
         type: []
     },
