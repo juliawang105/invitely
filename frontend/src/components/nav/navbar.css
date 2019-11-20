@@ -3,21 +3,28 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
+    /* padding: 10px 30px; */
     background-color: transparent;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     color: white;
     z-index: 100;
+    position: fixed;
+    width: 100%;
 }
 
 .nav-title {
   font-size: 24px;
   /* box-sizing: border-box; */
   transition: 300ms ease;
+  margin: 10px 30px;
 }
 .nav-title:hover {
   opacity: 0.8;
   transition: 300ms ease;
+}
+
+.nav-links {
+  margin: 10px 30px;
 }
 
 .nav-bar a {

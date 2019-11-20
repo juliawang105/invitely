@@ -37,12 +37,12 @@ router.patch("/:id", (req, res, next ) => {
         // console.log(req.body),
         { new: true })
         .then((event) => {
-            console.log(event)
+            console.log(event);
             res.json(event);
-        } )
+        } );
         
     }
-)
+);
 
 router.get("/:id", (req, res) => { //event show 
    Event.findById(req.params.id)
@@ -69,7 +69,7 @@ router.post("/", //create post
         .save()
         .then(event => res.json(event));
     }
-)
+);
 
 
 

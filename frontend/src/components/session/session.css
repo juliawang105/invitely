@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   justify-content: center;
-  align-items: top;
+  align-items: center;
   width: 100%;
   height: 100vh;
   background-image: url("background_004.jpg");
@@ -31,8 +31,8 @@
 @-webkit-keyframes fade-in-down {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, -5vh, 0);
-    transform: translate3d(0, -5vh, 0);
+    -webkit-transform: translate3d(0, -3vh, 0);
+    transform: translate3d(0, -3vh, 0);
   }
 
   to {
@@ -45,8 +45,8 @@
 @keyframes fade-in-down {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, -5vh, 0);
-    transform: translate3d(0, -5vh, 0);
+    -webkit-transform: translate3d(0, -3vh, 0);
+    transform: translate3d(0, -3vh, 0);
   }
 
   to {
@@ -60,7 +60,7 @@
   -webkit-animation-name: fade-in-down;
   animation-name: fade-in-down;
   animation-duration: 0.8s;
-  padding-top: 36vh;
+  /* padding-top: 36vh; */
 }
 
 
@@ -84,7 +84,7 @@
 }
 
 .session-form-item {
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
   padding: 10px;
   border: none;
   border-radius: 2px;
@@ -105,7 +105,8 @@
 }
 
 .session-form-items input[type="submit"] {
-  background-color: rgb(134, 240, 199);
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
   font-weight: bold;
   margin-bottom: 6px;
@@ -120,7 +121,7 @@
   transition: 300ms ease;
 }
 .session-form-items input[type="submit"]:active {
-  background-color: lightsalmon;
+  background-color: rgb(255, 215, 170);
   transition: 300ms ease;
 }
 
