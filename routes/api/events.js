@@ -31,8 +31,7 @@ router.patch("/:id", (req, res, next ) => {
         return res.status(400).json(errors);
     }
 
-  
-    Event.findOneAndUpdate(req.params.id,
+    Event.findOneAndUpdate({_id: req.params.id},
         req.body,
         // console.log(req.body),
         { new: true })
@@ -46,7 +45,10 @@ router.patch("/:id", (req, res, next ) => {
 
 router.get("/:id", (req, res) => { //event show 
    Event.findById(req.params.id)
-        .then(event => res.json(event))
+        .then(event => {
+            let newEvent = Object.assign({}, event._doc, {id: event.id});
+            res.json(newEvent);
+        })
         .catch(err => res.status(400).json(err));
 })
 
