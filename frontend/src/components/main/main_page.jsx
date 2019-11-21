@@ -1,7 +1,7 @@
 import React from "react";
 import "./main_page.css";
 import { Link } from 'react-router-dom';
-// import ScrollTrigger from "@terwanerik/scrolltrigger";
+// import ScrollTrigger from "../../dist/ScrollTrigger.js";
 
 class MainPage extends React.Component {
   constructor(props) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Switch, Route } from "react-router-dom";
-import * as EventsCss from './events.css';
 import PostsContainer from '../posts/posts_container';
 
 class EventShow extends React.Component{
