@@ -2,34 +2,57 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Switch, Route } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
+import ReservationsContainer from '../reservations/reservations_container';
 
 class EventShow extends React.Component{
     constructor(props){
         super(props)
-        // this.state = this.props.event;
+        this.state = {
+          showing: "home"
+        };
+
+      this.changePage = this.changePage.bind(this);
     }
 
     componentDidMount(){
         this.props.getEvent(this.props.match.params.id);
     }
 
+    changePage(type) {
+      this.setState({showing: type});
+    }
+
     render(){
        
         let event = this.props.event.new;
-        // console.log(this.props)
-        // console.log(event);
         if (!event){
 
             return null;
         }
-
-        // console.log(event);
+        let body
+        if (this.state.showing === "home") {
+          body = <PostsContainer />
+        } else if (this.state.showing === "guests") {
+          body = <ReservationsContainer />
+        }
 
         return (
           <div>
             <div className="event-show">
               <div className="sidebar">
                 <div>sidebar</div>
+                <div 
+                  onClick={() => this.changePage("home")}
+                  className="sidebar-nav"
+                  value="home">
+                  Home
+                </div>
+                <div 
+                  onClick={() => this.changePage("guests")}
+                  className="sidebar-nav" 
+                  value="guests">
+                  Guests
+                </div>
               </div>
               <div className="event-page">
                 <div className="event-info">
@@ -38,13 +61,7 @@ class EventShow extends React.Component{
                   <div>{event.location}</div>
                   <div>{event.time}</div>
                 </div>
-                  <Switch>
-                    <Route
-                      exact
-                      path="/events/:id/"
-                      component={PostsContainer}
-                    />
-                  </Switch>
+                {body}
               </div>
             </div>
           </div>

@@ -22,14 +22,11 @@
 
 .sidebar{
     display: flex;
+    flex-direction: column;
 }
 
 
 
-
-
-
-/* ------------------------------------- */
 .create-event-outer-wrapper {
     background-color: rgb(255, 193, 122);
     min-height: 100vh;
@@ -40,3 +37,16 @@
     padding-top: 45px;
     display: flex;
 }
+.sidebar-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    /* border-top: 1px solid black; */
+    border-bottom: 1px solid black;
+}
+
+/* .sidebar-nav:first-of-type {
+    border-top: 1px solid black;
+} */
+
