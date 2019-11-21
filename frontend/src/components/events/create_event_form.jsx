@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 const google = window.google = window.google ? window.google : {};
 
@@ -8,6 +9,9 @@ class CreateEvent extends React.Component {
     super(props);
 
     this.state = this.props.event;
+
+    this.state.file = null;
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.autocompleteInput = React.createRef();
@@ -33,10 +37,26 @@ class CreateEvent extends React.Component {
 
     this.setState({
       location: place.formatted_address,
-      
-    });
+    }); 
+  }
 
-    
+  submitFile = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', this.state.file[0]);
+    axios.post(`/test-upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(response => {
+      // handle your response;
+    }).catch(error => {
+      // handle your error
+    });
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({file: event.target.files});
   }
 
   handleClick(e){
@@ -129,6 +149,9 @@ class CreateEvent extends React.Component {
               placeholder="Guest Emails"
             />
             <button onClick={this.handleClick}>Add Email</button>
+          </div>
+          <div>
+            <input label='upload file' type='file' onChange={this.handleFileUpload} />
           </div>
           {button}
         </div>
