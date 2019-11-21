@@ -80,14 +80,20 @@ class CreateEvent extends React.Component {
 
   render() {
     // debugger
-    let emails = this.state.guest_emails.map( (email, i) => {
-      let format = <li key={i}>{email}</li>
+    let emails = this.state.guest_emails.map( (email) => {
+      let format = <li>{email}</li>
       return format;
         
     })
     
+    let button;
 
-
+    if(this.props.formType === 'Create Event'){
+      button = <button onClick={this.handleSubmit}>Create Event</button>;
+    } else {
+      button = <button onClick={this.handleSubmit}>Update Event</button>;
+    };
+    
     return (
       <div id="create-form">
         <div>
