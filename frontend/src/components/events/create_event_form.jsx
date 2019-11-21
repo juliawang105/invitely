@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+const google = window.google = window.google ? window.google : {};
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -9,6 +10,9 @@ class CreateEvent extends React.Component {
     this.state = this.props.event;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.autocompleteInput = React.createRef();
+    this.autocomplete = null;
+    this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
   }
 
   update(field) {
@@ -16,6 +20,24 @@ class CreateEvent extends React.Component {
         this.setState({ [field]: e.target.value })    
     };
   };
+
+  componentDidMount() {
+    this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.current,
+        {"types": ["geocode"]});
+    this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
+  }
+  
+  handlePlaceChanged(e){
+    const place = this.autocomplete.getPlace();
+  
+
+    this.setState({
+      location: place.formatted_address,
+      
+    });
+
+    
+  }
 
   handleClick(e){
 
@@ -67,38 +89,43 @@ class CreateEvent extends React.Component {
 
 
     return (
+<<<<<<< HEAD
       <div className="create-event-outer-wrapper">
 
 
 
         <form className="create-event-container" onSubmit={this.handleSubmit}>
+=======
+      <div id="create-form">
+        <div>
+>>>>>>> maps
           <input
             onChange={this.update("name")}
             type="text"
             value={this.state.name}
             placeholder="Event Name"
           />
-
           <input
             onChange={this.update("body")}
             type="text"
             value={this.state.body}
             placeholder="Event Description"
           />
-
           <input
+            ref={this.autocompleteInput}
+            id="autocomplete"
             onChange={this.update("location")}
             type="text"
             value={this.state.location}
-            placeholder="Event Location"
+            placeholder="Enter your address"
           />
-
           <input
             onChange={this.update("time")}
             type="text"
             value={this.state.time}
             placeholder="Event Time"
           />
+<<<<<<< HEAD
           <input type="submit" value={this.props.formType}/>
 
 
@@ -119,12 +146,29 @@ class CreateEvent extends React.Component {
               {emails}
             </div>
 
+=======
+          <div>
+            <input
+              onChange={this.update("email")}
+              type="text"
+              value={this.state.email}
+              placeholder="Guest Emails"
+            />
+            <button onClick={this.handleClick}>Add Email</button>
+>>>>>>> maps
           </div>
 
+<<<<<<< HEAD
 
 
 
         </form>
+=======
+        <div className="list">
+          <h2>Your Guest List</h2>
+          {emails}
+        </div>
+>>>>>>> maps
       </div>
     );
   }

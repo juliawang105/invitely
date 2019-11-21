@@ -1,4 +1,6 @@
 import React from 'react';
+import EventMap from './event_map';
+
 
 class PostItem extends React.Component {
 
@@ -12,6 +14,7 @@ class PostItem extends React.Component {
         {this.props.post.authorFirst} {this.props.post.authorLast[0]}.: {this.props.post.body}
         <br/>
         <br/>
+        
       </div>
     );
   }

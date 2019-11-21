@@ -3,6 +3,7 @@ import { getEvent } from "../../actions/event_actions";
 import { fetchEventPosts, createPost } from "../../actions/post_actions";
 import Posts from './posts';
 
+
 const mSTP = (state, ownProps) => {
   // debugger
   return {
