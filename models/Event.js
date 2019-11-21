@@ -14,12 +14,12 @@ const EventSchema = new mongoose.Schema({
 
     body: {
         type: String,
-        require: true 
+        required: true 
     },
 
     time: {
         type: String,
-        require: true 
+        required: true 
     },
 
     guest_emails: {
