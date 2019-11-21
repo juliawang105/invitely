@@ -89,16 +89,8 @@ class CreateEvent extends React.Component {
 
 
     return (
-<<<<<<< HEAD
-      <div className="create-event-outer-wrapper">
-
-
-
-        <form className="create-event-container" onSubmit={this.handleSubmit}>
-=======
       <div id="create-form">
         <div>
->>>>>>> maps
           <input
             onChange={this.update("name")}
             type="text"
@@ -125,28 +117,6 @@ class CreateEvent extends React.Component {
             value={this.state.time}
             placeholder="Event Time"
           />
-<<<<<<< HEAD
-          <input type="submit" value={this.props.formType}/>
-
-
-
-          <div className="add-guest-form">
-            <form onSubmit={this.handleClick}>
-              <input
-                onChange={this.update("email")}
-                type="text"
-                value={this.state.email}
-                placeholder="Guest Emails"
-              />
-              <input type="submit" value="Add Email" />
-            </form>
-
-            <div className="list">
-              <h2>Your Guest List</h2>
-              {emails}
-            </div>
-
-=======
           <div>
             <input
               onChange={this.update("email")}
@@ -155,20 +125,14 @@ class CreateEvent extends React.Component {
               placeholder="Guest Emails"
             />
             <button onClick={this.handleClick}>Add Email</button>
->>>>>>> maps
           </div>
+          {button}
+        </div>
 
-<<<<<<< HEAD
-
-
-
-        </form>
-=======
         <div className="list">
           <h2>Your Guest List</h2>
           {emails}
         </div>
->>>>>>> maps
       </div>
     );
   }
