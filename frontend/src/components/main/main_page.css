@@ -1,8 +1,9 @@
 .main-container {
   position: absolute;
   top: 0;
-  background-color: rgb(26, 26, 26);
-  height: 482vh;
+  /* background-color: rgb(26, 26, 26); */
+  background-color: rgb(47, 40, 37);
+  height: 500vh;
   width: 100%;
   /* border: 1px solid red; */
   z-index: -10000;
@@ -31,7 +32,7 @@
   animation-name: fadeIn;
   animation-duration: 0.6s;
 
-  background-image: url("background_003.jpg");
+  background-image: url("background_005.jpeg");
   background-size: cover;
 }
 
@@ -47,17 +48,36 @@
   font-size: 100px;
   color: white;
   opacity: 0;
-
 }
 
-.fadeIn {
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 0.9;
+  }
+}
+
+.fade-in {
   animation-fill-mode: forwards;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in;
   animation-delay: 0.8s;
   animation-duration: 2s;
 }
-
 
 .main-second-section {
   position: absolute;
@@ -65,7 +85,8 @@
   height: 100vh;
   z-index: 100;
   top: 98vh;
-  background-color: lavender;
+  /* background-color: lavender; */
+  background-color: rgb(238, 210, 157);
 }
 
 .main-third-section {
@@ -73,8 +94,9 @@
   width: 100%;
   height: 100vh;
   z-index: 101;
-  top: 190vh;
-  background-color: rgb(26, 26, 26);
+  top: 198vh;
+  /* background-color: rgb(26, 26, 26); */
+  background-color: rgb(47, 40, 37);
 }
 
 .main-fourth-section {
@@ -82,8 +104,8 @@
   width: 100%;
   height: 100vh;
   z-index: 102;
-  top: 285vh;
-  background-color: lavender;
+  top: 298vh;
+  background-color: rgb(238, 210, 157);
 }
 
 .main-fifth-section {
@@ -91,8 +113,9 @@
   width: 100%;
   height: 100vh;
   z-index: 102;
-  top: 380vh;
-  background-color: rgb(26, 26, 26);
+  top: 398vh;
+  /* background-color: rgb(26, 26, 26); */
+  background-color: rgb(47, 40, 37);
 }
 
 .main-footer {

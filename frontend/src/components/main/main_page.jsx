@@ -20,7 +20,7 @@ class MainPage extends React.Component {
     return (
       <div className="main-container">
         <div className="main-first-section"> 
-          <h1 className="main-title fadeIn">
+          <h1 className="main-title fade-in">
             <i className="fas fa-paper-plane"></i> invitely
           </h1>
           {/* <img

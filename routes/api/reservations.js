@@ -49,7 +49,7 @@ router.post(
     }
 
     const newReservation = new Reservation({
-      user: req.user.id,
+      user: req.body.user,
       email: req.body.email,
       event: req.body.event,
       status: req.body.status
