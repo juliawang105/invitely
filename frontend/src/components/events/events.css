@@ -3,18 +3,25 @@
     justify-content: space-between;
 }
 
+.event-page {
+    margin-top: 45px;
+}
 
 .event-info{
     display: flex;
     justify-content: space-around;
+    /* height: 100vh; */
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.event-page {
+    width: 75%;
     border: 1px solid black;
-    height: 100vh;
-    width: 75%
 }
 
 .sidebar{
     display: flex;
-
 }
 
 

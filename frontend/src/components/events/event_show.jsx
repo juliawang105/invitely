@@ -17,14 +17,14 @@ class EventShow extends React.Component{
     render(){
        
         let event = this.props.event.new;
-        console.log(this.props)
-        console.log(event);
+        // console.log(this.props)
+        // console.log(event);
         if (!event){
 
             return null;
         }
 
-        console.log(event);
+        // console.log(event);
 
         return (
           <div>
@@ -32,14 +32,20 @@ class EventShow extends React.Component{
               <div className="sidebar">
                 <div>sidebar</div>
               </div>
+              <div className="event-page">
                 <div className="event-info">
                   <div>{event.name}</div>
                   <div>{event.body}</div>
                   <div>{event.location}</div>
                   <div>{event.time}</div>
-                <Switch>
-                  <Route exact path="/events/:id/" component={PostsContainer} />
-                </Switch>
+                </div>
+                  <Switch>
+                    <Route
+                      exact
+                      path="/events/:id/"
+                      component={PostsContainer}
+                    />
+                  </Switch>
               </div>
             </div>
           </div>

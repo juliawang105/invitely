@@ -17,6 +17,15 @@ const PostSchema = new Schema({
         required: true
     }, 
 
+    authorFirst: {
+        type: String,
+        // required: true
+    },
+
+    authorLast: {
+        type: String,
+    },
+
     date: {
         type: Date,
         default: Date.now
