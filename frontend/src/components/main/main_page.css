@@ -66,6 +66,10 @@
   opacity: 0;
 }
 
+.main-title:hover {
+  cursor: default;
+}
+
 @-webkit-keyframes fade-in {
   from {
     opacity: 0;
@@ -111,6 +115,7 @@
 .text-box {
   line-height: 2em;
   letter-spacing: 0.05em;
+  padding: 10px;
 }
 
 .sub-header {
