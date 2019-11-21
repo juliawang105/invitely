@@ -22,7 +22,7 @@ class MainPage extends React.Component {
           </h1>
           <div className="peek">
             <div className="down-arrow">
-              <i className="fas fa-arrow-alt-circle-down"></i>
+              <i className="fas fa-sort-down"></i>
             </div>
           </div>
         </div>
@@ -32,8 +32,8 @@ class MainPage extends React.Component {
             <div className="text-box data-trigger">
               <h2 className="sub-header">Plan</h2>
               <p className="sub-text">
-                Invitely is the place where you can organize all of your events conveniently
-                in one place
+                Invitely is the place where you can organize all of your events
+                conveniently in one place
               </p>
             </div>
             <div>
@@ -44,7 +44,7 @@ class MainPage extends React.Component {
           </div>
           <div className="peek alt">
             <div className="down-arrow">
-              <i className="fas fa-arrow-alt-circle-down"></i>
+              <i className="fas fa-sort-down"></i>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ class MainPage extends React.Component {
           </div>
           <div className="peek">
             <div className="down-arrow">
-              <i className="fas fa-arrow-alt-circle-down"></i>
+              <i className="fas fa-sort-down"></i>
             </div>
           </div>
         </div>
@@ -84,7 +84,13 @@ class MainPage extends React.Component {
           </div>
           <div className="peek alt">
             <div className="down-arrow">
-              <i className="fas fa-arrow-alt-circle-down"></i>
+              {/* <i className="fas fa-sort-down"></i>
+
+ */}
+              Get Started Below
+              {/* <i className="fas fa-sort-down"></i>
+
+ */}
             </div>
           </div>
         </div>
@@ -106,8 +112,109 @@ class MainPage extends React.Component {
               </div>
             </div>
           </div>
+          <div className="peek alt">
+            <div className="down-arrow">Contact Us</div>
+          </div>
         </div>
 
+        <div className="main-about-section main-section final-section">
+          <h2 className="sub-header">Developers</h2>
+          <br />
+          <br />
+          <div className="section">
+            <div className="dev-box">
+              <a href="https://www.linkedin.com/in/isom-durm/">
+                <img
+                  src="dev-isom-durm.jpg"
+                  alt="Isom Durm"
+                  className="dev-image"
+                />
+              </a>
+              <p className="sub-tagline">
+                <a href="https://www.linkedin.com/in/isom-durm/">Isom Durm</a>
+                <div className="dev-links">
+                  <a href="https://github.com/isomdurm">
+                    <i class="fab fa-github-alt"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/isom-durm/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div className="dev-box">
+              <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+                <img
+                  src="dev-julia-wang.jpg"
+                  alt="Jula Wang"
+                  className="dev-image"
+                />
+              </a>
+              <p className="sub-tagline">
+                <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+                  Julia Wang
+                </a>
+                <div className="dev-links">
+                  <a href="https://github.com/juliawang105">
+                    <i class="fab fa-github-alt"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div className="dev-box">
+              <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+                <img
+                  src="dev-fion-pang.jpg"
+                  alt="Fion Pang"
+                  className="dev-image"
+                />
+              </a>
+              <p className="sub-tagline">
+                <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+                  Fion Pang
+                </a>
+                <div className="dev-links">
+                  <a href="https://github.com/fion-p">
+                    <i class="fab fa-github-alt"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </p>
+            </div>
+            <div className="dev-box">
+              <a href="https://www.linkedin.com/in/dannaxu/">
+                <img
+                  src="dev-danna-xu.jpg"
+                  alt="Danna Xu"
+                  className="dev-image"
+                />
+              </a>
+              <p className="sub-tagline">
+                <a href="https://www.linkedin.com/in/dannaxu/">Danna Xu</a>
+                <div className="dev-links">
+                  <a href="https://github.com/danna-aa">
+                    <i class="fab fa-github-alt"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/dannaxu/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </p>
+            </div>
+          </div>
+
+          <h2 className="sub-header">
+            <a href="https://github.com/juliawang105/invitely">
+              <i className="fas fa-paper-plane"></i> Invitely{" "}
+              {/* <i class="fab fa-github-alt"></i> */}
+            </a>
+          </h2>
+        </div>
         <div>
           <footer className="main-footer">&copy; invitely</footer>
         </div>
