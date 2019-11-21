@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "@terwanerik/scrolltrigger": "^1.0.2",
     "axios": "^0.18.1",
     "jwt-decode": "^2.2.0",
     "react": "^16.6.3",

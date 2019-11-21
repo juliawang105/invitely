@@ -58,23 +58,20 @@ class CreateEvent extends React.Component {
 
   render() {
     // debugger
-    let emails = this.state.guest_emails.map( (email) => {
-      let format = <li>{email}</li>
+    let emails = this.state.guest_emails.map( (email, i) => {
+      let format = <li key={i}>{email}</li>
       return format;
         
     })
     
-    let button;
 
-    if(this.props.formType === 'Create Event'){
-      button = <button onClick={this.handleSubmit}>Create Event</button>;
-    } else {
-      button = <button onClick={this.handleSubmit}>Update Event</button>;
-    };
 
     return (
-      <div>
-        <div>
+      <div className="create-event-outer-wrapper">
+
+
+
+        <form className="create-event-container" onSubmit={this.handleSubmit}>
           <input
             onChange={this.update("name")}
             type="text"
@@ -102,24 +99,32 @@ class CreateEvent extends React.Component {
             value={this.state.time}
             placeholder="Event Time"
           />
+          <input type="submit" value={this.props.formType}/>
 
-          <div>
-            <input
-              onChange={this.update("email")}
-              type="text"
-              value={this.state.email}
-              placeholder="Guest Emails"
-            />
-            <button onClick={this.handleClick}>Add Email</button>
+
+
+          <div className="add-guest-form">
+            <form onSubmit={this.handleClick}>
+              <input
+                onChange={this.update("email")}
+                type="text"
+                value={this.state.email}
+                placeholder="Guest Emails"
+              />
+              <input type="submit" value="Add Email" />
+            </form>
+
+            <div className="list">
+              <h2>Your Guest List</h2>
+              {emails}
+            </div>
 
           </div>
-          {button}
-        </div>
 
-        <div className="list">
-          <h2>Your Guest List</h2>
-            {emails}
-        </div>
+
+
+
+        </form>
       </div>
     );
   }

@@ -25,3 +25,18 @@
 }
 
 
+
+
+
+
+/* ------------------------------------- */
+.create-event-outer-wrapper {
+    background-color: rgb(255, 193, 122);
+    min-height: 100vh;
+    /* display: flex; */
+}
+
+.create-event-container {
+    padding-top: 45px;
+    display: flex;
+}

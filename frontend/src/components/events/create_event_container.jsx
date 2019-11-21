@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { createEvent } from '../../actions/event_actions'
+import { createEvent } from '../../actions/event_actions';
 import CreateEvent from './create_event_form';
+import "./events.css";
 
 const mSTP = state => ({
     event: {
