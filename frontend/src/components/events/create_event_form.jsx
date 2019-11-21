@@ -17,7 +17,7 @@ class CreateEvent extends React.Component {
 
   update(field) {
     return e => {
-        this.setState({ [field]: e.target.value })    
+        this.setState({ [field]: e.target.value})    
     };
   };
 
@@ -93,21 +93,21 @@ class CreateEvent extends React.Component {
     } else {
       button = <button onClick={this.handleSubmit}>Update Event</button>;
     };
-    
+
     return (
       <div id="create-form">
         <div>
-          <input
-            onChange={this.update("name")}
-            type="text"
-            value={this.state.name}
-            placeholder="Event Name"
-          />
           <input
             onChange={this.update("body")}
             type="text"
             value={this.state.body}
             placeholder="Event Description"
+          />
+          <input
+            onChange={this.update("name")}
+            type="text"
+            value={this.state.name}
+            placeholder="Event Name"
           />
           <input
             ref={this.autocompleteInput}

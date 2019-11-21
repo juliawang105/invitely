@@ -6,6 +6,9 @@ module.exports = function validateEventInput(data){
     let errors = {};
 
     data.name = validText(data.name)? data.name : "";
+    data.body = validText(data.body)? data.body : "";
+    data.time = validText(data.time)? data.time : "";
+
 
     if(Validator.isEmpty(data.name)){
         errors.name = "Create a name for your event! "
