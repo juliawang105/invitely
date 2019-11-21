@@ -25,6 +25,10 @@
     flex-direction: column;
 }
 
+#create-form{
+    padding-top: 50px;
+}
+
 
 
 .create-event-outer-wrapper {
