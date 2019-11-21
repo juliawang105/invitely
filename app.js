@@ -41,8 +41,11 @@ io.on('connection', () =>{
 
 app.post('/api/send_email', (req, res) => {
   // DEFINE API KEY FOR SENDGRID
+  sgMail.setApiKey(
+    ""
+  );
   const msg = {
-    to: 'isomdurm@gmail.com',
+    to: 'juliawang105@gmail.com',
     from: 'isomdurm@gmail.com',
     subject: 'New Message From Portfolio',
     text: 'test',

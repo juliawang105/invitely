@@ -19,23 +19,21 @@ class CreateEvent extends React.Component {
 
   handleClick(e){
 
-    // ISOM DURM SEND GRID FUNCTION
-
-    // fetch('/api/send_email', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Accept': 'application/json',
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //           name: "Isom Durm",
-    //           email: "isomdurm@gmail.com",
-    //           message: "working"
-    //         })
-    //     })
-    //     .catch((error) => {
-    //         console.error(error);
-    //     });
+    fetch('/api/send_email', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: "Isom Durm",
+              email: "isomdurm@gmail.com",
+              message: "working"
+            })
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     
       
 
