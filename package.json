@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/juliawang105/invitely#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.0",
