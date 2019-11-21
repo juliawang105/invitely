@@ -11,8 +11,8 @@ mongoose.set("useFindAndModify", false)
 
 router.get("/event/:event_id", (req, res) => {
   //post index
-  Post.find()
-    .sort({ date: -1 })
+  Post.find({ event: req.params.event_id })
+    // .sort({ date: -1 })
     .then(posts => res.json(posts))
     .catch(err => res.status(400).json(err));
 });
@@ -60,11 +60,13 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    console.log(req.event);
+    console.log(req);
     const newPost = new Post({
       user: req.user.id,
       body: req.body.body,
-      event: req.params.event_id
+      event: req.params.event_id,
+      authorFirst: req.body.authorFirst,
+      authorLast: req.body.authorLast,
     });
 
     newPost.save().then(post => res.json(post));

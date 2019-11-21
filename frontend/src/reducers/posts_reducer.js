@@ -10,13 +10,13 @@ const PostsReducer = (
       // debugger;
       switch(action.type) {
         case RECEIVE_EVENT_POSTS: 
-          for (let i = 0; i < action.posts.data.length; i++ ) {
-            newState.all[i + 1] = action.posts.data[i];
-          }
-          // newState.all = action.posts.data
+          // for (let i = 0; i < action.posts.data.length; i++ ) {
+          //   newState.all[i + 1] = action.posts.data[i];
+          // }
+          newState.all = action.posts.data
           return newState;
         case RECEIVE_POST:
-          newState.new = action.post.data;
+          newState.all.push(action.post.data);
           return newState;
         default: 
           return state;
