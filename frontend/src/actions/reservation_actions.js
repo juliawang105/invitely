@@ -4,7 +4,8 @@ import {
   getUserReservations,
   getEventReservations,
   makeReservation,
-  updateReservation
+  updateReservation,
+  deleteReservation
 } from "../util/reservation_api_util";
 
 export const RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
@@ -38,8 +39,8 @@ const removeReservation = id => ({
   id
 })
 
-export const deleteReservation = id => dispatch => (
-  APIUtil.deleteReservation(id)
+export const destroyReservation = id => dispatch => (
+  deleteReservation(id)
     .then((reservation) => dispatch(removeReservation(reservation)))
     .catch(err => console.log(err))
 )
