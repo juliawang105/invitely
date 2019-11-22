@@ -46,11 +46,14 @@ router.patch("/:id", (req, res, next ) => {
 
 router.get("/:id", (req, res) => { //event show 
    Event.findById(req.params.id)
+    
         .then(event => {
+            console.log(event)
             let newEvent = Object.assign({}, event._doc, {id: event.id});
             res.json(newEvent);
         })
         .catch(err => res.status(400).json(err));
+
 })
 
 router.post("/", //create post 
@@ -67,7 +70,8 @@ router.post("/", //create post
             guest_emails: req.body.guest_emails,
             location: req.body.location,
             time: req.body.time,
-            body: req.body.body 
+            body: req.body.body,
+            host: req.body.host
         });
 
         newEvent

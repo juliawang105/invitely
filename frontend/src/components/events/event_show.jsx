@@ -72,24 +72,14 @@ class EventShow extends React.Component{
 
               </div>
              
-
-
-
-
-
-
               <div className="event-page">
                 <div className="event-info">
                   <div>{event.name}</div>
                   <div>{event.body}</div>
-                  <div>{event.location}</div>
-                  <div>{event.time}</div>
+                  <div>Where: {event.location}</div>
+                  <div>When: {event.time}</div>
+                  <div>Hosted by: {event.host} </div>
                 </div>
-
-
-
-
-
 
                 {body}
               </div>
