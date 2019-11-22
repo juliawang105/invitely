@@ -1,19 +1,21 @@
 import { connect } from "react-redux";
 import Users from './user_show';
-import { fetchEventReservations } from '../../actions/reservation_actions';
+import { fetchUserReservations } from '../../actions/reservation_actions';
+import { fetchUserEvents } from '../../actions/event_actions';
 
 
 const mSTP = (state, ownProps) => {
   // debugger
   return {
-    event: state.events,
+    events: state.events,
     user: state.session.user,
     reservations: state.reservations
   };
 };
 
 const mDTP = dispatch => ({
-  fetchEventReservations: id => dispatch(fetchEventReservations(id))
+  fetchUserReservations: id => dispatch(fetchUserReservations(id)),
+  fetchUserEvents: id => dispatch(fetchUserEvents(id))
 });
 
 

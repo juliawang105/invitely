@@ -1,4 +1,4 @@
-import {RECEIVE_EVENT, RECEIVE_EVENTS } from "../actions/event_actions";
+import {RECEIVE_EVENT, RECEIVE_EVENTS, RECEIVE_USER_EVENTS } from "../actions/event_actions";
 
 const EventsReducer = (
     state = { all: {}, user: {}, new: undefined },
@@ -9,6 +9,10 @@ const EventsReducer = (
 
     switch(action.type){
         case RECEIVE_EVENTS:
+            newState.all = action.events.data;
+            return newState; 
+
+        case RECEIVE_USER_EVENTS:
             newState.all = action.events.data;
             return newState; 
         

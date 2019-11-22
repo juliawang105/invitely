@@ -1,33 +1,25 @@
 import React from "react";
-import ReservationItem from './reservation_item';
+import ReservationItem from '../reservations/reservation_item';
 
 class Users extends React.Component {
   constructor(props) {
     super(props);
-    };
 
     this.state = {
-      loaded: false,
-      reservation: {
-        email: "",
-        event: this.props.event.new._id,
-        status: "invited"
-      }
+      loaded: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props
-      .fetchEventReservations(this.props.event.new._id)
+    console.log(this.props);
+    // this.props.fetchUserReservations(this.props.user.id)
+    this.props.fetchUserEvents(this.props.user.id)
       .then(() => this.setState({ loaded: true }));
   }
 
   update() {
-    return e =>
-      
-    });
   }
 
   handleSubmit(e) {
@@ -35,10 +27,13 @@ class Users extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return null;
+    }
 
     let reservations = this.props.reservations.event;
     let user = this.props.user;
-    let event = this.props.event.new;
+    let events = this.props.events.all;
 
     return (
       <div className="reservations">
@@ -49,8 +44,15 @@ class Users extends React.Component {
                 reservation={reservation}
                 key={reservation._id}
                 user={user}
-                event={event}
+                event={events[0]}
               />
+            );
+          })}
+        </div>
+        <div>
+          {events.map(event => {
+            return (
+              <div>{event.name}</div>
             );
           })}
         </div>
