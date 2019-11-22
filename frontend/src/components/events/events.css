@@ -1,11 +1,12 @@
 .event-show-box {
     width: 100vw;
     min-height: 100vh;
+    height: fit-content;
 }
 
 .nav-color {
     height: 45px;
-    background-color: sandybrown;
+    background-color: rgb(29, 23, 21);
     position: fixed;
     top: 10;
     z-index: 99;
@@ -14,20 +15,23 @@
     width: 100%;
 }
 
-.event-show {
-    background-color: white;
-    border: 1px solid red;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-}
+
+
+
 .sidebar {
     padding-top: 45px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid blue;
+    width: 15vw;
+    position: relative;
+    height: 100vh;
+    background-color: rgba(29, 23, 21, 0.5);
+    color: white;
+    position: fixed;
 }
-
 .sidebar-nav {
     display: flex;
     align-items: center;
@@ -36,21 +40,30 @@
     border-bottom: 1px solid black;
 } 
 
-.event-page {
-    margin-top: 45px;
-    width: 80vw;
+
+
+.event-show {
+    background-color: white;
     border: 1px solid red;
+    min-height: 100vh;
+    display: flex;
+    
+
+}
+
+
+
+.event-page {
+    padding-top: 45px;
+
 }
 
 .event-info{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-bottom: 30px;
+
 }
 
 #create-form{
-    padding-top: 50px;
+
 }
 
 
