@@ -39,17 +39,13 @@ class EventShow extends React.Component{
 
         let editLink;
 
-        console.log('====================================');
-        console.log(this.props);
-        console.log('====================================');
-        // MODIFY to if logged in and current user id is same as event creator id
-        editLink = (
-          <div className="sidebar-nav">
-            <Link to={`/events/${1}/edit`}> 
-              Edit
-            </Link>
-          </div>
-        );
+        if (this.props.event.new.user === this.props.session.user.id) {
+              editLink = (
+                <div className="sidebar-nav">
+                  <Link to={`/events/${this.props.event.new.id}/edit`}> Edit </Link>
+                </div>
+                );
+            };
 
         return (
           <div className="event-show-box">
@@ -76,24 +72,14 @@ class EventShow extends React.Component{
 
               </div>
              
-
-
-
-
-
-
               <div className="event-page">
                 <div className="event-info">
                   <div>{event.name}</div>
                   <div>{event.body}</div>
-                  <div>{event.location}</div>
-                  <div>{event.time}</div>
+                  <div>Where: {event.location}</div>
+                  <div>When: {event.time}</div>
+                  <div>Hosted by: {event.host} </div>
                 </div>
-
-
-
-
-
 
                 {body}
               </div>

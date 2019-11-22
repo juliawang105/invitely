@@ -5,7 +5,8 @@ import EventShow from './event_show'
 const mSTP = (state, ownProps) => {
     // debugger
     return {
-      event: state.events
+      event: state.events,
+      session: state.session
     //   [ownProps.match.params.id]
     };
     
