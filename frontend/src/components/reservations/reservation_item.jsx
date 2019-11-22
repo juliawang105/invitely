@@ -14,6 +14,7 @@ class ReservationItem extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   changeStatus(e) {
@@ -25,6 +26,11 @@ class ReservationItem extends React.Component {
     const reservation  = this.state
     this.props.reviseReservation(reservation)
       .then((res) => console.log(res));
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.delete(this.props.reservation._id);
   }
 
   render() {
@@ -63,7 +69,7 @@ class ReservationItem extends React.Component {
     if (reservation.email === user.email || user.id === event.user) {
       removeRes = (
         <div>
-          <button>Delete Reservation</button>
+          <button onClick={() => this.props.delete(reservation._id)}>Delete Reservation</button>
         </div>
       )
     } 
