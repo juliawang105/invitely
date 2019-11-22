@@ -99,14 +99,22 @@ class CreateEvent extends React.Component {
               event: event._id,
               status: "invited"
             };
-          this.props.createReservation(reservation)   
+            this.props.createReservation(reservation)   
+            this.props.history.push(`/events/${res.event.data._id}`);
           };
         }
-      )
+        )
+            
+         
       this.props.createEvent(this.state);
       this.submitFile();
     } else {
       this.props.updateEvent(this.state)
+        .then(
+          res => {
+            this.props.history.push(`/events/${res.event.data._id}`);
+          }
+        )
     };
   };
 
@@ -173,7 +181,7 @@ class CreateEvent extends React.Component {
             placeholder="Event Time"
           />
           {emailInput}
-          <div>
+          {/* <div>
             <input
               onChange={this.update("email")}
               type="text"
@@ -181,7 +189,7 @@ class CreateEvent extends React.Component {
               placeholder="Guest Emails"
             />
             <button onClick={this.handleClick}>Add Email</button>
-          </div>
+          </div> */}
           <div>
             <input label='upload file' type='file' onChange={this.handleFileUpload} />
           </div>
