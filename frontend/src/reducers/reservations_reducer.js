@@ -16,7 +16,7 @@ const ReservationsReducer = (state = {
       newState.all = action.reservations.data;
       return newState;
     case RECEIVE_USER_RESERVATIONS:
-      newState.user = action.reservations.data;
+      newState.all = action.reservations.data;
       return newState;
     case RECEIVE_EVENT_RESERVATIONS:
       newState.event = action.reservations.data;

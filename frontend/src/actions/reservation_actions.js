@@ -57,8 +57,8 @@ export const fetchReservation = id => dispatch => (
     .catch(err => console.log(err)) 
 );
 
-export const fetchUserReservations = user_id => dispatch => (
-  getUserReservations(user_id)
+export const fetchUserReservations = email => dispatch => (
+  getUserReservations(email)
     .then(reservations => dispatch(receiveUserReservations(reservations)))
     .catch(err => console.log(err)) 
 );

@@ -14,9 +14,12 @@ class Users extends React.Component {
 
   componentDidMount() {
     console.log(this.props);
-    // this.props.fetchUserReservations(this.props.user.id)
-    this.props.fetchUserEvents(this.props.user.id)
-      .then(() => this.setState({ loaded: true }));
+
+    this.props.fetchUserReservations(this.props.user.email)
+      .then(() => {
+        this.props.fetchUserEvents(this.props.user.id)
+          .then(() => this.setState({ loaded: true }));
+      });
   }
 
   update() {
@@ -31,7 +34,7 @@ class Users extends React.Component {
       return null;
     }
 
-    let reservations = this.props.reservations.event;
+    let reservations = this.props.reservations.all;
     let user = this.props.user;
     let events = this.props.events.all;
 
@@ -42,7 +45,7 @@ class Users extends React.Component {
             return (
               <ReservationItem
                 reservation={reservation}
-                key={reservation._id}
+                key={reservation.id}
                 user={user}
                 event={events[0]}
               />
@@ -52,7 +55,7 @@ class Users extends React.Component {
         <div>
           {events.map(event => {
             return (
-              <div>{event.name}</div>
+              <div key={event._id}>{event.name}</div>
             );
           })}
         </div>
