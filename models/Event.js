@@ -44,6 +44,11 @@ const EventSchema = new mongoose.Schema({
         type: Boolean,
         default: true,
         required: true
+    },
+
+    image_url: {
+        type: String,
+        required: true
     }
 
 });

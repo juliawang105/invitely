@@ -14,7 +14,8 @@ class EditEvent extends React.Component{
           time: "",
           guest_emails: "",
           email: "",
-          private: true
+          private: true,
+          image_url: ""
         };
     }; 
 
@@ -28,7 +29,8 @@ class EditEvent extends React.Component{
                 time: this.props.event.time,
                 guest_emails: this.props.event.guest_emails,
                 email: this.props.event.email,
-                private: true
+                private: true,
+                image_url: this.props.event.image_url
             }))
         // this.setState({ event })
     };

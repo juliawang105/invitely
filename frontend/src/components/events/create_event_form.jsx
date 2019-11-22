@@ -10,10 +10,6 @@ class CreateEvent extends React.Component {
 
     this.state = this.props.event;
 
-    this.setState({
-      file: null
-    });
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.autocompleteInput = React.createRef();
@@ -28,6 +24,12 @@ class CreateEvent extends React.Component {
   };
 
   componentDidMount() {
+    
+    this.setState({
+      file: null,
+      image_url: ""
+    });
+
     this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.current,
         {"types": ["geocode"]});
     this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
@@ -48,39 +50,48 @@ class CreateEvent extends React.Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      // handle your response;
+      console.log(response);
+      this.setState({
+        image_url: response.data.Location
+      });
     }).catch(error => {
       // handle your error
     });
   }
 
   handleFileUpload = (event) => {
-    this.setState({file: event.target.files});
+    this.setState({
+      file: event.target.files
+    }, () => {
+      this.submitFile();
+    });
   }
 
   handleClick(e){
     fetch('/api/send_email', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: "Isom Durm",
-              email: "isomdurm@gmail.com",
-              message: "working"
-            })
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    
-      
-
-    e.preventDefault();
-    this.setState( {guest_emails: this.state.guest_emails.concat([this.state.email])
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: "Isom Durm",
+        email: "isomdurm@gmail.com",
+        message: "working"
+      })
+    }).catch((error) => {
+      // handle error
     });
-    this.setState( {email: ""})
+    
+    e.preventDefault();
+
+    this.setState({
+      guest_emails: this.state.guest_emails.concat([this.state.email])
+    });
+
+    this.setState({
+      email: ""
+    });
   };
 
   handleSubmit(e) {
@@ -88,7 +99,6 @@ class CreateEvent extends React.Component {
     if(this.props.formType === 'Create Event'){
       this.props.createEvent(this.state)
         .then(res => {
-          //console.log(res)
           let event = res.event.data;
           let emails = event.guest_emails;
 
@@ -104,19 +114,16 @@ class CreateEvent extends React.Component {
         }
       )
       this.props.createEvent(this.state);
-      this.submitFile();
     } else {
       this.props.updateEvent(this.state)
     };
   };
 
   render() {
-    // debugger
     let emails = this.state.guest_emails.map( (email) => {
       let format = <li>{email}</li>
       return format;
-        
-    })
+    });
     
     let button;
     let emailInput;
@@ -129,17 +136,15 @@ class CreateEvent extends React.Component {
 
     if(this.props.formType === 'Create Event'){
       emailInput = <div>
-            <input
-              onChange={this.update("email")}
-              type="text"
-              value={this.state.email}
-              placeholder="Guest Emails"
-            />
-            <button onClick={this.handleClick}>Add Email</button>
-          </div>  
-      } 
-
-
+                      <input
+                        onChange={this.update("email")}
+                        type="text"
+                        value={this.state.email}
+                        placeholder="Guest Emails"
+                      />
+                      <button onClick={this.handleClick}>Add Email</button>
+                   </div>  
+    } 
 
     return (
       <div id="create-form">
@@ -174,16 +179,10 @@ class CreateEvent extends React.Component {
           />
           {emailInput}
           <div>
-            <input
-              onChange={this.update("email")}
-              type="text"
-              value={this.state.email}
-              placeholder="Guest Emails"
+            <input 
+              type='file' 
+              onChange={this.handleFileUpload}
             />
-            <button onClick={this.handleClick}>Add Email</button>
-          </div>
-          <div>
-            <input label='upload file' type='file' onChange={this.handleFileUpload} />
           </div>
           {button}
           <div className="list">
