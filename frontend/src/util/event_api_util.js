@@ -11,6 +11,9 @@ export const createEvent = data => {
   return axios.post("/api/events/", data);
 };
 export const updateEvent = data => {
-  // console.log(data);
   return axios.patch(`/api/events/${data._id}`, data);
+};
+
+export const getUserEvents = id => {
+  return axios.get(`/api/events/user/${id}`);
 };

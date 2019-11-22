@@ -12,6 +12,8 @@ import CreateEventContainer from "./events/create_event_container";
 
 import EditEventContainer from "./events/edit_event_container";
 import PostsContainer from "./posts/posts_container";
+import UserShowContainer from "./users/user_show_container";
+
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
 
@@ -24,6 +26,7 @@ const App = () => (
       <ProtectedRoute exact path="/events" component={CreateEventContainer}/>
       <ProtectedRoute exact path = "/events/:id" component={EventShowContainer} />
       <ProtectedRoute exact path="/events/:id/edit" component={EditEventContainer} /> 
+      <ProtectedRoute exact path="/users/:id" component={UserShowContainer} /> 
 
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

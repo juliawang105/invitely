@@ -4,8 +4,8 @@ export const getReservations = () => {
   return axios.get("/api/reservations");
 };
 
-export const getUserReservations = user_id => {
-  return axios.get(`/api/reservations/user/${user_id}`);
+export const getUserReservations = email => {
+  return axios.get(`/api/reservations/user/${email}`);
 };
 
 export const getEventReservations = event_id => {

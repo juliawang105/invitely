@@ -3,6 +3,7 @@ import * as EventAPIUtil from "../util/event_api_util";
 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
+export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
 
 const receiveEvents = events => ({
     type: RECEIVE_EVENTS,
@@ -12,6 +13,11 @@ const receiveEvents = events => ({
 const receiveEvent = event => ({
     type: RECEIVE_EVENT,
     event
+});
+
+const receiveUserEvents = events => ({
+    type: RECEIVE_USER_EVENTS,
+    events
 });
 
 export const getEvents = () => dispatch =>
@@ -34,4 +40,12 @@ export const createEvent = event => dispatch =>
 export const updateEvent = event => dispatch =>
     EventAPIUtil.updateEvent(event)
         .then(event => dispatch(receiveEvent(event)))
+        .catch(err => console.log(err));
+
+
+export const fetchUserEvents = id => dispatch =>
+    EventAPIUtil.getUserEvents(id)
+        .then(events => {
+            dispatch(receiveUserEvents(events))
+        })
         .catch(err => console.log(err));
