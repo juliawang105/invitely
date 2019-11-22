@@ -21,7 +21,7 @@ class MainPage extends React.Component {
             <i className="fas fa-paper-plane"></i> invitely
           </h1>
           <div className="peek">
-            <div className="down-arrow">
+            <div className="down-arrow hvr-hang">
               <i className="fas fa-sort-down"></i>
             </div>
           </div>
@@ -43,7 +43,7 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="peek alt">
-            <div className="down-arrow">
+            <div className="down-arrow hvr-hang">
               <i className="fas fa-sort-down"></i>
             </div>
           </div>
@@ -63,7 +63,7 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="peek">
-            <div className="down-arrow">
+            <div className="down-arrow hvr-hang">
               <i className="fas fa-sort-down"></i>
             </div>
           </div>
@@ -83,7 +83,7 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="peek alt">
-            <div className="down-arrow">
+            <div className="down-arrow hvr-hang">
               {/* <i className="fas fa-sort-down"></i>
 
  */}
@@ -113,7 +113,7 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="peek alt">
-            <div className="down-arrow">Contact Us</div>
+            <div className="down-arrow hvr-hang">Contact Us</div>
           </div>
         </div>
 
