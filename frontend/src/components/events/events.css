@@ -15,24 +15,47 @@
     width: 100%;
 }
 
-
-
-
 .sidebar {
     padding-top: 45px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
-    min-width: 250px;
-    width: 15vw;
-    position: relative;
+    /* border: 1px solid blue; */
+    width: 18vw;
+    left: -15vw;
     height: 100vh;
     background-color: rgba(29, 23, 21, 0.5);
     color: white;
     position: fixed;
+    z-index: 50;
 }
+
+
+.sidebar {
+  /* display: inline-block;
+  vertical-align: middle; */
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.sidebar:hover, .sidebar:focus, .sidebar:active {
+  -webkit-transform: translateX(15vw);
+  transform: translateX(15vw);
+}
+
+
+/* <i className="fas fa-chevron-right"></i> */
+
+
+
+
+
+
 .sidebar-nav {
     display: flex;
     align-items: center;
@@ -46,8 +69,9 @@
 .event-show {
     background-color: white;
     border: 1px solid red;
-    min-height: 100vh;
-    display: flex;
+    background-color: pink;
+    /* min-height: 100vh; */
+    /* display: flex; */
     
 
 }
@@ -59,12 +83,30 @@
 
 }
 
-.event-info{
+
+
+
+.event-page {
+    margin-top: 45px;
+    border: 1px solid green;
+    width: 100%;
+    /* min-height: 100%; */
+    height: fit-content;
+    width: 100vw;
+    right: 0;
+    position: absolute;
 
 }
 
-#create-form{
+.event-info{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 30px;
+}
 
+#create-form{
+    padding-top: 50px;
 }
 
 
