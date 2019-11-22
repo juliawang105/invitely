@@ -12,8 +12,11 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ noreservationsfound: "No reservations found" }));
 });
 
-router.get("/user/:user_id", (req, res) => {
-  Reservation.find({ user: req.params.user_id })
+router.get("/user/:email", (req, res) => {
+  // console.log(req);
+  console.log(req.params.email);
+  // use email instead of user_id because email is always available
+  Reservation.find({ email: req.params.email })
     .sort({ date: -1 })
     .then(reservations => res.json(reservations))
     .catch(err =>
@@ -36,6 +39,14 @@ router.get("/:id", (req, res) => {
     .catch(err =>
       res.status(404).json({ noreservationfound: "No reservation found with that ID" })
     );
+});
+
+router.delete("/:id", (req, res) => {
+  Reservation.findByIdAndRemove(req.params.id, function(err, reservation) {
+    if (err)
+      return res.status(500).send("There was a problem deleting the reservation.");
+    res.status(200).send("Reservation was deleted");
+  });
 });
 
 router.post(
