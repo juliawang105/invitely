@@ -32,9 +32,54 @@ const ReservationsReducer = (state = {
         newState.event.unshift(invite);
       }
       return newState;
+
+
+
     case REMOVE_RESERVATION: 
+      // const reservation = action.id.data;
+      // let idx = (newState.event).indexOf(reservation);
+      // newState.event.splice(idx, 1);
+      // return newState;
+
+
+
       const reservation = action.id.data;
-      let idx = newState.event.indexOf(reservation);
+      // console.log('====================================');
+      // console.log(reservation);
+      // console.log('====================================');
+      // console.log('====================================');
+      // console.log(newState.event);
+      // console.log('====================================');
+      // let idx = Object.values(newState.event).indexOf(reservation);
+      // let idx = (newState.event).indexOf(reservation);
+      // console.log('====================================');
+      // console.log(Object.values(newState.event));
+      // console.log(reservation);
+      // console.log(Object.values(newState.event)[0]._id === reservation._id);
+      // console.log('====================================');
+      let idx;
+      // Object.values(newState.event).forEach((pojo, i) => {
+      //   if (pojo._id === reservation._id) {
+      //     idx = i;
+      //     throw BreakException;
+      //   }
+      // });
+
+      
+      // break exception is only to break out of loop once the id is found in the array
+      const BreakException = {};
+
+      try {
+        Object.values(newState.event).forEach((pojo, i) => {
+          if (pojo._id === reservation._id) {
+            idx = i;
+            throw BreakException;
+          }
+        });
+      } catch (e) {
+        if (e !== BreakException) throw e;
+      }
+
       newState.event.splice(idx, 1);
       return newState;
     default:

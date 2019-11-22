@@ -18,15 +18,13 @@ class ReservationItem extends React.Component {
   }
 
   changeStatus(e) {
-    // console.log(e.target.value);
     this.setState({ status: e.target.value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log("hit")
+
     const reservation  = this.state;
-    // console.log(reservation);
 
     this.props.reviseReservation(reservation)
       .then((res) => console.log(res))

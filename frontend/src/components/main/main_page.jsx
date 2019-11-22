@@ -31,10 +31,10 @@ class MainPage extends React.Component {
           <div className="section">
             <div className="text-box data-trigger">
               <h2 className="sub-header">Plan</h2>
-              <p className="sub-text">
+              <div className="sub-text">
                 Invitely is the place where you can organize all of your events
                 conveniently in one place
-              </p>
+              </div>
             </div>
             <div>
               <img src="pic_001.jpeg" alt="2" className="main-image" />
@@ -57,9 +57,9 @@ class MainPage extends React.Component {
             </div>
             <div className="text-box alt">
               <h2 className="sub-header">Invite</h2>
-              <p className="sub-text">
+              <div className="sub-text">
                 Instantly send out invitations by email and keep track of RSVPs
-              </p>
+              </div>
             </div>
           </div>
           <div className="peek">
@@ -73,9 +73,9 @@ class MainPage extends React.Component {
           <div className="section">
             <div className="text-box">
               <h2 className="sub-header white">Gather</h2>
-              <p className="sub-text">
+              <div className="sub-text">
                 Have your loved ones present during life's biggest moments
-              </p>
+              </div>
             </div>
             <div>
               <img src="pic_002.jpeg" alt="pic_02" className="main-image" />
@@ -98,7 +98,7 @@ class MainPage extends React.Component {
         <div className="main-fifth-section main-section final-section">
           <div className="text-box get-started">
             <h2 className="sub-header join-title white">Join</h2>
-            <p className="sub-tagline">Your next event starts here</p>
+            <div className="sub-tagline">Your next event starts here</div>
             <div className="get-started-links">
               <div className="button-box">
                 <Link to="/signup">
@@ -130,17 +130,17 @@ class MainPage extends React.Component {
                   className="dev-image"
                 />
               </a>
-              <p className="sub-tagline">
+              <div className="sub-tagline">
                 <a href="https://www.linkedin.com/in/isom-durm/">Isom Durm</a>
                 <div className="dev-links">
                   <a href="https://github.com/isomdurm">
-                    <i class="fab fa-github-alt"></i>
+                    <i className="fab fa-github-alt"></i>
                   </a>
                   <a href="https://www.linkedin.com/in/isom-durm/">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
-              </p>
+              </div>
             </div>
             <div className="dev-box">
               <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
@@ -150,19 +150,19 @@ class MainPage extends React.Component {
                   className="dev-image"
                 />
               </a>
-              <p className="sub-tagline">
+              <div className="sub-tagline">
                 <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
                   Julia Wang
                 </a>
                 <div className="dev-links">
                   <a href="https://github.com/juliawang105">
-                    <i class="fab fa-github-alt"></i>
+                    <i className="fab fa-github-alt"></i>
                   </a>
                   <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
-              </p>
+              </div>
             </div>
             <div className="dev-box">
               <a href="https://www.linkedin.com/in/fion-pang-429172154/">
@@ -172,19 +172,19 @@ class MainPage extends React.Component {
                   className="dev-image"
                 />
               </a>
-              <p className="sub-tagline">
+              <div className="sub-tagline">
                 <a href="https://www.linkedin.com/in/fion-pang-429172154/">
                   Fion Pang
                 </a>
                 <div className="dev-links">
                   <a href="https://github.com/fion-p">
-                    <i class="fab fa-github-alt"></i>
+                    <i className="fab fa-github-alt"></i>
                   </a>
                   <a href="https://www.linkedin.com/in/fion-pang-429172154/">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
-              </p>
+              </div>
             </div>
             <div className="dev-box">
               <a href="https://www.linkedin.com/in/dannaxu/">
@@ -194,24 +194,24 @@ class MainPage extends React.Component {
                   className="dev-image"
                 />
               </a>
-              <p className="sub-tagline">
+              <div className="sub-tagline">
                 <a href="https://www.linkedin.com/in/dannaxu/">Danna Xu</a>
                 <div className="dev-links">
                   <a href="https://github.com/danna-aa">
-                    <i class="fab fa-github-alt"></i>
+                    <i className="fab fa-github-alt"></i>
                   </a>
                   <a href="https://www.linkedin.com/in/dannaxu/">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
-              </p>
+              </div>
             </div>
           </div>
 
           <h2 className="sub-header">
             <a href="https://github.com/juliawang105/invitely">
               <i className="fas fa-paper-plane"></i> Invitely{" "}
-              {/* <i class="fab fa-github-alt"></i> */}
+              {/* <i className="fab fa-github-alt"></i> */}
             </a>
           </h2>
         </div>

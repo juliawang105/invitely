@@ -19,8 +19,13 @@ class NavBar extends React.Component {
       return (
         <div className="nav-links">
           {/* <Link to={"/tweets"}>All Tweets</Link> */}
-          <Link to={"/profile"} className="nav-button">
-            Profile
+
+          
+          <Link to={`/users/${this.props.session.user.id}`} className="nav-button">
+            Welcome, {this.props.session.user.firstName}! My Events
+          </Link>
+          <Link to={`/events`} className="nav-button">
+            Create New Event
           </Link>
           {/* <Link to={"/new_tweet"}>Write a Tweet</Link> */}
           <span onClick={this.logoutUser} className="nav-button">
@@ -46,7 +51,10 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar">
         <h1 className="nav-title">
-          <Link to={"/"} className="nav-button">
+          <Link
+            to={`/`}
+            className="nav-button"
+          >
             <i className="fas fa-paper-plane"></i> invitely
           </Link>
         </h1>
