@@ -80,7 +80,7 @@ class CreateEvent extends React.Component {
         message: "working"
       })
     }).catch((error) => {
-      // handle error
+      console.log(error)
     });
     
     e.preventDefault();
@@ -125,8 +125,8 @@ class CreateEvent extends React.Component {
   };
 
   render() {
-    let emails = this.state.guest_emails.map( (email) => {
-      let format = <li>{email}</li>
+    let emails = this.state.guest_emails.map( (email, i) => {
+      let format = <li key={i}>{email}</li>
       return format;
     });
     
