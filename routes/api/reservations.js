@@ -45,7 +45,7 @@ router.delete("/:id", (req, res) => {
   Reservation.findByIdAndRemove(req.params.id, function(err, reservation) {
     if (err)
       return res.status(500).send("There was a problem deleting the reservation.");
-    res.status(200).send("Reservation was deleted");
+    res.status(200).send(reservation);
   });
 });
 

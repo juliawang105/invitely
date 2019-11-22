@@ -77,6 +77,7 @@ class Reservations extends React.Component {
               user={user}
               event={event}
               reviseReservation={this.props.reviseReservation}
+              delete = {this.props.destroyReservation}
             />
           );
         })}

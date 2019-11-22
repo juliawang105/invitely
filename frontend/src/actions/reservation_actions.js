@@ -37,13 +37,13 @@ const receiveEventReservations = reservations => ({
 const removeReservation = id => ({
   type: REMOVE_RESERVATION,
   id
-})
+});
 
 export const destroyReservation = id => dispatch => (
   deleteReservation(id)
     .then((reservation) => dispatch(removeReservation(reservation)))
     .catch(err => console.log(err))
-)
+);
 
 export const fetchReservations = () => dispatch => (
   getReservations()
