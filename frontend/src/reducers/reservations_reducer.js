@@ -7,7 +7,7 @@ import {
 } from "../actions/reservation_actions";
 
 const ReservationsReducer = (state = { 
-  all: {}, user: {}, event: {}, new: undefined
+  all: {}, user: {}, event: [], new: undefined
 }, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);

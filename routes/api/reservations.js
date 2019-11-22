@@ -8,8 +8,11 @@ const validateReservationInput = require("../../validation/reservations");
 
 router.get("/", (req, res) => {
   Reservation.find()
+    .sort({ date: -1 })
     .then(reservations => res.json(reservations))
-    .catch(err => res.status(404).json({ noreservationsfound: "No reservations found" }));
+    .catch(err =>
+      res.status(404).json({ noreservationsfound: "No reservations found" })
+    );
 });
 
 router.get("/user/:email", (req, res) => {

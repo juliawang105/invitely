@@ -114,9 +114,6 @@ class CreateEvent extends React.Component {
           };
         }
         )
-            
-         
-      this.props.createEvent(this.state);
     } else {
       this.props.updateEvent(this.state)
         .then(
