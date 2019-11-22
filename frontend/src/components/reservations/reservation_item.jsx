@@ -10,7 +10,7 @@ class ReservationItem extends React.Component {
       event: this.props.reservation.event,
       status: this.props.reservation.status,
       user: this.props.user.id,
-      // id: this.props.reservation._id
+      _id: this.props.reservation._id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
@@ -18,14 +18,19 @@ class ReservationItem extends React.Component {
   }
 
   changeStatus(e) {
+    // console.log(e.target.value);
     this.setState({ status: e.target.value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const reservation  = this.state
+    // console.log("hit")
+    const reservation  = this.state;
+    // console.log(reservation);
+
     this.props.reviseReservation(reservation)
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch(err => console.log(err));
   }
 
   handleDelete(e) {
@@ -34,7 +39,7 @@ class ReservationItem extends React.Component {
   }
 
   render() {
-    let status 
+    let status;
     let user = this.props.user;
     let reservation = this.props.reservation;
     let event = this.props.event;

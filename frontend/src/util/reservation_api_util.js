@@ -26,4 +26,4 @@ export const updateReservation = data => {
 
 export const deleteReservation = id => {
   return axios.delete(`/api/reservations/${id}`);
-}
+};

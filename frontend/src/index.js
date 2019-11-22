@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import { getEvent, getEvents, createEvent, updateEvent } from "./actions/event_actions"
 import { fetchEventPosts, createPost, updatePost } from "./actions/post_actions";
 // import { fetchEventPosts, createPost } from "./util/post_api_util";
-import { destroyReservation } from "./actions/reservation_actions";
+import { destroyReservation, reviseReservation } from "./actions/reservation_actions";
 
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createPost = createPost;
   window.updatePost = updatePost;
   window.destroyReservation = destroyReservation;
+  window.reviseReservation = reviseReservation;
 
   ReactDOM.render(<Root store={store} />, root);
 });
