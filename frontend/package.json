@@ -5,6 +5,7 @@
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
     "@terwanerik/scrolltrigger": "^1.0.2",
+    "aws-sdk": "^2.577.0",
     "axios": "^0.18.1",
     "google-maps-react": "^2.0.2",
     "jwt-decode": "^2.2.0",

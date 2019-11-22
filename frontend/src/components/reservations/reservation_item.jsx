@@ -10,7 +10,7 @@ class ReservationItem extends React.Component {
       event: this.props.reservation.event,
       status: this.props.reservation.status,
       user: this.props.user.id,
-      _id: this.props.reservation._id
+      // id: this.props.reservation._id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);

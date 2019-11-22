@@ -13,7 +13,7 @@ class Reservations extends React.Component {
         status: "invited"
       }
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.createReservation = this.createReservation.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ class Reservations extends React.Component {
     };
   }
 
-  handleSubmit(e) {
+  createReservation(e) {
     e.preventDefault();
     const reservation = this.state.reservation;
     this.props.createReservation(reservation);
@@ -54,7 +54,7 @@ class Reservations extends React.Component {
     if (user.id === event.user) {
       create = (
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.createReservation}>
             <input
               type="text"
               value={this.state.reservation.email}

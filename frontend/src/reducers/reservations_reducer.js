@@ -23,7 +23,14 @@ const ReservationsReducer = (state = {
       return newState;
     case RECEIVE_RESERVATION:
       newState.new = action.reservation.data;
-      newState.event.unshift(action.reservation.data);
+      let invite = action.reservation.data;
+      let ids = [];
+      for (let i =0; i < newState.event.length; i++) {
+        ids.push(newState.event[i]._id)
+      }
+      if (!ids.includes(invite._id)) {
+        newState.event.unshift(invite);
+      }
       return newState;
     case REMOVE_RESERVATION: 
       const reservation = action.id.data;
