@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 const google = window.google = window.google ? window.google : {};
 
@@ -8,6 +9,11 @@ class CreateEvent extends React.Component {
     super(props);
 
     this.state = this.props.event;
+
+    this.setState({
+      file: null
+    });
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.autocompleteInput = React.createRef();
@@ -31,8 +37,26 @@ class CreateEvent extends React.Component {
     const place = this.autocomplete.getPlace();
     this.setState({
       location: place.formatted_address,
+    }); 
+  }
+
+  submitFile() {
+    const formData = new FormData();
+    formData.append('file', this.state.file[0]);
+    axios.post(`/test-upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(response => {
+      // handle your response;
+    }).catch(error => {
+      // handle your error
     });
-  };
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({file: event.target.files});
+  }
 
   handleClick(e){
     fetch('/api/send_email', {
@@ -60,7 +84,6 @@ class CreateEvent extends React.Component {
   };
 
   handleSubmit(e) {
-     
     e.preventDefault();
     if(this.props.formType === 'Create Event'){
       this.props.createEvent(this.state)
@@ -80,6 +103,8 @@ class CreateEvent extends React.Component {
           };
         }
       )
+      this.props.createEvent(this.state);
+      this.submitFile();
     } else {
       this.props.updateEvent(this.state)
     };
@@ -148,8 +173,19 @@ class CreateEvent extends React.Component {
             placeholder="Event Time"
           />
           {emailInput}
+          <div>
+            <input
+              onChange={this.update("email")}
+              type="text"
+              value={this.state.email}
+              placeholder="Guest Emails"
+            />
+            <button onClick={this.handleClick}>Add Email</button>
+          </div>
+          <div>
+            <input label='upload file' type='file' onChange={this.handleFileUpload} />
+          </div>
           {button}
-
           <div className="list">
             <h2>Your Guest List</h2>
             {emails}
