@@ -10,7 +10,9 @@ class CreateEvent extends React.Component {
 
     this.state = this.props.event;
 
-    this.state.file = null;
+    this.setState({
+      file: null
+    });
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -40,8 +42,7 @@ class CreateEvent extends React.Component {
     }); 
   }
 
-  submitFile = (event) => {
-    event.preventDefault();
+  submitFile() {
     const formData = new FormData();
     formData.append('file', this.state.file[0]);
     axios.post(`/test-upload`, formData, {
@@ -90,6 +91,7 @@ class CreateEvent extends React.Component {
     e.preventDefault();
     if(this.props.formType === 'Create Event'){
       this.props.createEvent(this.state);
+      this.submitFile();
     } else {
       this.props.updateEvent(this.state)
     }
