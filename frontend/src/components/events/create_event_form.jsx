@@ -25,22 +25,16 @@ class CreateEvent extends React.Component {
     this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.current,
         {"types": ["geocode"]});
     this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
-  }
+  };
   
   handlePlaceChanged(e){
     const place = this.autocomplete.getPlace();
-  
-
     this.setState({
       location: place.formatted_address,
-      
     });
-
-    
-  }
+  };
 
   handleClick(e){
-
     fetch('/api/send_email', {
             method: 'POST',
             headers: {
@@ -66,15 +60,30 @@ class CreateEvent extends React.Component {
   };
 
   handleSubmit(e) {
-      // debugger
+     
     e.preventDefault();
     if(this.props.formType === 'Create Event'){
-      this.props.createEvent(this.state);
+      this.props.createEvent(this.state)
+        .then(res => {
+          //console.log(res)
+          let event = res.event.data;
+          let emails = event.guest_emails;
+
+          for (let i = 0; i < emails.length; i++) {
+            let guest = emails[i];
+            let reservation = {
+              email: guest,
+              event: event._id,
+              status: "invited"
+            };
+          this.props.createReservation(reservation)   
+          };
+        }
+      )
     } else {
       this.props.updateEvent(this.state)
-    }
-    
-  }
+    };
+  };
 
   render() {
     // debugger
@@ -85,28 +94,45 @@ class CreateEvent extends React.Component {
     })
     
     let button;
+    let emailInput;
 
     if(this.props.formType === 'Create Event'){
-      button = <button onClick={this.handleSubmit}>Create Event</button>;
+      button = <button onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
     } else {
       button = <button onClick={this.handleSubmit}>Update Event</button>;
     };
 
+    if(this.props.formType === 'Create Event'){
+      emailInput = <div>
+            <input
+              onChange={this.update("email")}
+              type="text"
+              value={this.state.email}
+              placeholder="Guest Emails"
+            />
+            <button onClick={this.handleClick}>Add Email</button>
+          </div>  
+      } 
+
+
+
     return (
       <div id="create-form">
         <div>
-          <input
-            onChange={this.update("body")}
-            type="text"
-            value={this.state.body}
-            placeholder="Event Description"
-          />
           <input
             onChange={this.update("name")}
             type="text"
             value={this.state.name}
             placeholder="Event Name"
           />
+
+          <input
+            onChange={this.update("body")}
+            type="text"
+            value={this.state.body}
+            placeholder="Event Description"
+          />
+
           <input
             ref={this.autocompleteInput}
             id="autocomplete"
@@ -121,21 +147,13 @@ class CreateEvent extends React.Component {
             value={this.state.time}
             placeholder="Event Time"
           />
-          <div>
-            <input
-              onChange={this.update("email")}
-              type="text"
-              value={this.state.email}
-              placeholder="Guest Emails"
-            />
-            <button onClick={this.handleClick}>Add Email</button>
-          </div>
+          {emailInput}
           {button}
-        </div>
 
-        <div className="list">
-          <h2>Your Guest List</h2>
-          {emails}
+          <div className="list">
+            <h2>Your Guest List</h2>
+            {emails}
+          </div>
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { createEvent } from '../../actions/event_actions';
 import CreateEvent from './create_event_form';
 import "./events.css";
+import { createReservation } from '../../actions/reservation_actions'
 
 const mSTP = state => ({
     event: {
@@ -11,14 +12,16 @@ const mSTP = state => ({
         time: "",
         guest_emails: [],
         email: "",
-        private: true
+        private: true,
+        
     },
 
     formType: "Create Event"
 });
 
 const mDTP = dispatch => ({
-    createEvent: event => dispatch(createEvent(event))
+    createEvent: event => dispatch(createEvent(event)),
+    createReservation: data => dispatch(createReservation(data))
 });
 
 export default connect(mSTP, mDTP)(CreateEvent)
