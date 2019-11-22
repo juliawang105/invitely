@@ -11,6 +11,10 @@ class MainPage extends React.Component {
   componentDidMount() {
     // let trigger = new ScrollTrigger();
     // trigger.add("[data-trigger]");
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
   }
 
   render() {

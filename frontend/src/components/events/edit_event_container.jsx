@@ -20,6 +20,13 @@ class EditEvent extends React.Component{
     }; 
 
     componentDidMount(){
+
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
+  
+
        
         this.props.getEvent(this.props.match.params.id)
             .then(() => this.setState({
@@ -31,13 +38,13 @@ class EditEvent extends React.Component{
                 email: this.props.event.email,
                 private: true,
                 image_url: this.props.event.image_url
-            }))
-    };
+            }));
+    }
 
     render(){
         if (!this.props.event){
             return null; 
-        };
+        }
 
         let edit;
 

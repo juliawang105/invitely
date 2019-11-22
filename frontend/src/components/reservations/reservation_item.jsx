@@ -17,6 +17,13 @@ class ReservationItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  // componentDidMount() {
+  //   let navbar = document.querySelector(".nav-bar.orange");
+  //   if (navbar) {
+  //     navbar.classList.remove("orange");
+  //   }
+  // }
+
   changeStatus(e) {
     this.setState({ status: e.target.value});
   }

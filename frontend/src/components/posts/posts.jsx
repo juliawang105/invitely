@@ -17,6 +17,13 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
+   
+    let navbar = document.querySelector(".nav-bar.orange");
+    if (navbar) {
+      navbar.classList.remove("orange");
+    }
+  
+
     let event = this.props.event.new;
     
     this.props

@@ -13,6 +13,12 @@ class Users extends React.Component {
   }
 
   componentDidMount() {
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
+  
+
     console.log(this.props);
 
     this.props.fetchUserReservations(this.props.user.email)

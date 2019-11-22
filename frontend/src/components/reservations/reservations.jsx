@@ -17,6 +17,10 @@ class Reservations extends React.Component {
   }
 
   componentDidMount() {
+    let navbar = document.querySelector(".nav-bar.orange");
+    if (navbar) {
+      navbar.classList.remove("orange");
+    }
     this.props
       .fetchEventReservations(this.props.event.new._id)
       .then(() => this.setState({ loaded: true }));

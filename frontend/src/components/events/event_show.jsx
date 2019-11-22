@@ -15,6 +15,11 @@ class EventShow extends React.Component{
     }
 
     componentDidMount(){
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
+
         this.props.getEvent(this.props.match.params.id);
     }
 

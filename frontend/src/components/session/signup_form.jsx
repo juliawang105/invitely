@@ -18,6 +18,13 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  componentDidMount() {
+    let navbar = document.querySelector(".nav-bar.orange");
+    if (navbar) {
+      navbar.classList.remove("orange");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push("/login");

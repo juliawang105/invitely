@@ -16,6 +16,13 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
+  componentDidMount() {
+    let navbar = document.querySelector(".nav-bar.orange");
+    if (navbar) {
+      navbar.classList.remove("orange");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push("/events");

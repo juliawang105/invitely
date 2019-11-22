@@ -43,10 +43,10 @@ class NavBar extends React.Component {
         </div>
       );
     } else {
-      let navbar = document.querySelector(".nav-bar.orange");
-      if (navbar) {
-        navbar.classList.remove("orange");
-      }
+      // let navbar = document.querySelector(".nav-bar.orange");
+      // if (navbar) {
+      //   navbar.classList.remove("orange");
+      // }
       return (
         <div className="nav-links">
           <Link to={"/signup"} className="nav-button">

@@ -24,6 +24,10 @@ class CreateEvent extends React.Component {
   };
 
   componentDidMount() {
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
     
     this.setState({
       file: null,
