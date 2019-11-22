@@ -19,19 +19,16 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      {/* MODIFY change to user show component */}
+      {/* <ProtectedRoute exact path="/users/:id" component={CreateEventContainer}/> */}
       <ProtectedRoute exact path="/events" component={CreateEventContainer}/>
       <ProtectedRoute exact path = "/events/:id" component={EventShowContainer} />
       <ProtectedRoute exact path="/events/:id/edit" component={EditEventContainer} /> 
 
-      {/* <ProtectedRoute exact path="/events" component={TweetsContainer} /> */}
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
-      {/* MODIFY to authroute */}
       <NewUserRoute exact path="/" component={MainPage} />
 
-      {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
-      {/* <ProtectedRoute exact path="/new_tweet" component={TweetComposeContainer} /> */}
     </Switch>
   </div>
 );

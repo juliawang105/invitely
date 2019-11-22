@@ -125,16 +125,18 @@ class CreateEvent extends React.Component {
   };
 
   render() {
-    let emails = this.state.guest_emails.map( (email, i) => {
-      let format = <li key={i}>{email}</li>
-      return format;
-    });
-    
+    let emails;
     let button;
     let emailInput;
+    let guestListHeader;
 
     if(this.props.formType === 'Create Event'){
       button = <button onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
+      emails = this.state.guest_emails.map((email, i) => {
+        let format = <li key={i}>{email}</li>;
+        return format;
+      });
+      guestListHeader = <h2>Guest List</h2>
     } else {
       button = <button onClick={this.handleSubmit}>Update Event</button>;
     };
@@ -169,7 +171,7 @@ class CreateEvent extends React.Component {
             cols="30"
             rows="10"
           ></textarea>
-    
+
           <input
             ref={this.autocompleteInput}
             id="autocomplete"
@@ -191,7 +193,7 @@ class CreateEvent extends React.Component {
           </div>
           {button}
           <div className="list">
-            <h2>Your Guest List</h2>
+            {/* {guestListHeader} */}
             {emails}
           </div>
         </div>

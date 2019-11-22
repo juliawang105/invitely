@@ -15,25 +15,38 @@ class NavBar extends React.Component {
   }
 
   getLinks() {
-    if (this.props.loggedIn) {
+    let { loggedIn, session } = this.props;
+    if (loggedIn) {
+      let navbar = document.querySelector(".nav-bar");
+      if (navbar) {
+        navbar.className += " orange";
+      }
+
       return (
         <div className="nav-links">
-          {/* <Link to={"/tweets"}>All Tweets</Link> */}
-
-          
-          <Link to={`/users/${this.props.session.user.id}`} className="nav-button">
-            Welcome, {this.props.session.user.firstName}! My Events
+          <Link
+            to={`/users/${session.user.id}`}
+            className="nav-button"
+          >
+            My Events
           </Link>
           <Link to={`/events`} className="nav-button">
             Create New Event
           </Link>
-          {/* <Link to={"/new_tweet"}>Write a Tweet</Link> */}
-          <span onClick={this.logoutUser} className="nav-button">
+          <span className="italic">
+            Welcome, {session.user.firstName} {session.user.lastName}! (Email: {session.user.email})
+          </span>
+
+          <span onClick={this.logoutUser} className="nav-button logout-button">
             Log Out
           </span>
         </div>
       );
     } else {
+      let navbar = document.querySelector(".nav-bar.orange");
+      if (navbar) {
+        navbar.classList.remove("orange");
+      }
       return (
         <div className="nav-links">
           <Link to={"/signup"} className="nav-button">

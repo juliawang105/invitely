@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
 
 class EventShow extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
           showing: "home"
         };
@@ -36,6 +36,21 @@ class EventShow extends React.Component{
           body = <ReservationsContainer />
         }
 
+
+        let editLink;
+
+        console.log('====================================');
+        console.log(this.props);
+        console.log('====================================');
+        // MODIFY to if logged in and current user id is same as event creator id
+        editLink = (
+          <div className="sidebar-nav">
+            <Link to={`/events/${1}/edit`}> 
+              Edit
+            </Link>
+          </div>
+        );
+
         return (
           <div className="event-show-box">
             <div className="nav-color"></div>
@@ -57,7 +72,16 @@ class EventShow extends React.Component{
                   value="guests">
                   Guests
                 </div>
+                {editLink}
+
               </div>
+             
+
+
+
+
+
+
               <div className="event-page">
                 <div className="event-info">
                   <div>{event.name}</div>

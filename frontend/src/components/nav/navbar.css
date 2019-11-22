@@ -7,16 +7,21 @@
     background-color: transparent;
     /* background-color: lightcoral; */
     color: white;
-    z-index: 100;
+    z-index: 1000;
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    height: 45px;
+}
+
+.nav-bar.orange {
+  background-color: sandybrown;
 }
 
 .nav-title {
   font-size: 24px;
-  /* box-sizing: border-box; */
   transition: 300ms ease;
   margin: 10px 30px;
+  min-width: 350px;
 }
 .nav-title:hover {
   opacity: 0.8;
@@ -25,6 +30,7 @@
 
 .nav-links {
   margin: 10px 30px;
+
 }
 
 .nav-bar a {
@@ -42,9 +48,10 @@
   margin: 0px 10px;
 }
 
-.nav-button:hover {
+.nav-button:hover, .nav-button.logout-button:hover {
   opacity: 0.8;
   transition: 300ms ease;
+  cursor: pointer;
 }
 
 .Links1 {
@@ -57,4 +64,13 @@
     width: 400px;
     display: flex;
     justify-content: space-between;
+}
+
+.italic {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.italic:hover {
+  cursor: default;
 }
