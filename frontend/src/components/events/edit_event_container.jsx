@@ -6,7 +6,7 @@ import { getEvent, updateEvent, } from '../../actions/event_actions'
 class EditEvent extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props.event);
+        
         this.state = {
           name: "",
           location: "",
@@ -20,7 +20,7 @@ class EditEvent extends React.Component{
     }; 
 
     componentDidMount(){
-        // debugger
+       
         this.props.getEvent(this.props.match.params.id)
             .then(() => this.setState({
                 name: this.props.event.name,
@@ -32,35 +32,45 @@ class EditEvent extends React.Component{
                 private: true,
                 image_url: this.props.event.image_url
             }))
-        // this.setState({ event })
     };
 
     render(){
-        // debugger 
         if (!this.props.event){
             return null; 
         };
 
+        let edit;
+
+        if(this.props.event.user === this.props.session.user.id){
+            edit = ( 
+                <div>
+                <CreateEvent
+                    updateEvent={this.props.updateEvent}
+                    formType={this.props.formType}
+                    event={this.props.event}
+                    getEvent={this.props.getEvent}/>
+                </div>
+            )
+        } else {
+           edit =( 
+            <div>
+                You are not authorized to make edits.
+            </div>
+            )
+        }
         return (
-          <div>
-              
-            <CreateEvent
-              updateEvent={this.props.updateEvent}
-              formType={this.props.formType}
-              event={this.props.event}
-              getEvent={this.props.getEvent}
-            />
-          </div>
+            <div>
+                {edit}
+            </div>
         );
     }
 }
 
 const mSTP = (state, ownProps) => {
-    
-    // debugger 
     return{
     event: state.events.new,
-    formType: "Edit Event"
+    formType: "Edit Event",
+    session: state.session
     }
 };
 
