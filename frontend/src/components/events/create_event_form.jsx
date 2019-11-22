@@ -161,13 +161,15 @@ class CreateEvent extends React.Component {
             placeholder="Event Name"
           />
 
-          <input
+          <textarea
             onChange={this.update("body")}
             type="text"
             value={this.state.body}
             placeholder="Event Description"
-          />
-
+            cols="30"
+            rows="10"
+          ></textarea>
+    
           <input
             ref={this.autocompleteInput}
             id="autocomplete"
@@ -185,11 +187,7 @@ class CreateEvent extends React.Component {
           {emailInput}
 
           <div>
-            <input 
-              type='file' 
-              onChange={this.handleFileUpload}
-            />
-
+            <input type="file" onChange={this.handleFileUpload} />
           </div>
           {button}
           <div className="list">
