@@ -37,15 +37,19 @@ class EventShow extends React.Component{
         }
 
         return (
-          <div>
+          <div className="event-show-box">
+            <div className="nav-color"></div>
+
             <div className="event-show">
+
+
               <div className="sidebar">
-                <div>sidebar</div>
+                <div>Navigation</div>
                 <div 
                   onClick={() => this.changePage("home")}
                   className="sidebar-nav"
                   value="home">
-                  Home
+                  Info
                 </div>
                 <div 
                   onClick={() => this.changePage("guests")}
@@ -61,6 +65,12 @@ class EventShow extends React.Component{
                   <div>{event.location}</div>
                   <div>{event.time}</div>
                 </div>
+
+
+
+
+
+
                 {body}
               </div>
             </div>
