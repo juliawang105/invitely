@@ -8,15 +8,10 @@ module.exports = function validateEventInput(data){
     data.name = validText(data.name)? data.name : "";
     data.body = validText(data.body)? data.body : "";
     data.time = validText(data.time)? data.time : "";
-    data.image_url = validText(data.image_url)? data.image_url : "";
 
 
     if(Validator.isEmpty(data.name)){
         errors.name = "Create a name for your event! "
-    };
-    
-    if(Validator.isEmpty(data.image_url)){
-        errors.image_url = "Upload an image for your event! "
     };
 
     // if(!Validator.isEmail(data.email)){
