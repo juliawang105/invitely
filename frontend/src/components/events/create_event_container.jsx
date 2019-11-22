@@ -12,6 +12,7 @@ const mSTP = state => ({
         time: "",
         guest_emails: [],
         email: "",
+        host: "",
         private: true,
         
     },

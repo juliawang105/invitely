@@ -7,6 +7,11 @@ const EventSchema = new mongoose.Schema({
         ref: 'users'
     },
 
+    host: {
+        type: String,
+        required: true 
+    },
+
     name: {
         type: String,
         required: true

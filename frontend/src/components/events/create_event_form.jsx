@@ -162,6 +162,14 @@ class CreateEvent extends React.Component {
 
     return (
       <div id="create-form">
+         <div>
+          <input
+            onChange={this.update("host")}
+            type="text"
+            value={this.state.host}
+            placeholder="Host(s)"
+          />
+
         <div>
           <input
             onChange={this.update("name")}
@@ -205,6 +213,7 @@ class CreateEvent extends React.Component {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 };
