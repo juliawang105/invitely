@@ -14,7 +14,7 @@ module.exports = function validateEventInput(data){
         errors.name = "Create a name for your event! "
     };
 
-    // if(!Validator.isEmail(data.email)){
+    // if(!Validator.isEmail(data.email) && data.email.length > 0){
     //     errors.email = "That is not a valid email."
     // };
 

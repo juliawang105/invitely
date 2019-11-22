@@ -85,9 +85,11 @@ class CreateEvent extends React.Component {
     
     e.preventDefault();
 
-    this.setState({
-      guest_emails: this.state.guest_emails.concat([this.state.email])
-    });
+    if(this.state.email.indexOf('@') !== -1){
+      this.setState({
+        guest_emails: this.state.guest_emails.concat([this.state.email])
+      });
+    };
 
     this.setState({
       email: ""
@@ -142,15 +144,20 @@ class CreateEvent extends React.Component {
     };
 
     if(this.props.formType === 'Create Event'){
-      emailInput = <div>
-                      <input
-                        onChange={this.update("email")}
-                        type="text"
-                        value={this.state.email}
-                        placeholder="Guest Emails"
-                      />
-                      <button onClick={this.handleClick}>Add Email</button>
-                   </div>  
+      emailInput = (
+        <div>
+          <input
+            id="emailAddress"
+            type="email"
+            required
+            pattern=".+@beststartupever.com"
+            onChange={this.update("email")}
+            value={this.state.email}
+            placeholder="Guest Emails"
+          />
+          <button onClick={this.handleClick}>Add Email</button>
+        </div>
+      );  
     } 
 
     return (
