@@ -11,6 +11,7 @@ export const RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
 export const RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 export const RECEIVE_USER_RESERVATIONS = 'RECEIVE_USER_RESERVATIONS';
 export const RECEIVE_EVENT_RESERVATIONS = 'RECEIVE_EVENT_RESERVATIONS';
+export const REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
 const receiveReservations = reservations => ({
   type: RECEIVE_RESERVATIONS,
@@ -31,6 +32,17 @@ const receiveEventReservations = reservations => ({
   type: RECEIVE_EVENT_RESERVATIONS,
   reservations
 }); 
+
+const removeReservation = id => ({
+  type: REMOVE_RESERVATION,
+  id
+})
+
+export const deleteReservation = id => dispatch => (
+  APIUtil.deleteReservation(id)
+    .then((reservation) => dispatch(removeReservation(reservation)))
+    .catch(err => console.log(err))
+)
 
 export const fetchReservations = () => dispatch => (
   getReservations()

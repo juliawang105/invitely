@@ -22,6 +22,7 @@ const ReservationsReducer = (state = {
       return newState;
     case RECEIVE_RESERVATION:
       newState.new = action.reservation.data;
+      newState.event.unshift(action.reservation.data);
       return newState;
     default:
       return state;

@@ -4,13 +4,12 @@ class ReservationItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = 
-    {
+    this.state = {
       date: this.props.reservation.date,
       email: this.props.reservation.email,
       event: this.props.reservation.event,
       status: this.props.reservation.status,
-      user: this.props.reservation.user,
+      user: this.props.user.id,
       _id: this.props.reservation._id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,10 +60,10 @@ class ReservationItem extends React.Component {
       )
     }
     let removeRes;
-    if (reservation.email === user.email || user.id === event) {
+    if (reservation.email === user.email || user.id === event.user) {
       removeRes = (
         <div>
-          Removable
+          <button>Delete Reservation</button>
         </div>
       )
     } 

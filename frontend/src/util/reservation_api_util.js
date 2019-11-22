@@ -23,3 +23,7 @@ export const makeReservation = data => {
 export const updateReservation = data => {
   return axios.patch(`/api/reservations/${data._id}`, data);
 };
+
+export const deleteReservation = id => {
+  return axios.delete(`/api/reservations/${id}`);
+}
