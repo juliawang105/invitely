@@ -66,8 +66,7 @@ router.post("/", //create post
             guest_emails: req.body.guest_emails,
             location: req.body.location,
             time: req.body.time,
-            body: req.body.body,
-            image_url: req.body.image_url
+            body: req.body.body 
         });
 
         newEvent
