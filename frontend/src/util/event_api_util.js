@@ -12,5 +12,5 @@ export const createEvent = data => {
 };
 export const updateEvent = data => {
   console.log(data)
-  return axios.patch(`/api/events/${data.id}`, data);
+  return axios.patch(`/api/events/${data._id}`, data);
 };

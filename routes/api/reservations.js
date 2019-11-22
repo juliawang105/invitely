@@ -74,21 +74,20 @@ router.post(
 );
 
 router.patch("/:id", (req, res, next) => {
-    const { errors, isValid } = validateReservationInput(req.body);
+  const { errors, isValid } = validateReservationInput(req.body);
 
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    Reservation.findOneAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    ).then(reservation => {
-      res.json(reservation);
-    });
-
+  if (!isValid) {
+    return res.status(400).json(errors);
   }
-);
+
+  Reservation.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    { new: true }
+  ).then(reservation => {
+    res.json(reservation);
+  });
+
+});
 
 module.exports = router;
