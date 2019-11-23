@@ -19,6 +19,7 @@ const events = require("./routes/api/events");
 const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
 const reservations = require("./routes/api/reservations");
+const keys = require("./config/aws");
 
 mongoose
   .connect(db, {
@@ -67,8 +68,8 @@ app.post('/api/send_email', (req, res) => {
 // configure the keys for accessing AWS
 AWS.config.update({
   region: "us-west-1",
-  accessKeyId: "",
-  secretAccessKey: "",
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretKey,
   ServerSideEncryption: "AES256",
 });
 
@@ -83,7 +84,7 @@ const uploadFile = (buffer, name, type) => {
   const params = {
     ACL: 'public-read',
     Body: buffer,
-    Bucket: "",
+    Bucket: keys.bucketName,
     ContentType: type.mime,
     Key: `${name}.${type.ext}`
   };
