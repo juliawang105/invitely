@@ -1,7 +1,7 @@
 import {RECEIVE_EVENT, RECEIVE_EVENTS, RECEIVE_USER_EVENTS } from "../actions/event_actions";
 
 const EventsReducer = (
-    state = { all: {}, user: {}, new: undefined },
+    state = { all: {}, user: [], new: undefined },
     action 
 ) => {
     Object.freeze(state);
@@ -18,7 +18,8 @@ const EventsReducer = (
         
         case RECEIVE_EVENT:
             // debugger
-            newState.new = action.event.data; 
+            // newState.new = action.event.data; 
+            newState.user.push(action.event.data)
             return newState;
         
         default:

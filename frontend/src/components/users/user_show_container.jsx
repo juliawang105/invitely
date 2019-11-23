@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Users from './user_show';
 import { fetchUserReservations } from '../../actions/reservation_actions';
-import { fetchUserEvents } from '../../actions/event_actions';
+import { fetchUserEvents, getEvent } from '../../actions/event_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -15,7 +15,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
   fetchUserReservations: id => dispatch(fetchUserReservations(id)),
-  fetchUserEvents: id => dispatch(fetchUserEvents(id))
+  fetchUserEvents: id => dispatch(fetchUserEvents(id)),
+  getEvent: id => dispatch(getEvent(id))
 });
 
 
