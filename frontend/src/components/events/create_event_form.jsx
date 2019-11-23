@@ -72,6 +72,11 @@ class CreateEvent extends React.Component {
   }
 
   handleClick(e){
+    let event_name = this.state.name;
+    let event_location = this.state.location;
+    let event_time = this.state.time;
+    let event_email = this.state.email
+    
     fetch('/api/send_email', {
       method: 'POST',
       headers: {
@@ -79,9 +84,10 @@ class CreateEvent extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: "Isom Durm",
-        email: "isomdurm@gmail.com",
-        message: "working"
+        event_name: event_name,
+        event_location: event_location,
+        event_time: event_time,
+        event_email: event_email
       })
     }).catch((error) => {
       console.log(error)

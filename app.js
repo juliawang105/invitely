@@ -20,6 +20,7 @@ const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
 const reservations = require("./routes/api/reservations");
 const keys = require("./config/aws");
+const mailerKey = require("./config/mail");
 
 mongoose
   .connect(db, {
@@ -51,14 +52,21 @@ io.on('connection', () =>{
 app.post('/api/send_email', (req, res) => {
   // DEFINE API KEY FOR SENDGRID
   sgMail.setApiKey(
-    ""
+    mailerKey.accessKey
   );
+  console.log(mailerKey.accessKey)
+  console.log(req.body.event_name)
   const msg = {
-    to: 'juliawang105@gmail.com',
-    from: 'isomdurm@gmail.com',
-    subject: 'New Message From Portfolio',
-    text: 'test',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    to: req.body.event_email,
+    from: 'events@invite.ly',
+    templateId: 'd-c91121327f2340e8b12e0905cae41c01',
+    dynamicTemplateData: {
+      subject: 'Save the Date - Join Us',
+      event_name: req.body.event_name,
+      event_location: req.body.event_location,
+      event_time: req.body.event_time,
+      event_url: "google.com"
+    },
   };
 
   sgMail.send(msg);
