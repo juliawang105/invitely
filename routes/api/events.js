@@ -71,7 +71,8 @@ router.post("/", //create post
             location: req.body.location,
             time: req.body.time,
             body: req.body.body,
-            host: req.body.host
+            host: req.body.host,
+            image_url: req.body.image_url
         });
 
         newEvent
