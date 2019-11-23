@@ -1,5 +1,7 @@
 import React from "react";
 import ReservationItem from '../reservations/reservation_item';
+import { Link } from 'react-router-dom';
+import "./user_show.css";
 
 class Users extends React.Component {
   constructor(props) {
@@ -45,23 +47,37 @@ class Users extends React.Component {
     let events = this.props.events.all;
 
     return (
-      <div className="reservations">
+      <div className="user-show">
+
         <div>
+          <h1>My Invites</h1>
           {reservations.map(reservation => {
             return (
               <ReservationItem
                 reservation={reservation}
-                key={reservation.id}
+                key={reservation._id}
                 user={user}
                 event={events[0]}
               />
+              // <div>{reservation.event}</div>
             );
           })}
         </div>
         <div>
+          <h1>My Events</h1>
           {events.map(event => {
             return (
-              <div key={event._id}>{event.name}</div>
+              <Link to={`/events/${event._id}`}>
+                <div key={event._id}>
+                  <br />
+                  {event.name}
+                  <br />
+                  {event.time}
+                  <br />
+                  {event.location}
+                  <br />
+                </div>
+              </Link>
             );
           })}
         </div>

@@ -48,7 +48,7 @@ class EventShow extends React.Component{
 
         if (this.props.event.new.user === this.props.session.user.id) {
               editLink = (
-                <div className="sidebar-nav">
+                <div className="sidebar-nav-label">
                   <Link to={`/events/${this.props.event.new.id}/edit`}> Edit </Link>
                 </div>
                 );
@@ -61,25 +61,66 @@ class EventShow extends React.Component{
             <div className="event-show">
 
 
-              <div className="sidebar">
-                <div>Navigation</div>
-                <div 
-                  onClick={() => this.changePage("home")}
-                  className="sidebar-nav"
-                  value="home">
-                  Info
-                </div>
-                <div 
-                  onClick={() => this.changePage("guests")}
-                  className="sidebar-nav" 
-                  value="guests">
-                  Guests
-                </div>
-                {editLink}
 
+
+
+
+
+
+
+
+              <div className="sidebar-wrapper">
+                <div className="sidebar">
+                  <div className="sidebar-title">Navigation</div>
+                  <div className="side-nav-links">
+                    <div className="sidebar-nav">
+                      <div
+                        onClick={() => this.changePage("home")}
+                        className="sidebar-nav-label"
+                        value="home"
+                      >
+                        Info
+                      </div>
+                    </div>
+
+                    <div className="sidebar-nav">
+                      <div
+                        onClick={() => this.changePage("guests")}
+                        className="sidebar-nav-label"
+                        value="guests"
+                      >
+                        Guests
+                      </div>
+                    </div>
+
+                    <div className="sidebar-nav">{editLink}</div>
+
+                  </div>
+                </div>
               </div>
-             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <div className="event-page">
+
+
                 <div className="event-info">
                   <div>{event.name}</div>
                   <div>{event.body}</div>
@@ -89,7 +130,17 @@ class EventShow extends React.Component{
                 </div>
 
                 {body}
+
+
+
+                
               </div>
+
+
+
+
+
+
             </div>
           </div>
         );
