@@ -106,8 +106,14 @@ class CreateEvent extends React.Component {
     });
   };
 
+
   handleSubmit(e) {
     e.preventDefault();
+    // let time = new Date(this.state.time);
+    // let newTime = time.toDateString() + " " + time.toLocaleTimeString();
+    // this.setState({
+    //   time: newTime
+    // })
     if(this.props.formType === 'Create Event'){
       this.props.createEvent(this.state)
         .then(res => {
@@ -141,16 +147,29 @@ class CreateEvent extends React.Component {
     let button;
     let emailInput;
     let guestListHeader;
+    let header;
 
     if(this.props.formType === 'Create Event'){
-      button = <button onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
+      button = <button className="event-submit" onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
       emails = this.state.guest_emails.map((email, i) => {
-        let format = <li key={i}>{email}</li>;
+        let format = (
+          <div className="each-email">
+            <ul>
+              <li key={i}>{email}</li>
+            </ul>
+          </div>
+        );
         return format;
       });
-      guestListHeader = <h2>Guest List</h2>
+      guestListHeader = <h2 className="guest-list-header">Guest List</h2>
+      header = <h1 className="form-head">Create your event</h1>
     } else {
-      button = <button onClick={this.handleSubmit}>Update Event</button>;
+      button = (
+        <button className="event-submit" onClick={this.handleSubmit}>
+          Update Event
+        </button>
+      );
+      header = <h1 className="form-head">Update your event</h1>;
     };
 
     if(this.props.formType === 'Create Event'){
@@ -171,60 +190,70 @@ class CreateEvent extends React.Component {
     } 
 
     return (
-      <div id="create-form">
-         <div>
-          <input
-            onChange={this.update("host")}
-            type="text"
-            value={this.state.host}
-            placeholder="Host(s)"
-          />
-
-        <div>
-          <input
-            onChange={this.update("name")}
-            type="text"
-            value={this.state.name}
-            placeholder="Event Name"
-          />
-
-          <textarea
-            onChange={this.update("body")}
-            type="text"
-            value={this.state.body}
-            placeholder="Event Description"
-            cols="30"
-            rows="10"
-            maxLength="1000"
-          ></textarea>
-
-          <input
-            ref={this.autocompleteInput}
-            id="autocomplete"
-            onChange={this.update("location")}
-            type="text"
-            value={this.state.location}
-            placeholder="Enter your address"
-          />
-          <input
-            onChange={this.update("time")}
-            type="text"
-            value={this.state.time}
-            placeholder="Event Time"
-          />
-          {emailInput}
-
-          <div>
-            <input type="file" onChange={this.handleFileUpload} />
+      <div id="event-form">
+        {header}
+        <div id="create-form">
+          <div className="event-inputs">
+            <div className="event-input">
+              <input
+                onChange={this.update("name")}
+                type="text"
+                value={this.state.name}
+                placeholder="Event Name"
+              />
+            </div>
+            <div className="event-input">
+              <input
+                ref={this.autocompleteInput}
+                id="autocomplete"
+                onChange={this.update("location")}
+                type="text"
+                value={this.state.location}
+                placeholder="Enter your address"
+              />
+            </div>
+            <div className="event-input">
+              <input
+                onChange={this.update("time")}
+                type="datetime-local"
+                value={this.state.time}
+                placeholder="Event Time"
+              />
+            </div>
+            <div className="event-input">
+              <input type="file" onChange={this.handleFileUpload} />
+            </div>
+            <div className="event-input">
+              <textarea
+                onChange={this.update("body")}
+                type="text"
+                value={this.state.body}
+                placeholder="Event Description"
+                cols="30"
+                rows="10"
+                maxLength="1000"
+              ></textarea>
+            </div>
+            <div className="event-input">
+              <input
+                onChange={this.update("host")}
+                type="text"
+                value={this.state.host}
+                placeholder="Host(s)"
+                className="floating-label-field"
+                id="host-field"
+              />
+            </div>
+            {emailInput}
+            {button}
           </div>
-          {button}
+
           <div className="list">
-            {/* {guestListHeader} */}
+            {guestListHeader}
             {emails}
           </div>
         </div>
       </div>
-    </div>
     );
   }
 };
