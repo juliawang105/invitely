@@ -1,23 +1,23 @@
 .user-show {
   display: flex;
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   justify-content: center;
 }
 
 .user-show-box{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   padding-top: 50px;
   display: flex;
   justify-content: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  /* padding-left: 40px;
+  padding-right: 40px; */
 }
 
 .invite-host{
  height: 100vh;
- width: 50vw;
+ width: 65%;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -26,7 +26,7 @@
 .user-event{
   display: flex;
   justify-content: center;
-  width: 100vw
+  /* width: 100vw */
 }
 
 .user-event-details{
@@ -34,6 +34,8 @@
   text-align: center;
   padding-top: 15px;
   margin: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
