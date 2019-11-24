@@ -24,10 +24,10 @@ class CreateEvent extends React.Component {
   };
 
   componentDidMount() {
-      let navbar = document.querySelector(".nav-bar");
-      if (navbar) {
-        navbar.className += " orange";
-      }
+    let navbar = document.querySelector(".nav-bar");
+    if (navbar) {
+      navbar.className += " orange";
+    }
     
     this.setState({
       file: null,
@@ -195,6 +195,7 @@ class CreateEvent extends React.Component {
             placeholder="Event Description"
             cols="30"
             rows="10"
+            maxLength="1000"
           ></textarea>
 
           <input

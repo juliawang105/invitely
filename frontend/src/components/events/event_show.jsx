@@ -74,6 +74,13 @@ class EventShow extends React.Component{
           );
         }
 
+
+
+
+        const parseAddress = (address) => {
+          return address.split(" ").join("+");
+        }
+
         return (
           <div className="event-show-box">
             <div className="nav-color"></div>
@@ -109,41 +116,77 @@ class EventShow extends React.Component{
               </div>
 
               <div className="event-page">
-
                 <div className="event-main-show">
                   {eventImage}
                   <div className="event-info">
-                    <div className="event-name-item">{event.name}</div>
 
-                    <div className="event-info-item">
-                      <i className="fas fa-map-marker-alt event-icon"></i>{" "}
-                      {event.location}
+
+
+
+                    <div className="event-text">
+                      <div className="event-name-item">{event.name}</div>
+
+                      <div className="event-info-item">
+                        <a
+                          href={`https://www.google.com/maps/dir//${parseAddress(
+                            event.location
+                          )}`}
+                        >
+                          <i className="fas fa-map-marker-alt event-icon"></i>{" "}
+                          {event.location}
+                        </a>
+                      </div>
+                      <div className="event-info-item">
+                        {/* fix time  */}
+                        <a
+                          href={`http://www.google.com/calendar/event?action=TEMPLATE&
+                          dates=${event.time}
+                          &text=${event.name}
+                          &location=${event.location}
+                          &details=${event.body}`}
+                        >
+                          <i className="far fa-clock event-icon"></i>
+                          {event.time}
+                        </a>
+                      </div>
+
+                      <div className="event-info-item event-body">
+                        {event.body}
+                      </div>
+                      <div className="event-info-item hosted">{hosted}</div>
                     </div>
 
-                    <div className="event-info-item">
-                      <i className="far fa-clock event-icon"></i>
-                      {event.time}
-                    </div>
-                    <div className="event-info-item event-body">{event.body}</div>
-                    <div className="event-info-item">{hosted}</div>
+
+
+
+
+
+
+
 
                     <div className="map-box">
-                      <EventMap event={event}  className="map"/>
+                      <EventMap event={event} className="map" />
+                      <div className="event-info-item">
+                        <a
+                          href={`https://www.google.com/maps/dir//${parseAddress(
+                            event.location
+                          )}`}
+                        >
+                          Get Directions
+                        </a>
+                      </div>
                     </div>
+
+
+
+
+
+
+                    
                   </div>
                 </div>
 
-
-
-
-
-
-
                 <div className="event-more">{body}</div>
-
-
-
-
               </div>
             </div>
           </div>

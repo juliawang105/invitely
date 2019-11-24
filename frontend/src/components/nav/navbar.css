@@ -7,7 +7,7 @@
     background-color: transparent;
     /* background-color: lightcoral; */
     color: white;
-    z-index: 1000;
+    z-index: 1000000;
     position: fixed;
     width: 100vw;
     min-width: 800px;
@@ -51,6 +51,7 @@
 
 .nav-button {
   margin: 0px 10px;
+  min-width: 75px;
 }
 
 .nav-button:hover, .nav-button.logout-button:hover {
