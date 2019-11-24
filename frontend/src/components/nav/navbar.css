@@ -10,6 +10,7 @@
     z-index: 1000;
     position: fixed;
     width: 100vw;
+    min-width: 800px;
     height: 45px;
 }
 
@@ -30,7 +31,11 @@
 
 .nav-links {
   margin: 10px 30px;
-
+  min-width: 70vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-bar a {
