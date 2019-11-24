@@ -150,7 +150,7 @@ class CreateEvent extends React.Component {
     let header;
 
     if(this.props.formType === 'Create Event'){
-      button = <button className="event-submit" onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
+      button = <button className="event-submit" onClick={this.handleSubmit}>Create Event and Send Invites</button>;
       emails = this.state.guest_emails.map((email, i) => {
         let format = (
           <div className="each-email">
@@ -169,12 +169,23 @@ class CreateEvent extends React.Component {
           Update Event
         </button>
       );
+      emails = this.props.event.guest_emails.map((email, i) => {
+        let format = (
+          <div className="each-email">
+            <ul>
+              <li key={i}>{email}</li>
+            </ul>
+          </div>
+        );
+        return format;
+      });
+      guestListHeader = <h2 className="guest-list-header">Guest List</h2>;
       header = <h1 className="form-head">Update your event</h1>;
     };
 
     if(this.props.formType === 'Create Event'){
       emailInput = (
-        <div>
+        <div className="event-input-email">
           <input
             id="emailAddress"
             type="email"
@@ -188,7 +199,7 @@ class CreateEvent extends React.Component {
         </div>
       );  
     } 
-
+    // debugger;
     return (
       <div id="event-form">
         {header}
@@ -226,6 +237,7 @@ class CreateEvent extends React.Component {
             <div className="event-input">
               <textarea
                 onChange={this.update("body")}
+                className="event-form-description"
                 type="text"
                 value={this.state.body}
                 placeholder="Event Description"
