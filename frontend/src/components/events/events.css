@@ -170,6 +170,7 @@ body:hover {
     top: 45px;
     transition: 600ms ease;
     /* border: 1px solid red; */
+    overflow-wrap: break-word;
 }
 
 .event-text {
@@ -200,6 +201,8 @@ body:hover {
 
 .event-name-item {
     font-size: 3vw;
+    width: 23.5vw;
+
 }
 
 .event-icon {
