@@ -36,13 +36,26 @@
 // }
 
 .event-submit {
-  width: 260px;
+  width: 257px;
   padding: 7px 0 7px 0;
 }
 
 .event-inputs input[type=text] {
   height: 30px;
-  width: 258px;
+  width: 253px;
+  padding: 0 0 0 5px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.event-inputs input[type=datetime-local] {
+  height: 30px;
+  width: 253px;
+  padding: 0 0 0 5px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 
 .event-inputs input[type=file] {
@@ -52,6 +65,7 @@
 
 .event-input {
   padding-bottom: 10px;
+
 }
 
 .event-inputs {
@@ -63,13 +77,24 @@
   padding-right: 10px;
 }
 
-.event-inputs input[type=datetime-local] {
-  height: 30px;
-  width: 258px;
+.event-input-email{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
 }
 
-.each-email {
-  
+.event-input-email button{
+  width: 40%
+}
+
+#emailAddress {
+  width: 55%;
+  height: 30px;
+  // border-radius: 1px;
+  // border-radius: 3px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 
 .event-inputs h1 {
@@ -82,4 +107,35 @@
   display: flex;
   justify-content: center;
   font-size: 40px;
+}
+
+.event-form button {
+  border-radius: 3px;
+}
+
+.event-form-description{
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.event-form-description::placeholder {
+  color: #5A6A74;
+}
+
+.event-inputs input::placeholder {
+  color: #5A6A74;
+}
+
+.event-inputs button{
+  border-radius: 3px;
+  // color: purple;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.event-inputs button:hover{
+  border-radius: 3px;
+  // color: purple;
+  background-color: rgba(160, 160, 160, 0.1);
+  transition: 300ms ease;
 }
