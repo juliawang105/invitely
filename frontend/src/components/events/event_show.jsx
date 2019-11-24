@@ -24,6 +24,7 @@ class EventShow extends React.Component{
       }
 
         this.props.getEvent(this.props.match.params.id);
+        this.props.fetchEventPosts(this.props.match.params.id)
     }
 
     changePage(type) {
