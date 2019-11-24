@@ -37,7 +37,7 @@ router.patch("/:id", (req, res, next ) => {
         // console.log(req.body),
         { new: true })
         .then((event) => {
-            console.log(event);
+            // console.log(event);
             res.json(event);
         } );
         
@@ -48,7 +48,7 @@ router.get("/:id", (req, res) => { //event show
    Event.findById(req.params.id)
     
         .then(event => {
-            console.log(event)
+            // console.log(event)
             let newEvent = Object.assign({}, event._doc, {id: event.id});
             res.json(newEvent);
         })
