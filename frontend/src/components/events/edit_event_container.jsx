@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CreateEvent from './create_event_form';
-import { getEvent, updateEvent, } from '../../actions/event_actions'
+import { getEvent, updateEvent, } from '../../actions/event_actions';
+import { fetchEventReservations } from "../../actions/reservation_actions";
 
 class EditEvent extends React.Component{
     constructor(props){
@@ -38,7 +39,8 @@ class EditEvent extends React.Component{
                 email: this.props.event.email,
                 private: true,
                 image_url: this.props.event.image_url
-            }));
+            }))
+            .then(() => this.props.fetchEventReservations(this.props.event.id));
     }
 
     render(){
@@ -47,6 +49,7 @@ class EditEvent extends React.Component{
         }
 
         let edit;
+        let reservations=this.props.reservations.event;
 
         if(this.props.event.user === this.props.session.user.id){
             edit = ( 
@@ -55,7 +58,9 @@ class EditEvent extends React.Component{
                     updateEvent={this.props.updateEvent}
                     formType={this.props.formType}
                     event={this.props.event}
-                    getEvent={this.props.getEvent}/>
+                    getEvent={this.props.getEvent}
+                    reservations={reservations}    
+                />
                 </div>
             )
         } else {
@@ -74,16 +79,18 @@ class EditEvent extends React.Component{
 }
 
 const mSTP = (state, ownProps) => {
-    return{
-    event: state.events.new,
-    formType: "Edit Event",
-    session: state.session
-    }
+    return {
+      event: state.events.new,
+      formType: "Edit Event",
+      session: state.session,
+      reservations: state.reservations
+    };
 };
 
 const mDTP = dispatch => ({
-    getEvent: id => dispatch(getEvent(id)),
-    updateEvent: (event) => dispatch(updateEvent(event))
+  getEvent: id => dispatch(getEvent(id)),
+  updateEvent: event => dispatch(updateEvent(event)),
+  fetchEventReservations: id => dispatch(fetchEventReservations(id))
 });
 
 export default connect(mSTP, mDTP)(EditEvent)

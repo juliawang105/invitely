@@ -169,16 +169,19 @@ class CreateEvent extends React.Component {
           Update Event
         </button>
       );
-      emails = this.props.event.guest_emails.map((email, i) => {
-        let format = (
-          <div className="each-email">
-            <ul>
-              <li key={i}>{email}</li>
-            </ul>
-          </div>
-        );
-        return format;
-      });
+      let reservations = this.props.reservations;
+      if (reservations.length !== 0) {
+        emails = reservations.map((reservation, i) => {
+          let format = (
+            <div className="each-email">
+              <ul>
+                <li key={i}>{reservation.email}</li>
+              </ul>
+            </div>
+          );
+          return format;
+        });
+      }
       guestListHeader = <h2 className="guest-list-header">Guest List</h2>;
       header = <h1 className="form-head">Update your event</h1>;
     };
