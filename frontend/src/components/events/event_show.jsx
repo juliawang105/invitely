@@ -18,13 +18,14 @@ class EventShow extends React.Component{
     }
 
     componentDidMount(){
+      this.props.fetchEventPosts(this.props.match.params.id)
+      
       let navbar = document.querySelector(".nav-bar");
       if (navbar) {
         navbar.className += " orange";
       }
 
-        this.props.getEvent(this.props.match.params.id);
-        this.props.fetchEventPosts(this.props.match.params.id)
+      this.props.getEvent(this.props.match.params.id);
     }
 
     changePage(type) {
