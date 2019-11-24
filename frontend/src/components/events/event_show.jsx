@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Switch, Route, Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
+import EventMap from "../posts/event_map";
 
 class EventShow extends React.Component{
     constructor(props){
@@ -49,26 +50,34 @@ class EventShow extends React.Component{
         if (this.props.event.new.user === this.props.session.user.id) {
               editLink = (
                 <div className="sidebar-nav-label">
-                  <Link to={`/events/${this.props.event.new.id}/edit`}> Edit </Link>
+                  <Link to={`/events/${this.props.event.new.id}/edit`}> Edit Event </Link>
                 </div>
                 );
             };
+
+        let hosted;
+        if (event.host) {
+          hosted = (
+            <div className="event-info-item">Hosted by: {event.host}</div>
+          );
+        } 
+
+        let eventImage;
+        if (event.image_url) {
+          eventImage = (
+            <div className="event-image-item">
+              <div className="event-image-box">
+                <img src={event.image_url} alt="event-image" className="event-image"/>
+              </div>
+            </div>
+          );
+        }
 
         return (
           <div className="event-show-box">
             <div className="nav-color"></div>
 
             <div className="event-show">
-
-
-
-
-
-
-
-
-
-
               <div className="sidebar-wrapper">
                 <div className="sidebar">
                   <div className="sidebar-title">Navigation</div>
@@ -79,7 +88,7 @@ class EventShow extends React.Component{
                         className="sidebar-nav-label"
                         value="home"
                       >
-                        Info
+                        Discussion
                       </div>
                     </div>
 
@@ -94,53 +103,47 @@ class EventShow extends React.Component{
                     </div>
 
                     <div className="sidebar-nav">{editLink}</div>
-
                   </div>
                 </div>
               </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <div className="event-page">
 
+                <div className="event-main-show">
+                  {eventImage}
+                  <div className="event-info">
+                    <div className="event-name-item">{event.name}</div>
 
-                <div className="event-info">
-                  <div>{event.name}</div>
-                  <div>{event.body}</div>
-                  <div>Where: {event.location}</div>
-                  <div>When: {event.time}</div>
-                  <div>Hosted by: {event.host} </div>
+                    <div className="event-info-item">
+                      <i className="fas fa-map-marker-alt event-icon"></i>{" "}
+                      {event.location}
+                    </div>
+
+                    <div className="event-info-item">
+                      <i className="far fa-clock event-icon"></i>
+                      {event.time}
+                    </div>
+                    <div className="event-info-item event-body">{event.body}</div>
+                    <div className="event-info-item">{hosted}</div>
+
+                    <div className="map-box">
+                      <EventMap event={event}  className="map"/>
+                    </div>
+                  </div>
                 </div>
 
-                {body}
 
 
 
-                
+
+
+
+                <div className="event-more">{body}</div>
+
+
+
+
               </div>
-
-
-
-
-
-
             </div>
           </div>
         );

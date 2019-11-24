@@ -1,7 +1,6 @@
 import React from "react";
 import PostItem from "./post_item";
 import * as PostsCss from "./posts.css";
-import EventMap from './event_map';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -72,9 +71,8 @@ class Posts extends React.Component {
               return <PostItem post={post} key={post._id} />;
             })}
           </ul>
-            <div>
-              <EventMap event={event}/>
-            </div>
+            
+
           <form onSubmit={this.handleSubmit}>
             <textarea
               cols="30"

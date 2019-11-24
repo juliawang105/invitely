@@ -21,8 +21,6 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      {/* MODIFY change to user show component */}
-      {/* <ProtectedRoute exact path="/users/:id" component={CreateEventContainer}/> */}
       <ProtectedRoute exact path="/users/:id" component={UserShowContainer} /> 
       <ProtectedRoute exact path="/events" component={CreateEventContainer}/>
       <ProtectedRoute exact path = "/events/:id" component={EventShowContainer} />

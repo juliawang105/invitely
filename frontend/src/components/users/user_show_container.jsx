@@ -14,9 +14,10 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
-  fetchUserReservations: id => dispatch(fetchUserReservations(id)),
+  fetchUserReservations: email => dispatch(fetchUserReservations(email)),
   fetchUserEvents: id => dispatch(fetchUserEvents(id)),
-  getEvent: id => dispatch(getEvent(id))
+  getEvent: id => dispatch(getEvent(id)),
+  // getReservationEvent: id => dispatch(getReservationEvent(id))
 });
 
 

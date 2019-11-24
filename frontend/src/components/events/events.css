@@ -13,7 +13,6 @@ body:hover {
     background-color: rgb(29, 23, 21);
     position: fixed;
     top: 10;
-    /* z-index: 99; */
     color: white;
     position: fixed;
     width: 100%;
@@ -41,8 +40,6 @@ body:hover {
     z-index: 50;
     padding-top: 30vh;
 
-    /* display: inline-block;
-    vertical-align: middle; */
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -64,7 +61,7 @@ body:hover {
 }
 
 
-/* <i className="fas fa-chevron-right"></i> */
+
 
 .sidebar-title {
     font-size: 2vw;
@@ -83,11 +80,11 @@ body:hover {
 
 
 .sidebar-nav {
-    border-top: 1px solid rgb(29, 23, 21);
+    border-top: 1px solid rgba(29, 23, 21, 0.3);
 
     font-size: 1vw;
     text-align: center;
-    width: 10vw;
+    width: 9vw;
     padding: 1vw;
 } 
 
@@ -120,20 +117,131 @@ body:hover {
 
 
 .event-page {
+    border: 1px solid green;
     padding-top: 45px;
     padding-left: 16vw;
-    border: 1px solid green;
+    min-height: max-content;
     height: fit-content;
 
-
-}
-
-.event-info{
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-bottom: 30px;
+    line-height: 1.5;
+
+    
+
 }
+
+
+.event-main-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-image-item {
+    width: 100%;
+}
+
+.event-image-box {
+    width: 96%;
+    padding: 2%;
+}
+
+.event-image {
+    width: 100%;
+    max-height: 30vh;
+    object-fit: cover;
+}
+
+.event-info {
+    
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    /* justify-content: space-around; */
+    padding: 0.5vw 2vw;
+    font-size: 1.8vw;
+    /* position: sticky;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 45; */
+
+
+
+    max-height: 500px;
+    /* height: 66px; */
+    /* width: 66px; */
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    transition: 600ms ease;
+    border: none;
+}
+
+.event-name-item {
+    font-size: 5vw;
+}
+
+.event-icon {
+    /* width: 30px; */
+    padding-right: 0.6em;
+}
+
+.event-info-item {
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.event-info-item.event-body {
+    font-size: 1.2vw;
+}
+
+.map-box {
+    width: 38vw;
+    z-index: -10000000;
+    /* position: sticky; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #create-form{
     padding-top: 45px;

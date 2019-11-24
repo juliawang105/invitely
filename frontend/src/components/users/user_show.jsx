@@ -29,10 +29,10 @@ class Users extends React.Component {
           let reservations = res.reservations.data;
           // console.log(reservations)
           for (let i = 0; i < reservations.length; i++) {
-            this.props.getEvent(reservations[i].event)
+            this.props.getEvent(reservations[i].event);
           }
-        })
-    }).then(() => this.setState({ loaded: true }));;
+        });
+    }).then(() => this.setState({ loaded: true }));
   }
 
   update() {
@@ -51,11 +51,19 @@ class Users extends React.Component {
     let user = this.props.user;
     let hostedEvents = this.props.events.all;
     let inviteEvents = this.props.events.user;
+    // let reservations = this.props.reservations.all;
+    // console.log('====================================');
+    // console.log(this.props); 
+    // console.log(reservations);
+    // console.log('====================================');
     
 
     return (
-      <div className="reservations">
-        {/* <div>
+      <div className="user-show-box">
+
+
+        {/* <h1>Invited Events</h1>
+        <div>
           {reservations.map(reservation => {
             return (
               <ReservationItem
@@ -64,29 +72,33 @@ class Users extends React.Component {
                 user={user}
                 event={events[0]}
               />
-              // <div>{reservation.event}</div>
+              <div>{reservation.event}</div>
             );
           })}
         </div> */}
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+
+
+
+        <br />
+        <br />
+        <br />
+        <br />
 
         <h1>Hosted Events</h1>
         <div>
           {hostedEvents.map(event => {
             return (
-              <div key={event._id}><Link to={`/events/${event._id}`}>{event.name}</Link>
-                <div>Description: {event.body}</div> 
-                <br/>
+              <div key={event._id}>
+                <Link to={`/events/${event._id}`}>{event.name}</Link>
+                <div>Description: {event.body}</div>
+                <br />
                 <div>Where: {event.location}</div>
-                <br/>
+                <br />
                 <div>When:{event.time}</div>
-                <br/>
+                <br />
                 <br />
               </div>
-              
             );
           })}
         </div>
