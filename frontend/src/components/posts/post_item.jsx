@@ -11,7 +11,7 @@ class PostItem extends React.Component {
       <div>
         {date}
         <br/>
-        {this.props.post.authorFirst} {this.props.post.authorLast[0]}.: {this.props.post.body}
+        {this.props.post.authorFirst} {this.props.post.authorLast}: {this.props.post.body}
         <br/>
         <br/>
         
