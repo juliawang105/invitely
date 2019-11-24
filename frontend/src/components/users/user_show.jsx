@@ -19,15 +19,12 @@ class Users extends React.Component {
       if (navbar) {
         navbar.className += " orange";
       }
-  
 
-    console.log(this.props);
     this.props.fetchUserEvents(this.props.user.id)
     .then(() => {
       this.props.fetchUserReservations(this.props.user.email)
         .then((res) => {
           let reservations = res.reservations.data;
-          // console.log(reservations)
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event);
           }
@@ -35,8 +32,7 @@ class Users extends React.Component {
     }).then(() => this.setState({ loaded: true }));
   }
 
-  update() {
-  }
+ 
 
   handleSubmit(e) {
     e.preventDefault();
@@ -46,78 +42,85 @@ class Users extends React.Component {
     if (!this.state.loaded) {
       return null;
     }
-    // debugger
-    // let reservations = this.props.reservations.all;
+    
     let user = this.props.user;
     let hostedEvents = this.props.events.all;
     let inviteEvents = this.props.events.user;
-    // let reservations = this.props.reservations.all;
-    // console.log('====================================');
-    // console.log(this.props); 
-    // console.log(reservations);
-    // console.log('====================================');
-    
 
     return (
-      <div className="user-show-box">
+      <div className="user-show">
+        <div className="user-show-box">
 
+          <div className="invite-host">
+            <h1>Invited Events</h1>
+            {inviteEvents.map(event => {
+              return (
+                
+                <div className="user-event" key={event._id}>
+                <Link to={`/events/${event._id}`}>
+                  <div className="user-event-details" >
+                    <div className="text">
+                        <div className="text-title"> 
+                          <h3>Event</h3>
+                        </div>
+                        <div className="text-info">{event.name}</div>
+                    </div>
+                    
+                    <div className="text">
+                        <div className="text-title">
+                          Where
+                        </div>
+                        <div className="text-info">{event.location}</div>
+                    </div>
 
-        {/* <h1>Invited Events</h1>
-        <div>
-          {reservations.map(reservation => {
-            return (
-              <ReservationItem
-                reservation={reservation}
-                key={reservation._id}
-                user={user}
-                event={events[0]}
-              />
-              <div>{reservation.event}</div>
-            );
-          })}
-        </div> */}
+                    <div className="text">
+                        <div className="text-title">
+                          When
+                        </div>
+                      <div className="text-info">{event.time}</div>
+                    </div>
+                   
+                  </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          
+          <div className="invite-host">
+            <h1>Hosted Events</h1>
+            {hostedEvents.map(event => {
+              return (
 
+                <div className="user-event" key={event._id + 1}>
+                  <Link to={`/events/${event._id}`}>
+                    <div className="user-event-details" >
+                      <div className="text">
+                        <div className="text-title">
+                          Event
+                        </div>
+                        <div className="text-info">{event.name}</div>
+                      </div>
 
+                      <div className="text">
+                        <div className="text-title">
+                          Where
+                        </div>
+                        <div className="text-info">{event.location}</div>
+                      </div>
 
-
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <h1>Hosted Events</h1>
-        <div>
-          {hostedEvents.map(event => {
-            return (
-              <div key={event._id}>
-                <Link to={`/events/${event._id}`}>{event.name}</Link>
-                <div>Description: {event.body}</div>
-                <br />
-                <div>Where: {event.location}</div>
-                <br />
-                <div>When:{event.time}</div>
-                <br />
-                <br />
-              </div>
-            );
-          })}
-        </div>
-
-        <h1>Invited Events</h1>
-        <div>
-          {inviteEvents.map(event => {
-            return (
-              <div key={event._id}><Link to={`/events/${event._id}`}>{event.name}</Link>
-                <div>Description: {event.body}</div>
-                <br />
-                <div>Where: {event.location}</div>
-                <br />
-                <div>When:{event.time}</div>
-                <br />
-                <br />
-              </div>
-            );
-          })}
+                      <div className="text">
+                        <div className="text-title">
+                          When
+                        </div>
+                        <div className="text-info">{event.time}</div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
