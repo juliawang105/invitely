@@ -75,8 +75,7 @@ class Posts extends React.Component {
 
           <form onSubmit={this.handleSubmit}>
             <textarea
-              cols="30"
-              rows="5"
+
               value={this.state.post.body}
               onChange={this.update()}
             ></textarea>
