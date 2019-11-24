@@ -18,6 +18,7 @@ class EventShow extends React.Component{
     }
 
     componentDidMount(){
+      // debugger
       this.props.fetchEventPosts(this.props.match.params.id)
       
       let navbar = document.querySelector(".nav-bar");
@@ -35,10 +36,11 @@ class EventShow extends React.Component{
     render(){
        
         let event = this.props.event.new;
-        if (!event){
-
+        let posts = this.props.posts
+        if (!event || !posts){
             return null;
         }
+
         let body
         if (this.state.showing === "home") {
           body = <PostsContainer />

@@ -47,6 +47,8 @@ class Users extends React.Component {
     let hostedEvents = this.props.events.all;
     let inviteEvents = this.props.events.user;
 
+    debugger
+
     return (
       <div className="user-show">
         <div className="user-show-box">

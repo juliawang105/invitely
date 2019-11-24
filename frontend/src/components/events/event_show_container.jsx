@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => {
     // debugger
     return {
       event: state.events,
-      session: state.session
+      session: state.session,
+      posts: state.posts,
     //   [ownProps.match.params.id]
     };
     
