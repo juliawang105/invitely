@@ -1,23 +1,23 @@
 .user-show {
   display: flex;
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   justify-content: center;
 }
 
 .user-show-box{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   padding-top: 50px;
   display: flex;
   justify-content: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  /* padding-left: 40px;
+  padding-right: 40px; */
 }
 
 .invite-host{
  height: 100vh;
- width: 50vw;
+ min-width: 35vw;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -26,7 +26,7 @@
 .user-event{
   display: flex;
   justify-content: center;
-  width: 100vw
+  /* width: 100vw */
 }
 
 .user-event-details{
@@ -34,6 +34,8 @@
   text-align: center;
   padding-top: 15px;
   margin: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -60,15 +62,16 @@
   font-size: 14pt;
   display: flex;
   align-items: initial;
-  justify-content: center;
+  justify-content: flex-end;
+  word-break: break-all
 }
 
 .text-title{
   margin: 10px;
   margin-right: 5px;
-  width: 5vw;
+  width: 7vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: start;
   font-weight: bold;
 }
@@ -81,11 +84,12 @@
 
 .text-info{
   margin: 10px;
-  width: 10vw;
+  width: 20vw;
+  padding-right: 15px;
   display: flex;
   justify-content: flex-start;
   text-align: start;
-  overflow-wrap: break-word;
+  
 }
 
 .user-event a{

@@ -21,8 +21,8 @@
 .nav-title {
   font-size: 24px;
   transition: 300ms ease;
-  margin: 10px 30px;
-  min-width: 350px;
+  /* padding: 10px 30px; */
+  min-width: 30vw;
 }
 .nav-title:hover {
   opacity: 0.8;
@@ -30,7 +30,7 @@
 }
 
 .nav-links {
-  margin: 10px 30px;
+  /* padding: 10px 30px; */
   min-width: 70vw;
   height: 100%;
   display: flex;
@@ -39,7 +39,6 @@
 }
 
 .nav-bar a {
-    height: 20px;
     color: white;
     text-decoration: none;
 }

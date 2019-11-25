@@ -34,7 +34,7 @@ class NavBar extends React.Component {
             Create Event
           </Link>
           <span className="italic">
-            Welcome, {session.user.firstName}! 
+            Welcome, {session.user.firstName} 
             {/* {session.user.lastName}!  */}
             {/* (Email: {session.user.email}) */}
           </span>

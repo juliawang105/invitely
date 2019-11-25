@@ -47,6 +47,10 @@ class Users extends React.Component {
     let hostedEvents = this.props.events.all;
     let inviteEvents = this.props.events.user;
 
+    // debugger
+
+    
+
     return (
       <div className="user-show">
         <div className="user-show-box">
@@ -55,32 +59,29 @@ class Users extends React.Component {
             <h1>Invited Events</h1>
             {inviteEvents.map(event => {
               return (
-                
                 <div className="user-event" key={event._id}>
-                <Link to={`/events/${event._id}`}>
-                  <div className="user-event-details" >
-                    <div className="text">
-                        <div className="text-title"> 
+                  <Link to={`/events/${event._id}`}>
+                    <div className="user-event-details">
+                      <div className="text">
+                        <div className="text-title">
                           <h3>Event</h3>
                         </div>
                         <div className="text-info">{event.name}</div>
-                    </div>
-                    
-                    <div className="text">
-                        <div className="text-title">
-                          Where
-                        </div>
-                        <div className="text-info">{event.location}</div>
-                    </div>
+                      </div>
 
-                    <div className="text">
-                        <div className="text-title">
-                          When
+                      <div className="text">
+                        <div className="text-title">Where</div>
+                        <div className="text-info">{event.location}</div>
+                      </div>
+
+                      <div className="text">
+                        <div className="text-title">When</div>
+                        <div className="text-info">
+                          {new Date(event.time).toDateString()}{" "}
+                          {new Date(event.time).toLocaleTimeString()}
                         </div>
-                      <div className="text-info">{event.time}</div>
+                      </div>
                     </div>
-                   
-                  </div>
                   </Link>
                 </div>
               );
@@ -91,29 +92,25 @@ class Users extends React.Component {
             <h1>Hosted Events</h1>
             {hostedEvents.map(event => {
               return (
-
                 <div className="user-event" key={event._id + 1}>
                   <Link to={`/events/${event._id}`}>
-                    <div className="user-event-details" >
+                    <div className="user-event-details">
                       <div className="text">
-                        <div className="text-title">
-                          Event
-                        </div>
+                        <div className="text-title">Event</div>
                         <div className="text-info">{event.name}</div>
                       </div>
 
                       <div className="text">
-                        <div className="text-title">
-                          Where
-                        </div>
+                        <div className="text-title">Where</div>
                         <div className="text-info">{event.location}</div>
                       </div>
 
                       <div className="text">
-                        <div className="text-title">
-                          When
+                        <div className="text-title">When</div>
+                        <div className="text-info">
+                          {new Date(event.time).toDateString()}{" "}
+                          {new Date(event.time).toLocaleTimeString()}
                         </div>
-                        <div className="text-info">{event.time}</div>
                       </div>
                     </div>
                   </Link>
