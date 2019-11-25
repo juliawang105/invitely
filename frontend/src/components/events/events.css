@@ -255,6 +255,11 @@ body:hover {
     z-index: -1000;
 }
 
+.white {
+    color: rgba(0, 0, 0, 0)
+}
+
+
 
 
 

@@ -93,9 +93,12 @@ class EventShow extends React.Component{
         const parseEndTime = new Date(event.end_time).toISOString().replace(/-|:|\.\d\d\d/g, "");
 
         let date = new Date(event.time).toDateString();
-        let time = new Date(event.time).toLocaleTimeString();
+        let time = new Date(event.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         let end = new Date(event.end_time);
-        let endTime = end.toDateString() + " " + end.toLocaleTimeString();
+        let endTime =
+          end.toDateString() +
+          " " +
+          end.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         return (
           <div className="event-show-box">
             <div className="nav-color"></div>
@@ -152,9 +155,9 @@ class EventShow extends React.Component{
                           href={`https://calendar.google.com/calendar/r/eventedit?text=${parseString(event.name)}&dates=${parseTime}/${parseEndTime}&details=${parseString(event.body)}&location=${parseString(event.location)}&trp=true`}
                         >
                           <i className="far fa-clock event-icon"></i>
-                          {date} {time}
+                          <span className="times">{date} {time} - 
                           <br/>
-                          To: {endTime}
+                          <i className="far fa-clock event-icon white"></i>{endTime}</span>
                         </a>
                       </div>
 

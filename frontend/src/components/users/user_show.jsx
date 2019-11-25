@@ -84,7 +84,7 @@ class Users extends React.Component {
                         <div className="text-title">When</div>
                         <div className="text-info">
                           {new Date(event.time).toDateString()}{" "}
-                          {new Date(event.time).toLocaleTimeString()}
+                          {new Date(event.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                         </div>
                       </div>
                     </div>
@@ -115,7 +115,7 @@ class Users extends React.Component {
                         <div className="text-title">When</div>
                         <div className="text-info">
                           {new Date(event.time).toDateString()}{" "}
-                          {new Date(event.time).toLocaleTimeString()}
+                          {new Date(event.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                         </div>
                       </div>
                     </div>
