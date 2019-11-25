@@ -138,7 +138,7 @@ class EventShow extends React.Component{
                   {eventImage}
                   <div className="event-info">
                     <div className="event-text">
-                      <div className="event-name-item">{event.name}</div>
+                      <div className="event-name-item bold">{event.name}</div>
 
                       <div className="event-info-item">
                         <a

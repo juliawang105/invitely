@@ -25,7 +25,7 @@ class ReservationItem extends React.Component {
   // }
 
   changeStatus(e) {
-    this.setState({ status: e.target.value});
+    this.setState({ status: e.target.value });
   }
 
   handleSubmit(e) {
@@ -33,8 +33,9 @@ class ReservationItem extends React.Component {
 
     const reservation  = this.state;
 
-    this.props.reviseReservation(reservation)
-      .then((res) => console.log(res))
+    this.props
+      .reviseReservation(reservation)
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
@@ -56,6 +57,7 @@ class ReservationItem extends React.Component {
               name="status"
               defaultValue={this.state.status}
               onChange={this.changeStatus}
+              className="status-select"
             >
               <option disabled value="invited">
                 Invited
@@ -64,13 +66,13 @@ class ReservationItem extends React.Component {
               <option value="maybe">Maybe</option>
               <option value="declined">Decline</option>
             </select>
-            <input type="submit" value="Change Status"/>
+            <input type="submit" value="RSVP" className="rsvp-button"/>
           </form>
         </div>
       );
     } else {
       status = (
-        <div>
+        <div className="status">
           {reservation.status}
         </div>
       )
@@ -78,19 +80,26 @@ class ReservationItem extends React.Component {
     let removeRes;
     if (reservation.email === user.email || user.id === event.user) {
       removeRes = (
-        <div>
-          <button onClick={() => this.props.delete(reservation._id)}>Delete Reservation</button>
+
+        <div onClick={() => this.props.delete(reservation._id)} className="x">
+          <i className="fas fa-times"></i>
         </div>
-      )
+   
+      );
     } 
-    return(
-      <div>
-        {reservation.email}
-        <br/>
-        {status}
-        {removeRes}
+    return (
+      <div className="reservation-item">
+        <div className="reservation-item-info">
+          <div className="reservation-email-status">
+            <div className="bold"> {reservation.email}</div>
+            <div className="italic">{status}</div>
+
+          </div>
+
+          {removeRes}
+        </div>
       </div>
-    )
+    );
   }
 }
 

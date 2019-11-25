@@ -10,7 +10,6 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid red; */
   width: 37vw;
 }
 
@@ -29,7 +28,6 @@
 
 .post-item {
   width: 100%;
-  /* border: 1px solid gold; */
 }
 
 .post-time-info {
@@ -50,6 +48,37 @@
 
 .bold {
   font-weight: bold;
+}
+
+.post-form {
+  margin: 1vw;
+  width: 28vw;
+  min-height: 10vw;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.post-text-box {
+  border-radius: 1.5vw 1.5vw 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 1vw;
+}
+
+.post-button {
+  height: 2.5vw;
+  border-radius: 0 0 1.5vw 1.5vw;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+  transition: 300ms ease;
+}
+
+.post-button:hover {
+  transition: 300ms ease;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: black;
 }
 
 

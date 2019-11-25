@@ -67,7 +67,7 @@ class Posts extends React.Component {
     return (
     
       <div className="posts">
-        <h2 className="posts-title">Discussion</h2>
+        <h2 className="posts-title bold">Discussion</h2>
         
         <ul className="posts-list">
           {posts.map(post => {
@@ -76,14 +76,15 @@ class Posts extends React.Component {
         </ul>
           
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="post-form">
           <textarea
-
+            rows="3"
             value={this.state.post.body}
             onChange={this.update()}
+            className="post-text-box"
+            placeholder="Write a message here"
           ></textarea>
-          <br/>
-          <input type="submit" value="Post!" />
+          <input type="submit" value="Send Reply" className="post-button bold"/>
         </form>
   
       </div>
