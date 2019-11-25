@@ -20,6 +20,7 @@ class CreateEvent extends React.Component {
     this.cannotSubmitMessage = "";
   }
 
+  
   update(field) {
     return e => {
         this.setState({ [field]: e.target.value})    
