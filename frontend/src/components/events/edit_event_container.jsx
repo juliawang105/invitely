@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CreateEvent from './create_event_form';
 import { getEvent, updateEvent, } from '../../actions/event_actions';
 import { fetchEventReservations } from "../../actions/reservation_actions";
+import "./edit_event.scss";
 
 class EditEvent extends React.Component{
     constructor(props){
@@ -73,7 +74,9 @@ class EditEvent extends React.Component{
         }
         return (
             <div>
-                <Link to={`api/events/${this.props.event.id}`}>Go Back</Link>
+                <div className="back-button">
+                    <Link to={`/events/${this.props.event.id}`}>Go Back</Link>
+                </div>
                 {edit}
             </div>
         );

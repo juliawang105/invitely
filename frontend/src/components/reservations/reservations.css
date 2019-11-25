@@ -1,0 +1,154 @@
+
+
+.reservations {
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 37vw;
+}
+
+.reservations-title {
+  font-size: 2vw;
+  padding-top: 1vw;
+}
+
+
+
+
+.reservation-item {
+  margin: 1vw 1vw 0vw 1vw;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 1.5vw;
+  overflow-wrap: break-word;
+  width: 26vw;
+  padding: 1vw;
+}
+
+.reservation-item-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.italic {
+  font-style: italic;
+}
+
+
+.create-reservation-form {
+  margin: 1vw;
+  width: 28vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-text-box {
+  border-radius: 1.5vw 1.5vw 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 1vw;
+  color: gray;
+  transition: 500ms ease;
+}
+
+.reservation-text-box:focus {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: black;
+  transition: 500ms ease;
+}
+
+
+.reservation-button {
+  height: 2.5vw;
+  border-radius: 0 0 1.5vw 1.5vw;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+  transition: 300ms ease;
+}
+
+.reservation-button:hover {
+  transition: 300ms ease;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: black;
+}
+
+
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(1px) rotate(2deg);
+    transform: translateX(1px) rotate(2deg);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(-2deg);
+    transform: translateX(-1px) rotate(-2deg);
+  }
+}
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(1px) rotate(2deg);
+    transform: translateX(1px) rotate(2deg);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(-2deg);
+    transform: translateX(-1px) rotate(-2deg);
+  }
+}
+.x {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+}
+.x:hover, .x:focus, .x:active {
+  -webkit-animation-name: hvr-buzz;
+  animation-name: hvr-buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  color: rgb(250, 62, 62);
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+.status-select {
+  border-radius: 1vw;
+  color: black;
+  transition: 500ms ease;
+}
+
+.status-select:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 500ms ease;
+}
+
+.rsvp-button {
+  margin: 0.5vw;
+  border-radius: 1vw;
+  background-color: white;
+  width: 5vw;
+}
+
+.rsvp-button:hover {
+  transition: 300ms ease;
+  background-color: gray;
+  width: 8vw;
+}
+
+.rsvp-button:active, .rsvp-button:focus {
+  background-color: rgb(127, 187, 127);
+  color: black;
+  transition: 300ms ease;
+}
+
+
+

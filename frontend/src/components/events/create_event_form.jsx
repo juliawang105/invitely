@@ -16,6 +16,8 @@ class CreateEvent extends React.Component {
     this.autocompleteInput = React.createRef();
     this.autocomplete = null;
     this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
+    this.renderCannotSubmit = this.renderCannotSubmit.bind(this);
+    this.cannotSubmitMessage = "";
   }
 
   update(field) {
@@ -107,6 +109,16 @@ class CreateEvent extends React.Component {
     });
   };
 
+  renderCannotSubmit() {
+    this.cannotSubmitMessage = (
+      <div className="error">
+        <div className="error-text">
+          Event info is not complete
+        </div>
+      </div>
+    );
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -131,15 +143,21 @@ class CreateEvent extends React.Component {
             this.props.createReservation(reservation)   
             this.props.history.push(`/events/${res.event.data._id}`);
           };
-        }
-        )
+        })
+        .catch(err => {
+          this.renderCannotSubmit()
+          this.props.history.push(`/events`)
+        })
     } else {
-      this.props.updateEvent(this.state)
-        .then(
-          res => {
-            this.props.history.push(`/events/${res.event.data._id}`);
-          }
-        )
+      this.props
+        .updateEvent(this.state)
+        .then(res => {
+          this.props.history.push(`/events/${res.event.data._id}`);
+        })
+        .catch(err => {
+          this.renderCannotSubmit()
+          this.props.history.push(`/events/:id/edit`);
+        })
     };
   };
 
@@ -150,14 +168,35 @@ class CreateEvent extends React.Component {
     let guestListHeader;
     let header;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     if(this.props.formType === 'Create Event'){
-      button = <button className="event-submit" onClick={this.handleSubmit}>Create Event and Send Invites</button>;
+      button = (
+        <button
+          className="event-submit"
+          onClick={this.handleSubmit}
+        >
+          Create Event and Send Invites
+        </button>
+      );
       emails = this.state.guest_emails.map((email, i) => {
         let format = (
-          <div className="each-email">
-            <ul>
+          <div className="each-email" key={i}>
+            {email}
+            {/* <ul>
               <li key={i}>{email}</li>
-            </ul>
+            </ul> */}
           </div>
         );
         return format;
@@ -166,7 +205,10 @@ class CreateEvent extends React.Component {
       header = <h1 className="form-head">Create your event</h1>
     } else {
       button = (
-        <button className="event-submit" onClick={this.handleSubmit}>
+        <button
+          className="event-submit"
+          onClick={this.handleSubmit}
+        >
           Update Event
         </button>
       );
@@ -174,10 +216,11 @@ class CreateEvent extends React.Component {
       if (reservations.length !== 0) {
         emails = reservations.map((reservation, i) => {
           let format = (
-            <div className="each-email">
-              <ul>
+            <div className="each-email" key={i}>
+              {reservation.email}
+              {/* <ul>
                 <li key={i}>{reservation.email}</li>
-              </ul>
+              </ul> */}
             </div>
           );
           return format;
@@ -193,7 +236,7 @@ class CreateEvent extends React.Component {
           <input
             id="emailAddress"
             type="email"
-            required
+            // required
             pattern=".+@beststartupever.com"
             onChange={this.update("email")}
             value={this.state.email}
@@ -214,6 +257,7 @@ class CreateEvent extends React.Component {
                 type="text"
                 value={this.state.name}
                 placeholder="Event Name"
+                // required
               />
             </div>
             <div className="event-input">
@@ -223,7 +267,8 @@ class CreateEvent extends React.Component {
                 onChange={this.update("location")}
                 type="text"
                 value={this.state.location}
-                placeholder="Enter your address"
+                placeholder="Event address"
+                // required
               />
             </div>
             <div className="event-input">
@@ -232,6 +277,7 @@ class CreateEvent extends React.Component {
                 type="datetime-local"
                 value={this.state.time}
                 placeholder="Event Time"
+                // required
               />
             </div>
             <div className="event-input">
@@ -240,6 +286,7 @@ class CreateEvent extends React.Component {
                 type="datetime-local"
                 value={this.state.end_time}
                 placeholder="End Time"
+                // required
               />
             </div>
             <div className="event-input">
@@ -255,6 +302,7 @@ class CreateEvent extends React.Component {
                 cols="30"
                 rows="10"
                 maxLength="1000"
+           
               ></textarea>
             </div>
             <div className="event-input">
@@ -269,6 +317,7 @@ class CreateEvent extends React.Component {
             </div>
             {emailInput}
             {button}
+            {this.cannotSubmitMessage}
           </div>
 
           <div className="list">
@@ -280,5 +329,6 @@ class CreateEvent extends React.Component {
     );
   }
 };
+
 
 export default withRouter(CreateEvent);

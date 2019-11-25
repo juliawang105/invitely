@@ -67,24 +67,26 @@ class Posts extends React.Component {
     return (
     
       <div className="posts">
-        <div>
-          <ul>
-            {posts.map(post => {
-              return <PostItem post={post} key={post._id} />;
-            })}
-          </ul>
-            
+        <h2 className="posts-title bold">Discussion</h2>
+        
+        <ul className="posts-list">
+          {posts.map(post => {
+            return <PostItem post={post} key={post._id} className="post-item-box" />;
+          })}
+        </ul>
+          
 
-          <form onSubmit={this.handleSubmit}>
-            <textarea
-
-              value={this.state.post.body}
-              onChange={this.update()}
-            ></textarea>
-            <br/>
-            <input type="submit" value="Post!" />
-          </form>
-        </div>
+        <form onSubmit={this.handleSubmit} className="post-form">
+          <textarea
+            rows="3"
+            value={this.state.post.body}
+            onChange={this.update()}
+            className="post-text-box"
+            placeholder="Write a message here"
+          ></textarea>
+          <input type="submit" value="Send Reply" className="post-button bold"/>
+        </form>
+  
       </div>
     );
   }
