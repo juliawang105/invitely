@@ -101,7 +101,7 @@ class MainPage extends React.Component {
 
         <div className="main-fifth-section main-section final-section">
           <div className="text-box get-started">
-            <h2 className="sub-header join-title white">Join</h2>
+            <h2 className="sub-header join-title color-white">Join</h2>
             <div className="sub-tagline">Your next event starts here</div>
             <div className="get-started-links">
               <div className="button-box">

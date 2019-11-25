@@ -4,7 +4,6 @@ import EventShow from './event_show';
 import { fetchEventPosts } from '../../actions/post_actions';
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
       event: state.events,
       session: state.session,

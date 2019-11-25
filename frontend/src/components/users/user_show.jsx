@@ -52,8 +52,6 @@ class Users extends React.Component {
     });
 
 
-    console.log(hostedEvents);
-    // debugger
 
     
 

@@ -22,10 +22,6 @@ const receiveUserEvents = events => ({
     events
 });
 
-// const receiveUserReservationEvent = events => ({
-//     type: RECEIVE_USER_RESERVATION_EVENT,
-//     events
-// });
 
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
@@ -35,24 +31,15 @@ export const getEvents = () => dispatch =>
 export const getEvent = id => dispatch =>
     EventAPIUtil.getEvent(id)
         .then(event => {
-            dispatch(receiveEvent(event));
+            if (new Date(event.data.time) >= new Date()) {
+              dispatch(receiveEvent(event));
+            }
         })
         .catch(err => console.log(err));
 
 
 
 
-
-
-
-// -----------------------------------------------
-// export const getReservationEvent = id => dispatch =>
-//     EventAPIUtil.getEvent(id)
-//         .then(event => {
-//             dispatch(receiveUserReservationEvent(event));
-//         })
-//         .catch(err => console.log(err));
-// -----------------------------------------------
 
 
 

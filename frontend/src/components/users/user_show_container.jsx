@@ -5,7 +5,6 @@ import { fetchUserEvents, getEvent } from '../../actions/event_actions';
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     events: state.events,
     user: state.session.user,

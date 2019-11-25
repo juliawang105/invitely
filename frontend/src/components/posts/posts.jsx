@@ -61,9 +61,6 @@ class Posts extends React.Component {
 
     let posts = this.props.posts.all;
     let event = this.props.event.new;
-    // console.log(event);
-
-    // debugger
     return (
     
       <div className="posts">

@@ -20,8 +20,6 @@ export const fetchEventPosts = eventId => dispatch => {
 };
 
 export const createPost = data => dispatch => {
-  // console.log(data)
-  // debugger;
   return PostAPIUtil.createPost(data)
     .then(post => dispatch(receivePost(post)))
     .catch(err => console.log(err));

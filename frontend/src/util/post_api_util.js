@@ -5,7 +5,6 @@ export const fetchEventPosts = (eventId) => {
 };
 
 export const createPost = data => {
-  // debugger;
   return axios.post(`/api/posts/event/${data.event}`, data);
 };
 

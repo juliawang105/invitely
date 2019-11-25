@@ -20,7 +20,6 @@ class EventShow extends React.Component{
     }
 
     componentDidMount(){
-      // debugger
       this.props.fetchEventPosts(this.props.match.params.id)
         .then(() => this.setState({ loaded: true }));
       

@@ -19,14 +19,9 @@ const EventsReducer = (
         return newState;
 
       case RECEIVE_EVENT:
-        // debugger
         newState.new = action.event.data;
         newState.user.push(action.event.data);
         return newState;
-      //   case RECEIVE_USER_RESERVATION_EVENT:
-      //     newState.new = action.event.data;
-      //     newState.userReservation.push(action.event.data);
-      //     return newState;
       case RECEIVE_USER_LOGOUT:
         newState = { all: {}, user: [], new: undefined };
         return newState;
