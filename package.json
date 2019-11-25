@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start_old": "node app.js",
-    "server": "nodemon app.js",
+    "server": "node app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "start": "concurrently \"npm start\" \"npm run frontend\""
+    "start": "concurrently \"npm run server\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,6 @@
     "react-scripts": "^3.2.0",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
     "socket.io": "^2.3.0",
     "validator": "^12.0.0"
   },
