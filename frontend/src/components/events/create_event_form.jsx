@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
+
 const google = window.google = window.google ? window.google : {};
 
 class CreateEvent extends React.Component {
@@ -199,7 +200,6 @@ class CreateEvent extends React.Component {
         </div>
       );  
     } 
-    // debugger;
     return (
       <div id="event-form">
         {header}
@@ -229,6 +229,14 @@ class CreateEvent extends React.Component {
                 type="datetime-local"
                 value={this.state.time}
                 placeholder="Event Time"
+              />
+            </div>
+            <div className="event-input">
+              <input
+                onChange={this.update("end_time")}
+                type="datetime-local"
+                value={this.state.end_time}
+                placeholder="End Time"
               />
             </div>
             <div className="event-input">
