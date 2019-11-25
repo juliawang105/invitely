@@ -6,18 +6,16 @@
 }
 
 .user-show-box{
-  /* width: 100%; */
   height: 100%;
   padding-top: 50px;
   display: flex;
   justify-content: center;
-  /* padding-left: 40px;
-  padding-right: 40px; */
+
 }
 
 .invite-host{
  height: 100vh;
- min-width: 35vw;
+ min-width: 40vw;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -26,11 +24,10 @@
 .user-event{
   display: flex;
   justify-content: center;
-  /* width: 100vw */
 }
 
 .user-event-details{
-  width: 40vw;
+  /* width: 40vw; */
   text-align: center;
   padding-top: 15px;
   margin: 10px;
