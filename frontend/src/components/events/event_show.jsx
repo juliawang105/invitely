@@ -6,6 +6,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
 import EventMap from "../posts/event_map";
+import { parse } from 'path';
 
 class EventShow extends React.Component{
     constructor(props){
@@ -80,9 +81,16 @@ class EventShow extends React.Component{
 
 
 
-        const parseAddress = (address) => {
-          return address.split(" ").join("+");
+        const parseString = (string) => {
+          return string.split(" ").join("+");
         }
+
+
+
+        const parseTime = new Date(event.time).toISOString().replace(/-|:|\.\d\d\d/g, "");
+
+        let date = new Date(event.time).toDateString();
+        let time = new Date(event.time).toLocaleTimeString();
 
         return (
           <div className="event-show-box">
@@ -122,16 +130,12 @@ class EventShow extends React.Component{
                 <div className="event-main-show">
                   {eventImage}
                   <div className="event-info">
-
-
-
-
                     <div className="event-text">
                       <div className="event-name-item">{event.name}</div>
 
                       <div className="event-info-item">
                         <a
-                          href={`https://www.google.com/maps/dir//${parseAddress(
+                          href={`https://www.google.com/maps/dir//${parseString(
                             event.location
                           )}`}
                         >
@@ -140,16 +144,11 @@ class EventShow extends React.Component{
                         </a>
                       </div>
                       <div className="event-info-item">
-                        {/* fix time  */}
                         <a
-                          href={`http://www.google.com/calendar/event?action=TEMPLATE&
-                          dates=${event.time}
-                          &text=${event.name}
-                          &location=${event.location}
-                          &details=${event.body}`}
+                          href={`https://calendar.google.com/calendar/r/eventedit?text=${parseString(event.name)}&dates=${parseTime}/${parseTime}&details=${parseString(event.body)}&location=${parseString(event.location)}&trp=true`}
                         >
                           <i className="far fa-clock event-icon"></i>
-                          {event.time}
+                          {date} {time}
                         </a>
                       </div>
 
@@ -159,19 +158,11 @@ class EventShow extends React.Component{
                       <div className="event-info-item hosted">{hosted}</div>
                     </div>
 
-
-
-
-
-
-
-
-
                     <div className="map-box">
                       <EventMap event={event} className="map" />
                       <div className="event-info-item">
                         <a
-                          href={`https://www.google.com/maps/dir//${parseAddress(
+                          href={`https://www.google.com/maps/dir//${parseString(
                             event.location
                           )}`}
                         >
@@ -179,13 +170,6 @@ class EventShow extends React.Component{
                         </a>
                       </div>
                     </div>
-
-
-
-
-
-
-                    
                   </div>
                 </div>
 
