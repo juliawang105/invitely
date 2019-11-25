@@ -62,8 +62,16 @@
 .post-text-box {
   border-radius: 1.5vw 1.5vw 0 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.03);
   padding: 1vw;
+  color: gray;
+  transition: 500ms ease;
+}
+
+.post-text-box:focus {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: black;
+  transition: 500ms ease;
 }
 
 .post-button {

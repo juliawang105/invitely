@@ -68,6 +68,7 @@ class Reservations extends React.Component {
               value={this.state.reservation.email}
               onChange={this.handleInput()}
               className="reservation-text-box"
+              placeholder="Add guest email"
             />
             <input type="submit" value="Add Guest" className="reservation-button" />
           </form>
