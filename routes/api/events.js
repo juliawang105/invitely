@@ -70,6 +70,7 @@ router.post("/", //create post
             guest_emails: req.body.guest_emails,
             location: req.body.location,
             time: req.body.time,
+            end_time: req.body.end_time,
             body: req.body.body,
             host: req.body.host,
             image_url: req.body.image_url

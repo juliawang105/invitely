@@ -26,6 +26,11 @@ module.exports = function validateEventInput(data){
         errors.time = "Add a time and date for your event!";
     };
     
+
+    if (Validator.isEmpty(data.end_time)) {
+        errors.time = "Add an end time and date for your event!";
+    };
+    
     
     data.location = validText(data.location)? data.location : "";
     if(Validator.isEmpty(data.location)){

@@ -90,10 +90,12 @@ class EventShow extends React.Component{
 
 
         const parseTime = new Date(event.time).toISOString().replace(/-|:|\.\d\d\d/g, "");
+        const parseEndTime = new Date(event.end_time).toISOString().replace(/-|:|\.\d\d\d/g, "");
 
         let date = new Date(event.time).toDateString();
         let time = new Date(event.time).toLocaleTimeString();
-
+        let end = new Date(event.end_time);
+        let endTime = end.toDateString() + " " + end.toLocaleTimeString();
         return (
           <div className="event-show-box">
             <div className="nav-color"></div>
@@ -147,10 +149,12 @@ class EventShow extends React.Component{
                       </div>
                       <div className="event-info-item">
                         <a
-                          href={`https://calendar.google.com/calendar/r/eventedit?text=${parseString(event.name)}&dates=${parseTime}/${parseTime}&details=${parseString(event.body)}&location=${parseString(event.location)}&trp=true`}
+                          href={`https://calendar.google.com/calendar/r/eventedit?text=${parseString(event.name)}&dates=${parseTime}/${parseEndTime}&details=${parseString(event.body)}&location=${parseString(event.location)}&trp=true`}
                         >
                           <i className="far fa-clock event-icon"></i>
                           {date} {time}
+                          <br/>
+                          To: {endTime}
                         </a>
                       </div>
 
