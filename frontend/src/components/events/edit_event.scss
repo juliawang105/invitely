@@ -5,4 +5,10 @@
 
 .back-button a {
   text-decoration: none; 
+  color: black;
+  transition: 300ms ease;
+}
+.back-button a:hover {
+  opacity: 0.5;
+  transition: 300ms ease;
 }
