@@ -9,7 +9,7 @@ const PostsReducer = (
       let newState = Object.assign({}, state);
       switch(action.type) {
         case RECEIVE_EVENT_POSTS: 
-          newState.all = action.posts.data
+          newState.all = action.posts.data;
           return newState;
         case RECEIVE_POST:
           newState.all.push(action.post.data);

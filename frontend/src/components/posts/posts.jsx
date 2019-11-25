@@ -25,9 +25,11 @@ class Posts extends React.Component {
 
     let event = this.props.event.new;
     
-    this.props
-      .fetchEventPosts(event._id)
-      .then(() => this.setState({ loaded: true }));
+    // this.props
+    //   .fetchEventPosts(event._id)
+    //   .then(() => 
+      this.setState({ loaded: true });
+      // );
   }
 
 

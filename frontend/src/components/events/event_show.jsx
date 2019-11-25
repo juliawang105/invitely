@@ -12,7 +12,8 @@ class EventShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          showing: "home"
+          showing: "home",
+          loaded: false
         };
 
       this.changePage = this.changePage.bind(this);
@@ -21,6 +22,7 @@ class EventShow extends React.Component{
     componentDidMount(){
       // debugger
       this.props.fetchEventPosts(this.props.match.params.id)
+        .then(() => this.setState({ loaded: true }));
       
       let navbar = document.querySelector(".nav-bar");
       if (navbar) {
@@ -37,16 +39,16 @@ class EventShow extends React.Component{
     render(){
        
         let event = this.props.event.new;
-        let posts = this.props.posts
-        if (!event || !posts){
+        let posts = this.props.posts;
+        if (!event){
             return null;
         }
 
         let body
-        if (this.state.showing === "home") {
-          body = <PostsContainer />
+        if (this.state.showing === "home" && this.state.loaded) {
+          body = <PostsContainer />;
         } else if (this.state.showing === "guests") {
-          body = <ReservationsContainer />
+          body = <ReservationsContainer />;
         }
 
 
