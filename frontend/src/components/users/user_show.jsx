@@ -44,9 +44,15 @@ class Users extends React.Component {
     }
     
     let user = this.props.user;
-    let hostedEvents = this.props.events.all;
-    let inviteEvents = this.props.events.user;
+    let hostedEvents = this.props.events.all.sort(function(a, b) {
+      return (new Date(a.time) - new Date(b.time));
+    });
+    let inviteEvents = this.props.events.user.sort(function(a, b) {
+      return (new Date(a.time) - new Date(b.time));
+    });
 
+
+    console.log(hostedEvents);
     // debugger
 
     
