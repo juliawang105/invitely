@@ -140,3 +140,23 @@
   background-color: rgba(160, 160, 160, 0.1);
   transition: 300ms ease;
 }
+
+label {
+  display: inline-block;
+  position:absolute;
+  left: 15px;
+  top: 16px;
+  transition: all 150ms ease-in;
+  color: #676767;
+}
+
+label.field-active {
+  transform: translateY(-25px);
+  font-size: .9em;
+  color: #000;
+  text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff;
+}
+
+.floating-label {
+  -webkit-appearance: none !important;
+}

@@ -11,6 +11,7 @@ const mSTP = state => ({
         location: "",
         body: "",
         time: "",
+        end_time: "",
         guest_emails: [],
         email: "",
         host: "",
