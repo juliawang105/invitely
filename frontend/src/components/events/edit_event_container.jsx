@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import CreateEvent from './create_event_form';
 import { getEvent, updateEvent, } from '../../actions/event_actions';
 import { fetchEventReservations } from "../../actions/reservation_actions";
@@ -72,6 +73,7 @@ class EditEvent extends React.Component{
         }
         return (
             <div>
+                <Link to={`api/events/${this.props.event.id}`}>Go Back</Link>
                 {edit}
             </div>
         );

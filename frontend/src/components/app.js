@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import {  AuthRoute, ProtectedRoute, NewUserRoute } from "../util/route_util";
 import NavBarContainer from "./nav/navbar_container";
 
@@ -11,7 +11,6 @@ import EventShowContainer from "./events/event_show_container";
 import CreateEventContainer from "./events/create_event_container";
 
 import EditEventContainer from "./events/edit_event_container";
-import PostsContainer from "./posts/posts_container";
 import UserShowContainer from "./users/user_show_container";
 
 // import ProfileContainer from "./profile/profile_container";

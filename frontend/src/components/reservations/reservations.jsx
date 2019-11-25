@@ -1,6 +1,5 @@
 import React from 'react';
-import ReservationItem from './reservation_item'
-import CreateReservation from './create_reservation';
+import ReservationItem from './reservation_item';
 
 class Reservations extends React.Component {
   constructor(props) {

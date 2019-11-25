@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 // import ScrollTrigger from "../../dist/ScrollTrigger.js";
 
 class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     // let trigger = new ScrollTrigger();
