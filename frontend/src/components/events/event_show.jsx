@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
 import EventMap from "../posts/event_map";
-import { parse } from 'path';
+// import { parse } from 'path';
 
 class EventShow extends React.Component{
     constructor(props){
