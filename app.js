@@ -33,7 +33,7 @@ mongoose
 app.get("/", (req, res) => res.send("Hello darkness my old friend"));
 
 app.use(passport.initialize());
-require('./config/passport')(passport);
+require('./frontend/passport')(passport);
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
