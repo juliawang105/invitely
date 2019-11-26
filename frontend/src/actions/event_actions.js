@@ -26,7 +26,8 @@ const receiveUserEvents = events => ({
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
         .then(events => {
-            // events.forEach(element => {
+            // let filtered = []
+            // events.map(event => {
                 
             // });
             dispatch(receiveEvents(events)))
