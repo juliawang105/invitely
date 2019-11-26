@@ -16,49 +16,25 @@ class Users extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-      let navbar = document.querySelector(".nav-bar");
+   componentDidMount() {
+      let navbar = document.querySelector(“.nav-bar”);
       if (navbar) {
-        navbar.className += " orange";
+        navbar.className += ” orange”;
       }
-
     this.props.fetchUserEvents(this.props.user.id)
     .then(() => {
       this.props
         .fetchUserReservations(this.props.user.email)
         .then(res => {
           let reservations = res.reservations.data;
-          let j = 0;
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event)
-            .then(() => {
-              j++;
-              if (j === reservations.length) {
-                this.setState({ loaded: true });
-                console.log(j);
-                console.log("third");
-              }
-            });
-            // j++;
-          }
-          // console.log("first");
+            }
+          })
+        .then(() => {
+          this.setState({ loaded: true });
         });
-        // .then(() => {
-        //   console.log("second");
-        //   this.setState({
-        //     hosted: this.props.events.all.sort(function(a, b) {
-        //       return new Date(a.time) - new Date(b.time);
-        //     }),
-        //     invited: this.props.events.user.sort(function(a, b) {
-        //       return new Date(a.time) - new Date(b.time);
-        //     })
-        //   });
-        // })
-        // .then(() => {
-        //   this.setState({ loaded: true });
-        //   // console.log("third");
-        // });
-    });
+      });
   }
 
 
