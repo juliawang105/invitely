@@ -28,7 +28,7 @@ class Users extends React.Component {
         .fetchUserReservations(this.props.user.email)
         .then(res => {
           let reservations = res.reservations.data;
-          let j = 1
+          let j = 0;
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event)
             .then(() => {

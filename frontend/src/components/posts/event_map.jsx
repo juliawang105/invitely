@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-/*global google*/ 
+
+const google = window.google = window.google ? window.google : {};
 
 // import MarkerManager from "../util/marker_manager";
 
@@ -40,8 +41,6 @@ class EventMap extends React.Component {
       })
     };
     
-    
-    console.log("working");
     // wrap this.mapNode in a Google Map
     
     // this.MarkerManager = new MarkerManager(this.map);
