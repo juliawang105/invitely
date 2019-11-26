@@ -19,8 +19,8 @@ const events = require("./routes/api/events");
 const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
 const reservations = require("./routes/api/reservations");
-const keys = require("./config/aws");
-const mailerKey = require("./config/mail");
+// const keys = require("./config/aws");
+// const mailerKey = require("./config/mail");
 
 mongoose
   .connect(db, {
@@ -52,7 +52,7 @@ io.on('connection', () =>{
 app.post('/api/send_email', (req, res) => {
   // DEFINE API KEY FOR SENDGRID
   sgMail.setApiKey(
-    mailerKey.accessKey
+    process.env.accessKey
   );
   console.log(mailerKey.accessKey)
   console.log(req.body.event_name)
@@ -76,8 +76,8 @@ app.post('/api/send_email', (req, res) => {
 // configure the keys for accessing AWS
 AWS.config.update({
   region: "us-west-1",
-  accessKeyId: keys.accessKeyId,
-  secretAccessKey: keys.secretKey,
+  accessKeyId: process.env.accessKeyId,
+  secretAccessKey: process.env.secretKey,
   ServerSideEncryption: "AES256",
 });
 
@@ -92,7 +92,7 @@ const uploadFile = (buffer, name, type) => {
   const params = {
     ACL: 'public-read',
     Body: buffer,
-    Bucket: keys.bucketName,
+    Bucket: process.env.bucketName,
     ContentType: type.mime,
     Key: `${name}.${type.ext}`
   };
