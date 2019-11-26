@@ -182,16 +182,18 @@ class CreateEvent extends React.Component {
     let guestListHeader;
     let header;
 
-    if(this.props.formType === 'Create Event'){
+    if (this.props.formType === 'Create Event') {
       button = (
         <button
           className="event-submit"
           onClick={this.handleSubmit}
         >
-          Create Event and Send Invites
+        Create Event and Send Invites
         </button>
       );
+      
       emails = this.state.guest_emails.map((email, i) => {
+        
         let format = (
           <div className="each-email" key={i}>
             {email}
@@ -202,8 +204,11 @@ class CreateEvent extends React.Component {
         );
         return format;
       });
-      guestListHeader = <h2 className="guest-list-header">Guest List</h2>
-      header = <h1 className="form-head">Create your event</h1>
+
+      guestListHeader = <h2 className="guest-list-header">Guest List</h2>;
+
+      header = <h1 className="form-head">Create your event</h1>;
+
     } else {
       button = (
         <button
@@ -213,7 +218,9 @@ class CreateEvent extends React.Component {
           Update Event
         </button>
       );
+
       let reservations = this.props.reservations;
+
       if (reservations.length !== 0) {
         emails = reservations.map((reservation, i) => {
           let format = (
@@ -224,14 +231,18 @@ class CreateEvent extends React.Component {
               </ul> */}
             </div>
           );
+
           return format;
         });
       }
+
       guestListHeader = <h2 className="guest-list-header">Guest List</h2>;
+
       header = <h1 className="form-head">Update your event</h1>;
+
     };
 
-    if(this.props.formType === 'Create Event'){
+    if (this.props.formType === 'Create Event') {
       emailInput = (
         <div className="event-input-email">
           <input
@@ -247,14 +258,15 @@ class CreateEvent extends React.Component {
         </div>
       );  
     } 
+
     return (
       <div id="create-form">
-      <Script
-              url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}
-              onCreate={this.handleScriptCreate.bind(this)}
-              onError={this.handleScriptError.bind(this)}
-              onLoad={this.handleScriptLoad.bind(this)}
-            />
+        <Script
+          url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}
+          onCreate={this.handleScriptCreate.bind(this)}
+          onError={this.handleScriptError.bind(this)}
+          onLoad={this.handleScriptLoad.bind(this)}
+        />
          <div>
           <input
             onChange={this.update("host")}
@@ -263,7 +275,6 @@ class CreateEvent extends React.Component {
             placeholder="Host(s)"
           />
 
-        <div>
           <input
             onChange={this.update("name")}
             type="text"
@@ -288,6 +299,7 @@ class CreateEvent extends React.Component {
             value={this.state.location}
             placeholder="Enter your address"
           />
+
           <input
             onChange={this.update("time")}
             type="text"
