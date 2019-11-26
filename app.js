@@ -54,8 +54,7 @@ app.post('/api/send_email', (req, res) => {
   sgMail.setApiKey(
     process.env.accessKey
   );
-  console.log(mailerKey.accessKey)
-  console.log(req.body.event_name)
+
   const msg = {
     to: req.body.event_email,
     from: 'events@invite.ly',
