@@ -19,7 +19,7 @@ class Users extends React.Component {
    componentDidMount() {
       let navbar = document.querySelector(".nav-bar");
       if (navbar) {
-        navbar.className += ” orange”;
+        navbar.className += " orange";
       }
     this.props.fetchUserEvents(this.props.user.id)
       .then(() => {
