@@ -1,5 +1,5 @@
-/config/aws
-/config/keys
-/config/mail
+/config/aws.js
+/config/keys.js
+/config/mail.js
 /node_modules
 .env
