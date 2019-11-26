@@ -8,6 +8,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const sgMail = require('@sendgrid/mail');
 const path = require('path');
+const keys = require('./config/keys');
 
 const AWS = require('aws-sdk');
 const fs = require('fs');
@@ -58,7 +59,7 @@ io.on('connection', () =>{
 app.post('/api/send_email', (req, res) => {
   // DEFINE API KEY FOR SENDGRID
   sgMail.setApiKey(
-    process.env.accessKey
+    keys.accessKey
   );
 
   const msg = {
@@ -70,7 +71,7 @@ app.post('/api/send_email', (req, res) => {
       event_name: req.body.event_name,
       event_location: req.body.event_location,
       event_time: req.body.event_time,
-      event_url: "google.com"
+      event_url: req.body.event_url
     },
   };
 

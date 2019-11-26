@@ -18,6 +18,7 @@ class CreateEvent extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.processEmail = this.processEmail.bind(this);
     this.autocompleteInput = React.createRef();
     this.autocomplete = null;
     this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
@@ -92,11 +93,26 @@ class CreateEvent extends React.Component {
       this.setState({ scriptLoaded: true })
     }
 
-  handleClick(e){
+    handleClick(e) {
+      e.preventDefault();
+
+    if(this.state.email.indexOf('@') !== -1){
+      this.setState({
+        guest_emails: this.state.guest_emails.concat([this.state.email])
+      });
+    };
+
+    this.setState({
+      email: ""
+    });
+    }
+
+  processEmail(email, eventId) {
     let event_name = this.state.name;
     let event_location = this.state.location;
     let event_time = this.state.time;
-    let event_email = this.state.email
+    let event_email = email;
+    let event_url = `invitely.herokuapp.com/events/${eventId}`;
     
     fetch('/api/send_email', {
       method: 'POST',
@@ -108,22 +124,11 @@ class CreateEvent extends React.Component {
         event_name: event_name,
         event_location: event_location,
         event_time: event_time,
-        event_email: event_email
+        event_email: event_email,
+        event_url: event_url
       })
     }).catch((error) => {
       console.log(error)
-    });
-    
-    e.preventDefault();
-
-    if(this.state.email.indexOf('@') !== -1){
-      this.setState({
-        guest_emails: this.state.guest_emails.concat([this.state.email])
-      });
-    };
-
-    this.setState({
-      email: ""
     });
   };
 
@@ -152,12 +157,14 @@ class CreateEvent extends React.Component {
           let emails = event.guest_emails;
 
           for (let i = 0; i < emails.length; i++) {
+            this.processEmail(emails[i], event._id);
             let guest = emails[i];
             let reservation = {
               email: guest,
               event: event._id,
               status: "invited"
             };
+
             this.props.createReservation(reservation)   
             this.props.history.push(`/events/${res.event.data._id}`);
           };
