@@ -7,7 +7,7 @@
     background-color: transparent;
     /* background-color: lightcoral; */
     color: white;
-    z-index: 1000000;
+    z-index: 100;
     position: fixed;
     width: 100vw;
     min-width: 800px;
