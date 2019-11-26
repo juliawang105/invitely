@@ -17,23 +17,24 @@ class Users extends React.Component {
   }
 
    componentDidMount() {
-      let navbar = document.querySelector(“.nav-bar”);
+      let navbar = document.querySelector(".nav-bar");
       if (navbar) {
         navbar.className += ” orange”;
       }
     this.props.fetchUserEvents(this.props.user.id)
-    .then(() => {
+      .then(() => {
       this.props
         .fetchUserReservations(this.props.user.email)
         .then(res => {
           let reservations = res.reservations.data;
+          let j = 1
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event)
             }
           })
-        .then(() => {
-          this.setState({ loaded: true });
-        });
+      })
+      .then(() => {
+        this.setState({ loaded: true });
       });
   }
 
