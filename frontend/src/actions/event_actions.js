@@ -25,17 +25,7 @@ const receiveUserEvents = events => ({
 
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
-        .then(events => 
-            // {
-            // let filtered = {}
-            // events.map(event => {
-            //    if (new Date(event.data.end_time) >= new Date()) {
-            //  dispatch(receiveEvent(event));
-            // }
-            // });
-            dispatch(receiveEvents(events))
-            // )
-        // }
+        .then(events => dispatch(receiveEvents(events)))
         .catch(err => console.log(err));
 
 export const getEvent = id => dispatch =>
