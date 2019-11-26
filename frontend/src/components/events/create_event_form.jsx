@@ -108,9 +108,11 @@ class CreateEvent extends React.Component {
     }
 
   processEmail(email, eventId) {
+    let date = new Date(this.state.time).toDateString();
+    let time = new Date(this.state.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     let event_name = this.state.name;
     let event_location = this.state.location;
-    let event_time = this.state.time;
+    let event_time = date + ", " + time;
     let event_email = email;
     let event_url = `invitely.herokuapp.com/#/events/${eventId}`;
     
@@ -157,13 +159,14 @@ class CreateEvent extends React.Component {
           let emails = event.guest_emails;
 
           for (let i = 0; i < emails.length; i++) {
-            this.processEmail(emails[i], event._id);
             let guest = emails[i];
             let reservation = {
               email: guest,
               event: event._id,
               status: "invited"
             };
+
+            this.processEmail(emails[i], event._id);
 
             this.props.createReservation(reservation)   
             this.props.history.push(`/events/${res.event.data._id}`);
