@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import Script from 'react-load-script';
 
 const google = window.google = window.google ? window.google : {};
 
@@ -24,6 +25,9 @@ class CreateEvent extends React.Component {
   };
 
   componentDidMount() {
+      console.log(process.env.REACT_APP_GOOGLE_API_KEY);
+      console.log("HER");
+
       let navbar = document.querySelector(".nav-bar");
       if (navbar) {
         navbar.className += " orange";
@@ -70,6 +74,18 @@ class CreateEvent extends React.Component {
       this.submitFile();
     });
   }
+
+  handleScriptCreate() {
+      this.setState({ scriptLoaded: false })
+    }
+ 
+    handleScriptError() {
+      this.setState({ scriptError: true })
+    }
+ 
+    handleScriptLoad() {
+      this.setState({ scriptLoaded: true })
+    }
 
   handleClick(e){
     let event_name = this.state.name;
@@ -172,6 +188,12 @@ class CreateEvent extends React.Component {
 
     return (
       <div id="create-form">
+      <Script
+              url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}
+              onCreate={this.handleScriptCreate.bind(this)}
+              onError={this.handleScriptError.bind(this)}
+              onLoad={this.handleScriptLoad.bind(this)}
+            />
          <div>
           <input
             onChange={this.update("host")}

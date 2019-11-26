@@ -1,22 +1,28 @@
-
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Switch, Route, Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
+import Script from 'react-load-script';
 
 class EventShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          showing: "home"
+          showing: "home",
+          scriptLoaded: false,
+          scriptError: false
         };
 
       this.changePage = this.changePage.bind(this);
     }
 
     componentDidMount(){
+      debugger
+       console.log(process.env.REACT_APP_GOOGLE_API_KEY);
+        console.log("HER");
+
+
       let navbar = document.querySelector(".nav-bar");
       if (navbar) {
         navbar.className += " orange";
@@ -27,6 +33,18 @@ class EventShow extends React.Component{
 
     changePage(type) {
       this.setState({showing: type});
+    }
+
+    handleScriptCreate() {
+      this.setState({ scriptLoaded: false })
+    }
+ 
+    handleScriptError() {
+      this.setState({ scriptError: true })
+    }
+ 
+    handleScriptLoad() {
+      this.setState({ scriptLoaded: true })
     }
 
     render(){
@@ -56,6 +74,12 @@ class EventShow extends React.Component{
 
         return (
           <div className="event-show-box">
+          <Script
+              url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}
+              onCreate={this.handleScriptCreate.bind(this)}
+              onError={this.handleScriptError.bind(this)}
+              onLoad={this.handleScriptLoad.bind(this)}
+            />
             <div className="nav-color"></div>
 
             <div className="event-show">

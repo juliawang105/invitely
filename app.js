@@ -7,6 +7,7 @@ const passport = require('passport');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const sgMail = require('@sendgrid/mail');
+const path = require('path');
 
 const AWS = require('aws-sdk');
 const fs = require('fs');
@@ -19,8 +20,13 @@ const events = require("./routes/api/events");
 const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
 const reservations = require("./routes/api/reservations");
-const keys = require("./config/aws");
-const mailerKey = require("./config/mail");
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
 mongoose
   .connect(db, {
@@ -52,10 +58,9 @@ io.on('connection', () =>{
 app.post('/api/send_email', (req, res) => {
   // DEFINE API KEY FOR SENDGRID
   sgMail.setApiKey(
-    mailerKey.accessKey
+    process.env.accessKey
   );
-  console.log(mailerKey.accessKey)
-  console.log(req.body.event_name)
+
   const msg = {
     to: req.body.event_email,
     from: 'events@invite.ly',
@@ -92,7 +97,7 @@ const uploadFile = (buffer, name, type) => {
   const params = {
     ACL: 'public-read',
     Body: buffer,
-    Bucket: keys.bucketName,
+    Bucket: process.env.bucketName,
     ContentType: type.mime,
     Key: `${name}.${type.ext}`
   };
