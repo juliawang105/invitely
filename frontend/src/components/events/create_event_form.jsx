@@ -112,7 +112,7 @@ class CreateEvent extends React.Component {
     let event_location = this.state.location;
     let event_time = this.state.time;
     let event_email = email;
-    let event_url = `invitely.herokuapp.com/events/${eventId}`;
+    let event_url = `invitely.herokuapp.com/#/events/${eventId}`;
     
     fetch('/api/send_email', {
       method: 'POST',
