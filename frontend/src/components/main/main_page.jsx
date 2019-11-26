@@ -129,7 +129,7 @@ class MainPage extends React.Component {
             <div className="dev-box">
               <a href="https://www.linkedin.com/in/isom-durm/">
                 <img
-                  src="dev-isom-durm.jpg"
+                  src="dev-isom.jpg"
                   alt="Isom Durm"
                   className="dev-image"
                 />
