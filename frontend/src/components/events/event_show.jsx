@@ -15,7 +15,7 @@ class EventShow extends React.Component{
         this.state = {
           showing: "home",
           scriptLoaded: false,
-          scriptError: false
+          scriptError: false,
           loaded: false
         };
 
