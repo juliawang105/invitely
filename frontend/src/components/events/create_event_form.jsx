@@ -1,9 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import Script from 'react-load-script';
-
-const googleApiKey = process.env.googleApiKey;
 
 const google = window.google = window.google ? window.google : {};
 
@@ -269,12 +266,6 @@ class CreateEvent extends React.Component {
     } 
     return (
       <div id="event-form">
-        <Script
-              url={`https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&libraries=places`}
-              onCreate={this.handleScriptCreate.bind(this)}
-              onError={this.handleScriptError.bind(this)}
-              onLoad={this.handleScriptLoad.bind(this)}
-            />
         {header}
         <div id="create-form">
           <div className="event-inputs">
