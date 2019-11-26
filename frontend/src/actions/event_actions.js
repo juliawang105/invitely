@@ -25,13 +25,18 @@ const receiveUserEvents = events => ({
 
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
-        .then(events => dispatch(receiveEvents(events)))
+        .then(events => {
+            // events.forEach(element => {
+                
+            // });
+            dispatch(receiveEvents(events)))
+        }
         .catch(err => console.log(err));
 
 export const getEvent = id => dispatch =>
     EventAPIUtil.getEvent(id)
         .then(event => {
-            if (new Date(event.data.time) >= new Date()) {
+            if (new Date(event.data.end_time) >= new Date()) {
               dispatch(receiveEvent(event));
             }
         })
