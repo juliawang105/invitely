@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const db = require('./config/keys').mongoURI;
+const db = process.env.mongoURI;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -39,7 +39,7 @@ mongoose
 app.get("/", (req, res) => res.send("Hello darkness my old friend"));
 
 app.use(passport.initialize());
-require('./config/passport')(passport);
+require('./frontend/passport')(passport);
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -81,8 +81,8 @@ app.post('/api/send_email', (req, res) => {
 // configure the keys for accessing AWS
 AWS.config.update({
   region: "us-west-1",
-  accessKeyId: keys.accessKeyId,
-  secretAccessKey: keys.secretKey,
+  accessKeyId: process.env.accessKeyId,
+  secretAccessKey: process.env.secretKey,
   ServerSideEncryption: "AES256",
 });
 
@@ -125,4 +125,4 @@ app.post('/test-upload', (request, response) => {
 
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(process.env.PORT || 5000);

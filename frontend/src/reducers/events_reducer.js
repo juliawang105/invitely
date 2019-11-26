@@ -1,28 +1,35 @@
-import {RECEIVE_EVENT, RECEIVE_EVENTS, RECEIVE_USER_EVENTS } from "../actions/event_actions";
+import { RECEIVE_EVENT, RECEIVE_EVENTS, RECEIVE_USER_EVENTS } from "../actions/event_actions";
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
+import { RECEIVE_USER_RESERVATIONS } from "../actions/reservation_actions";
 
 const EventsReducer = (
-    state = { all: {}, user: {}, new: undefined },
+    state = { all: {}, user: [], new: undefined },
     action 
 ) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
-    switch(action.type){
-        case RECEIVE_EVENTS:
-            newState.all = action.events.data;
-            return newState; 
+    switch (action.type) {
+      case RECEIVE_EVENTS:
+        newState.all = action.events.data;
+        return newState;
 
-        case RECEIVE_USER_EVENTS:
-            newState.all = action.events.data;
-            return newState; 
-        
-        case RECEIVE_EVENT:
-            // debugger
-            newState.new = action.event.data; 
-            return newState;
-        
-        default:
-            return state; 
+      case RECEIVE_USER_EVENTS:
+        newState.all = action.events.data;
+        return newState;
+
+      case RECEIVE_EVENT:
+        newState.new = action.event.data;
+        newState.user.push(action.event.data);
+        return newState;
+      case RECEIVE_USER_LOGOUT:
+        newState = { all: {}, user: [], new: undefined };
+        return newState;
+      case RECEIVE_USER_RESERVATIONS:
+        newState.user = [];
+        return newState;
+      default:
+        return state;
     }
 };
 

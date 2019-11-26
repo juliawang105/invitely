@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 import Users from './user_show';
 import { fetchUserReservations } from '../../actions/reservation_actions';
-import { fetchUserEvents } from '../../actions/event_actions';
+import { fetchUserEvents, getEvent } from '../../actions/event_actions';
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     events: state.events,
     user: state.session.user,
@@ -14,8 +13,10 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
-  fetchUserReservations: id => dispatch(fetchUserReservations(id)),
-  fetchUserEvents: id => dispatch(fetchUserEvents(id))
+  fetchUserReservations: email => dispatch(fetchUserReservations(email)),
+  fetchUserEvents: id => dispatch(fetchUserEvents(id)),
+  getEvent: id => dispatch(getEvent(id)),
+  // getReservationEvent: id => dispatch(getReservationEvent(id))
 });
 
 

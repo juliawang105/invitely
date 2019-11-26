@@ -10,17 +10,18 @@ mongoose.set("useFindAndModify", false)
 // router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
 router.get("/", (req, res) => { //event index
-    Event
-        .find()
-        .sort({ date: -1 })
-        .then(events => res.json(events))
-        .catch(err => res.status(400).json(err))
+    Event.find()
+      .sort({ date: -1 })
+      .then(events => res.json(events))
+      .catch(err => res.status(400).json(err));
 });
 
 router.get("/user/:user_id", (req, res) => { //user show page 
-   Event.find({ user: req.params.user_id })
-        .then(events => res.json(events))
-        .catch(err => res.status(400).json(err));
+   Event.find({ user: req.params.user_id
+        , time: { $gte: Date.now() }
+    })
+     .then(events => res.json(events))
+     .catch(err => res.status(400).json(err));
 
 });
 
@@ -37,7 +38,7 @@ router.patch("/:id", (req, res, next ) => {
         // console.log(req.body),
         { new: true })
         .then((event) => {
-            console.log(event);
+            // console.log(event);
             res.json(event);
         } );
         
@@ -48,7 +49,7 @@ router.get("/:id", (req, res) => { //event show
    Event.findById(req.params.id)
     
         .then(event => {
-            console.log(event)
+            // console.log(event)
             let newEvent = Object.assign({}, event._doc, {id: event.id});
             res.json(newEvent);
         })
@@ -70,6 +71,7 @@ router.post("/", //create post
             guest_emails: req.body.guest_emails,
             location: req.body.location,
             time: req.body.time,
+            end_time: req.body.end_time,
             body: req.body.body,
             host: req.body.host,
             image_url: req.body.image_url

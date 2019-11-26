@@ -1,0 +1,101 @@
+.user-show {
+  display: flex;
+  /* width: 100vw; */
+  height: 100vh;
+  justify-content: center;
+}
+
+.user-show-box{
+  height: 100%;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.invite-host{
+ height: 100vh;
+ min-width: 40vw;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.user-event{
+  display: flex;
+  justify-content: center;
+}
+
+.user-event-details{
+  /* width: 40vw; */
+  text-align: center;
+  padding-top: 15px;
+  margin: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-event-details:hover, .user-event-details:focus, .user-event-details:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.07);
+  transition: 500ms ease;
+}
+
+.text {
+  color: black;
+  font-size: 14pt;
+  display: flex;
+  align-items: initial;
+  justify-content: flex-end;
+  word-break: break-all
+}
+
+.text-title{
+  margin: 10px;
+  margin-right: 5px;
+  width: 7vw;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  font-weight: bold;
+}
+
+.text-title > h3 {
+  font-weight: bold;
+  padding-right: 5px;
+ 
+}
+
+.text-info{
+  margin: 10px;
+  width: 20vw;
+  padding-right: 15px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+  
+}
+
+.user-event a{
+   text-decoration: none
+}
+
+.invite-host > h1 {
+  font-size: 3vw;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}

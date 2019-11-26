@@ -5,7 +5,6 @@ import Posts from './posts';
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     event: state.events,
     posts: state.posts,

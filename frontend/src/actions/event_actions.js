@@ -4,6 +4,8 @@ import * as EventAPIUtil from "../util/event_api_util";
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
+// export const RECEIVE_USER_RESERVATION_EVENT =
+//          "RECEIVE_USER_RESERVATION_EVENT";
 
 const receiveEvents = events => ({
     type: RECEIVE_EVENTS,
@@ -20,17 +22,34 @@ const receiveUserEvents = events => ({
     events
 });
 
+
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
         .then(events => dispatch(receiveEvents(events)))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
 export const getEvent = id => dispatch =>
     EventAPIUtil.getEvent(id)
         .then(event => {
-            dispatch(receiveEvent(event))
+            if (new Date(event.data.time) >= new Date()) {
+              dispatch(receiveEvent(event));
+            }
         })
         .catch(err => console.log(err));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const createEvent = event => dispatch =>
          EventAPIUtil.createEvent(event)

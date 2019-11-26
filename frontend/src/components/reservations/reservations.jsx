@@ -1,6 +1,7 @@
 import React from 'react';
 import ReservationItem from './reservation_item'
 import CreateReservation from './create_reservation';
+import "./reservations.css";
 
 class Reservations extends React.Component {
   constructor(props) {
@@ -57,21 +58,27 @@ class Reservations extends React.Component {
     let create;
     if (user.id === event.user) {
       create = (
-        <div>
-          <form onSubmit={this.createReservation}>
+        <div className="reservation-form-box">
+          <form
+            onSubmit={this.createReservation}
+            className="create-reservation-form"
+          >
             <input
               type="text"
               value={this.state.reservation.email}
               onChange={this.handleInput()}
+              className="reservation-text-box"
+              placeholder="Add guest email"
             />
-            <input type="submit" value="Add Guest!" />
+            <input type="submit" value="Add Guest" className="reservation-button" />
           </form>
         </div>
       );
     }
 
     return (
-      <div>
+      <div className="reservations">
+        <h2 className="reservations-title bold">Guest List</h2>
         {create}
         {reservations.map(reservation => {
           return (

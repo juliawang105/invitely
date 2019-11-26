@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 router.get("/user/:email", (req, res) => {
   // console.log(req);
-  console.log(req.params.email);
+  // console.log(req.params.email);
   // use email instead of user_id because email is always available
   Reservation.find({ email: req.params.email })
     .sort({ date: -1 })

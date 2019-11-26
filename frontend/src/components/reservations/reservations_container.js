@@ -7,7 +7,6 @@ import { fetchEventReservations,
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     event: state.events,
     user: state.session.user,

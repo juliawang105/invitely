@@ -1,7 +1,6 @@
 import React from "react";
 import PostItem from "./post_item";
 import * as PostsCss from "./posts.css";
-import EventMap from './event_map';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -26,9 +25,11 @@ class Posts extends React.Component {
 
     let event = this.props.event.new;
     
-    this.props
-      .fetchEventPosts(event._id)
-      .then(() => this.setState({ loaded: true }));
+    // this.props
+    //   .fetchEventPosts(event._id)
+    //   .then(() => 
+      this.setState({ loaded: true });
+      // );
   }
 
 
@@ -60,32 +61,29 @@ class Posts extends React.Component {
 
     let posts = this.props.posts.all;
     let event = this.props.event.new;
-    // console.log(event);
-
-    // debugger
     return (
     
       <div className="posts">
-        <div>
-          <ul>
-            {posts.map(post => {
-              return <PostItem post={post} key={post._id} />;
-            })}
-          </ul>
-            <div>
-              <EventMap event={event}/>
-            </div>
-          <form onSubmit={this.handleSubmit}>
-            <textarea
-              cols="30"
-              rows="5"
-              value={this.state.post.body}
-              onChange={this.update()}
-            ></textarea>
-            <br/>
-            <input type="submit" value="Post!" />
-          </form>
-        </div>
+        <h2 className="posts-title bold">Discussion</h2>
+        
+        <ul className="posts-list">
+          {posts.map(post => {
+            return <PostItem post={post} key={post._id} className="post-item-box" />;
+          })}
+        </ul>
+          
+
+        <form onSubmit={this.handleSubmit} className="post-form">
+          <textarea
+            rows="3"
+            value={this.state.post.body}
+            onChange={this.update()}
+            className="post-text-box"
+            placeholder="Write a message here"
+          ></textarea>
+          <input type="submit" value="Send Reply" className="post-button bold"/>
+        </form>
+  
       </div>
     );
   }

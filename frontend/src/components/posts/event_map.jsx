@@ -41,7 +41,7 @@ class EventMap extends React.Component {
     };
     
     
-    console.log("working")
+    console.log("working");
     // wrap this.mapNode in a Google Map
     
     // this.MarkerManager = new MarkerManager(this.map);

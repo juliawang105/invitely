@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Script from 'react-load-script';
 
+
 const google = window.google = window.google ? window.google : {};
 
 class CreateEvent extends React.Component {
@@ -16,8 +17,11 @@ class CreateEvent extends React.Component {
     this.autocompleteInput = React.createRef();
     this.autocomplete = null;
     this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
+    this.renderCannotSubmit = this.renderCannotSubmit.bind(this);
+    this.cannotSubmitMessage = "";
   }
 
+  
   update(field) {
     return e => {
         this.setState({ [field]: e.target.value})    
@@ -25,13 +29,10 @@ class CreateEvent extends React.Component {
   };
 
   componentDidMount() {
-      console.log(process.env.REACT_APP_GOOGLE_API_KEY);
-      console.log("HER");
-
-      let navbar = document.querySelector(".nav-bar");
-      if (navbar) {
-        navbar.className += " orange";
-      }
+    let navbar = document.querySelector(".nav-bar");
+    if (navbar) {
+      navbar.className += " orange";
+    }
     
     this.setState({
       file: null,
@@ -122,8 +123,24 @@ class CreateEvent extends React.Component {
     });
   };
 
+  renderCannotSubmit() {
+    this.cannotSubmitMessage = (
+      <div className="error">
+        <div className="error-text">
+          Event info is not complete
+        </div>
+      </div>
+    );
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
+    // let time = new Date(this.state.time);
+    // let newTime = time.toDateString() + " " + time.toLocaleTimeString();
+    // this.setState({
+    //   time: newTime
+    // })
     if(this.props.formType === 'Create Event'){
       this.props.createEvent(this.state)
         .then(res => {
@@ -140,15 +157,21 @@ class CreateEvent extends React.Component {
             this.props.createReservation(reservation)   
             this.props.history.push(`/events/${res.event.data._id}`);
           };
-        }
-        )
+        })
+        .catch(err => {
+          this.renderCannotSubmit()
+          this.props.history.push(`/events`)
+        })
     } else {
-      this.props.updateEvent(this.state)
-        .then(
-          res => {
-            this.props.history.push(`/events/${res.event.data._id}`);
-          }
-        )
+      this.props
+        .updateEvent(this.state)
+        .then(res => {
+          this.props.history.push(`/events/${res.event.data._id}`);
+        })
+        .catch(err => {
+          this.renderCannotSubmit()
+          this.props.history.push(`/events/:id/edit`);
+        })
     };
   };
 
@@ -157,25 +180,64 @@ class CreateEvent extends React.Component {
     let button;
     let emailInput;
     let guestListHeader;
+    let header;
 
     if(this.props.formType === 'Create Event'){
-      button = <button onClick={this.handleSubmit}>Create Event and Send Invites!</button>;
+      button = (
+        <button
+          className="event-submit"
+          onClick={this.handleSubmit}
+        >
+          Create Event and Send Invites
+        </button>
+      );
       emails = this.state.guest_emails.map((email, i) => {
-        let format = <li key={i}>{email}</li>;
+        let format = (
+          <div className="each-email" key={i}>
+            {email}
+            {/* <ul>
+              <li key={i}>{email}</li>
+            </ul> */}
+          </div>
+        );
         return format;
       });
-      guestListHeader = <h2>Guest List</h2>
+      guestListHeader = <h2 className="guest-list-header">Guest List</h2>
+      header = <h1 className="form-head">Create your event</h1>
     } else {
-      button = <button onClick={this.handleSubmit}>Update Event</button>;
+      button = (
+        <button
+          className="event-submit"
+          onClick={this.handleSubmit}
+        >
+          Update Event
+        </button>
+      );
+      let reservations = this.props.reservations;
+      if (reservations.length !== 0) {
+        emails = reservations.map((reservation, i) => {
+          let format = (
+            <div className="each-email" key={i}>
+              {reservation.email}
+              {/* <ul>
+                <li key={i}>{reservation.email}</li>
+              </ul> */}
+            </div>
+          );
+          return format;
+        });
+      }
+      guestListHeader = <h2 className="guest-list-header">Guest List</h2>;
+      header = <h1 className="form-head">Update your event</h1>;
     };
 
     if(this.props.formType === 'Create Event'){
       emailInput = (
-        <div>
+        <div className="event-input-email">
           <input
             id="emailAddress"
             type="email"
-            required
+            // required
             pattern=".+@beststartupever.com"
             onChange={this.update("email")}
             value={this.state.email}
@@ -185,7 +247,6 @@ class CreateEvent extends React.Component {
         </div>
       );  
     } 
-
     return (
       <div id="create-form">
       <Script
@@ -238,16 +299,16 @@ class CreateEvent extends React.Component {
           <div>
             <input type="file" onChange={this.handleFileUpload} />
           </div>
-          {button}
+
           <div className="list">
-            {/* {guestListHeader} */}
+            {guestListHeader}
             {emails}
           </div>
         </div>
       </div>
-    </div>
     );
   }
 };
+
 
 export default withRouter(CreateEvent);

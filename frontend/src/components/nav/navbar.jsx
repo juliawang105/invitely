@@ -31,10 +31,12 @@ class NavBar extends React.Component {
             My Events
           </Link>
           <Link to={`/events`} className="nav-button">
-            Create New Event
+            Create Event
           </Link>
           <span className="italic">
-            Welcome, {session.user.firstName} {session.user.lastName}! (Email: {session.user.email})
+            Welcome, {session.user.firstName} 
+            {/* {session.user.lastName}!  */}
+            {/* (Email: {session.user.email}) */}
           </span>
 
           <span onClick={this.logoutUser} className="nav-button logout-button">
@@ -61,15 +63,25 @@ class NavBar extends React.Component {
   }
 
   render() {
+    let { loggedIn, session } = this.props;
+    let invitely;
+    if (loggedIn) {
+      invitely = (
+        <Link to={`/users/${session.user.id}`} className="nav-button">
+          <i className="fas fa-paper-plane"></i> invitely
+        </Link>
+      );
+    } else {
+      invitely = (
+        <Link to={`/`} className="nav-button">
+          <i className="fas fa-paper-plane"></i> invitely
+        </Link>
+      );
+    }
     return (
       <div className="nav-bar">
         <h1 className="nav-title">
-          <Link
-            to={`/`}
-            className="nav-button"
-          >
-            <i className="fas fa-paper-plane"></i> invitely
-          </Link>
+          {invitely}
         </h1>
         {this.getLinks()}
       </div>
