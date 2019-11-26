@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
+const keys = require('../../config/keys');
 
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
@@ -83,7 +84,7 @@ router.post("/login", (req, res) => {
 
         jwt.sign(
           payload,
-          process.env.secretOrKey,
+          keys.secretOrKey,
           // Tell the key to expire in one hour
           { expiresIn: 3600 },
           (err, token) => {
