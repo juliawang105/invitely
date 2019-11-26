@@ -15,9 +15,11 @@ const EventsReducer = (
         return newState;
 
       case RECEIVE_USER_EVENTS:
-        newState.all = action.events.data;
+        let filteredEvents = action.events.data.filter(event =>
+          new Date(event.end_time) >= new Date()
+        );
+        newState.all = filteredEvents;
         return newState;
-
       case RECEIVE_EVENT:
         newState.new = action.event.data;
         newState.user.push(action.event.data);
