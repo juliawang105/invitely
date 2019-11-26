@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Script from 'react-load-script';
 
-const googleApiKey = ${process.env.googleApiKey};
+const googleApiKey = process.env.googleApiKey;
 
 const google = window.google = window.google ? window.google : {};
 

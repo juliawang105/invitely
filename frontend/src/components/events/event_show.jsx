@@ -8,7 +8,7 @@ import Script from 'react-load-script';
 import EventMap from "../posts/event_map";
 // import { parse } from 'path';
 
-const googleApiKey = ${process.env.googleApiKey}
+const googleApiKey = process.env.googleApiKey;
 
 class EventShow extends React.Component{
     constructor(props){
