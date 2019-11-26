@@ -116,12 +116,6 @@ class EventShow extends React.Component{
           end.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         return (
           <div className="event-show-box">
-          <Script
-              url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}
-              onCreate={this.handleScriptCreate.bind(this)}
-              onError={this.handleScriptError.bind(this)}
-              onLoad={this.handleScriptLoad.bind(this)}
-            />
             <div className="nav-color"></div>
 
             <div className="event-show">
@@ -211,5 +205,6 @@ class EventShow extends React.Component{
     }
 
 };
+
 
 export default withRouter(EventShow);
