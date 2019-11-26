@@ -8,11 +8,12 @@ import Script from 'react-load-script';
 import EventMap from "../posts/event_map";
 // import { parse } from 'path';
 
+const googleApiKey = ${process.env.googleApiKey}
 
 class EventShow extends React.Component{
     constructor(props){
         super(props);
-        
+
         this.state = {
           showing: "home",
           scriptLoaded: false,
@@ -118,7 +119,7 @@ class EventShow extends React.Component{
         return (
           <div className="event-show-box">
             <Script
-              url={`https://maps.googleapis.com/maps/api/js?key=${process.env.googleApiKey}&libraries=places}`}
+              url={`https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&libraries=places`}
               onCreate={this.handleScriptCreate.bind(this)}
               onError={this.handleScriptError.bind(this)}
               onLoad={this.handleScriptLoad.bind(this)}
