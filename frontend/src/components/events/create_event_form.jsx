@@ -69,7 +69,7 @@ class CreateEvent extends React.Component {
         image_url: response.data.Location
       });
     }).catch(error => {
-      // handle your error
+      console.log(error);
     });
   }
 
