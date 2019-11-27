@@ -1,7 +1,9 @@
 import React from 'react';
 import ReservationItem from './reservation_item'
+import { withRouter } from "react-router-dom";
 import CreateReservation from './create_reservation';
 import "./reservations.css";
+import axios from "axios";
 
 class Reservations extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class Reservations extends React.Component {
       }
     };
     this.createReservation = this.createReservation.bind(this);
+    this.processEmail = this.processEmail.bind(this);
   }
 
   componentDidMount() {
@@ -42,8 +45,49 @@ class Reservations extends React.Component {
   createReservation(e) {
     e.preventDefault();
     const reservation = this.state.reservation;
-    this.props.createReservation(reservation);
-    this.setState({ reservation: {email: "" }});
+    this.props.createReservation(reservation)
+      .then(() => this.processEmail(this.state.reservation.email, this.state.reservation.event))
+      .then(() => this.setState({ reservation: { email: "" } }));
+  }
+
+  processEmail(email, eventId) {
+    let date = new Date(this.props.event.new.time).toDateString();
+    let time = new Date(this.props.event.new.time).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+    let event_name = this.props.event.new.name;
+    let event_location = this.props.event.new.location;
+    let event_time = date + ", " + time;
+    let event_email = email;
+    let event_url = `invitely.herokuapp.com/#/events/${eventId}`;
+
+    // console.log({
+    //   event_name,
+    //   event_location,
+    //   event_time,
+    //   event_email,
+    //   event_url,
+    //   eventId,
+    //   email
+    // });
+
+    fetch("/api/send_email", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        event_name: event_name,
+        event_location: event_location,
+        event_time: event_time,
+        event_email: event_email,
+        event_url: event_url
+      })
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   render() {
@@ -70,7 +114,11 @@ class Reservations extends React.Component {
               className="reservation-text-box"
               placeholder="Add guest email"
             />
-            <input type="submit" value="Add Guest" className="reservation-button" />
+            <input
+              type="submit"
+              value="Add Guest"
+              className="reservation-button"
+            />
           </form>
         </div>
       );
@@ -88,7 +136,7 @@ class Reservations extends React.Component {
               user={user}
               event={event}
               reviseReservation={this.props.reviseReservation}
-              delete = {this.props.destroyReservation}
+              delete={this.props.destroyReservation}
             />
           );
         })}
