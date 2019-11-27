@@ -32,7 +32,7 @@ body:hover {
     /* border: 1px solid blue; */
     min-width: 50px;
     width: 16vw;
-    left: -15vw;
+    left: -1vw;
     height: 100vh;
     background-color: rgba(29, 23, 21, 0.1);
     color: black;
@@ -49,15 +49,15 @@ body:hover {
     transition-property: transform;
 }
 .sidebar:hover, .sidebar:focus, .sidebar:active {
-    -webkit-transform: translateX(15vw);
-    transform: translateX(15vw);
+    -webkit-transform: translateX(1vw);
+    transform: translateX(1vw);
 }
 
 
 
 .sidebar:hover, .sidebar:focus, .sidebar:active {
-    -webkit-transform: translateX(15vw);
-    transform: translateX(15vw);
+    -webkit-transform: translateX(1vw);
+    transform: translateX(1vw);
 }
 
 
