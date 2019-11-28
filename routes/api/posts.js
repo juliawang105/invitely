@@ -7,7 +7,7 @@ const Post = require("../../models/Post");
 const validatePostInput = require("../../validation/posts");
 mongoose.set("useFindAndModify", false)
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the posts route" }));
+router.get("/test", (req, res) => res.json({ msg: "This is the posts route" }));
 
 router.get("/event/:event_id", (req, res) => {
   //post index

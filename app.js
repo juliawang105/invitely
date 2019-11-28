@@ -20,6 +20,7 @@ const users = require("./routes/api/users");
 const events = require("./routes/api/events");
 const posts = require("./routes/api/posts");
 const chats = require("./routes/api/chats");
+const todos = require("./routes/api/todos");
 const reservations = require("./routes/api/reservations");
 
 if (process.env.NODE_ENV === 'production') {
@@ -51,6 +52,7 @@ app.use("/api/events", events);
 app.use("/api/posts", posts);
 app.use("/api/chats", chats);
 app.use("/api/reservations", reservations);
+app.use("/api/todos", todos);
 
 io.on('connection', () =>{
  console.log('a user is connected');
