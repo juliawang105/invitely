@@ -11,15 +11,14 @@ mongoose.set("useFindAndModify", false);
 router.get("/test", (req, res) => res.json({ msg: "This is the todos route" }));
 
 router.get("/event/:event_id", (req, res) => {
-  //post index
-  Post.find({ event: req.params.event_id })
-    // .sort({ date: -1 })
-    .then(posts => res.json(posts))
+  Todo.find({ event: req.params.event_id })
+    .sort({ date: -1 })
+    .then(todos => res.json(todos))
     .catch(err => res.status(400).json(err));
 });
 
 router.post(
-  "/event/:event_id", //create post
+  "/", //create post
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateTodoInput(req.body);
@@ -31,7 +30,7 @@ router.post(
     // console.log(req);
     const newTodo = new Todo({
       body: req.body.body,
-      event: req.params.event_id,
+      event: req.body.event,
       done: req.body.done
     });
 
@@ -72,6 +71,15 @@ router.patch("/:id", (req, res, next) => {
 
   }
 );
+
+router.get("/", (req, res) => {
+  Todo.find()
+    .sort({date: -1})
+    .then(todos => res.json(todos))
+    .catch( err => 
+      res.status(404).json({ notodosfound: "No todos found" })
+    );
+});
 
 
 module.exports = router;

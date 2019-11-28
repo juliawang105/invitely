@@ -7,7 +7,7 @@ import { getEvent, getEvents, createEvent, updateEvent } from "./actions/event_a
 import { fetchEventPosts, createPost, updatePost } from "./actions/post_actions";
 // import { fetchEventPosts, createPost } from "./util/post_api_util";
 import { destroyReservation, reviseReservation } from "./actions/reservation_actions";
-
+import { fetchEventTodos, createTodo, updateTodo, getTodo, deleteTodo} from "./actions/todo_actions";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import "./index.css";
@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.updatePost = updatePost;
   window.destroyReservation = destroyReservation;
   window.reviseReservation = reviseReservation;
+  window.createTodo = createTodo;
+  window.updateTodo = updateTodo;
+  window.deleteTodo = deleteTodo;
+  window.fetchEventTodos = fetchEventTodos;
+  window.getTodo = getTodo;
 
   ReactDOM.render(<Root store={store} />, root);
 });
