@@ -4,13 +4,15 @@ import errors from "./errors_reducer";
 import events from "./events_reducer";
 import posts from "./posts_reducer";
 import reservations from "./reservations_reducer";
+import todos from "./todos_reducer";
 
 const RootReducer = combineReducers({
   errors,
   session,
   posts,
   events,
-  reservations
+  reservations,
+  todos
 });
 
 export default RootReducer;

@@ -27,7 +27,6 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    // console.log(req);
     const newTodo = new Todo({
       body: req.body.body,
       event: req.body.event,
@@ -60,12 +59,10 @@ router.patch("/:id", (req, res, next) => {
   }
 
 
-  Todo.findOneAndUpdate(req.params.id,
+  Todo.findOneAndUpdate({ _id: req.params.id },
     req.body,
-    // console.log(req.body),
     { new: true })
     .then((todo) => {
-      console.log(todo);
       res.json(todo);
     });
 

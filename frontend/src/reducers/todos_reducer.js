@@ -42,4 +42,6 @@ const TodosReducer = (
       default:
         return state;
     }
-}
+};
+
+export default TodosReducer;

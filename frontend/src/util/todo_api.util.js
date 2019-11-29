@@ -9,7 +9,7 @@ export const createTodo = data => {
 };
 
 export const updateTodo = data => {
-  return axios.patch(`/api/todos/${data.id}`, data);
+  return axios.patch(`/api/todos/${data._id}`, data);
 };
 
 export const getTodo = id => {

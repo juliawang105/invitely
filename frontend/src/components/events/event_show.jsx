@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import PostsContainer from '../posts/posts_container';
 import ReservationsContainer from '../reservations/reservations_container';
+import TodosContainer from "../todos/todos_container";
 
 import EventMap from "../posts/event_map";
 // import { parse } from 'path';
@@ -41,7 +42,7 @@ class EventShow extends React.Component{
     }
 
     handleScriptCreate() {
-      this.setState({ scriptLoaded: false })
+      this.setState({ scriptLoaded: false });
     }
  
     handleScriptError() {
@@ -49,7 +50,7 @@ class EventShow extends React.Component{
     }
  
     handleScriptLoad() {
-      this.setState({ scriptLoaded: true })
+      this.setState({ scriptLoaded: true });
     }
 
     render(){
@@ -65,10 +66,13 @@ class EventShow extends React.Component{
           body = <PostsContainer />;
         } else if (this.state.showing === "guests") {
           body = <ReservationsContainer />;
+        } else if (this.state.showing === "todos") {
+          body = <TodosContainer />;
         }
 
 
         let editLink;
+        let todoList
 
         if (this.props.event.new.user === this.props.session.user.id) {
               editLink = (
@@ -76,6 +80,17 @@ class EventShow extends React.Component{
                   <Link to={`/events/${this.props.event.new.id}/edit`}> Edit Event </Link>
                 </div>
                 );
+              todoList = (
+                <div className="sidebar-nav">
+                  <div
+                    onClick={() => this.changePage("todos")}
+                    className="sidebar-nav-label"
+                    value="todos"
+                  >
+                    Tasks
+                </div>
+              </div>
+              )
             };
 
         let hosted;
@@ -143,7 +158,7 @@ class EventShow extends React.Component{
                         Guests
                       </div>
                     </div>
-
+                    {todoList}
                     <div className="sidebar-nav">{editLink}</div>
                   </div>
                 </div>
