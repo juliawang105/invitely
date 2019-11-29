@@ -56,6 +56,13 @@ class Todo extends React.Component {
 
     let todos = this.props.todos;
 
+    todos.sort(function (x, y) {
+      // true values first
+      // return (x === y) ? 0 : x ? -1 : 1;
+      // false values first
+      return (x.done === y.done) ? 0 : x.done ? 1 : -1;
+    });
+
     return (
       <div>
         <div className="reservation-form-box">
@@ -80,6 +87,7 @@ class Todo extends React.Component {
         {todos.map(todo => {
           return <TodoItem 
             todo = {todo}
+            key= {todo._id}
             deleteTodo = {this.props.deleteTodo}
             updateTodo = {this.props.updateTodo}
           />
