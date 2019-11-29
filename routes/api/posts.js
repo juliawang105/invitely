@@ -37,7 +37,6 @@ router.patch("/:id", (req, res, next ) => {
         // console.log(req.body),
         { new: true })
         .then((post) => {
-            console.log(post)
             res.json(post);
         } )
         
@@ -60,7 +59,6 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    console.log(req);
     const newPost = new Post({
       user: req.user.id,
       body: req.body.body,
@@ -73,6 +71,12 @@ router.post(
   }
 );
 
-
+router.delete("/:id", (req, res) => {
+  Post.findByIdAndRemove(req.params.id, function (err, post) {
+    if (err)
+      return res.status(500).send("There was a problem deleting the post.");
+    res.status(200).send(post);
+  });
+});
 
 module.exports = router;

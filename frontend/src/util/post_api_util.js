@@ -16,3 +16,6 @@ export const getPost = id => {
   return axios.get(`/api/posts/${id}`)
 };
 
+export const deletePost = id => {
+  return axios.delete(`/api/posts/${id}`);
+};

@@ -63,6 +63,13 @@ class EventShow extends React.Component{
           this.props.destroyReservation(reservation._id);
         });
       }
+      let posts = this.props.posts.all;
+      if (posts.length !== 0) {
+        posts.map(post => {
+          console.log(post)
+          this.props.deletePost(post._id);
+        });
+      }
       this.props.deleteEvent(event._id)
         .then(() => this.props.history.push("/"));
     }
