@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
-import { getEvent, getEvents, createEvent, updateEvent } from "./actions/event_actions"
+import { getEvent, getEvents, createEvent, updateEvent, deleteEvent } from "./actions/event_actions"
 import { fetchEventPosts, createPost, updatePost } from "./actions/post_actions";
 // import { fetchEventPosts, createPost } from "./util/post_api_util";
 import { destroyReservation, reviseReservation } from "./actions/reservation_actions";
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createTodo = createTodo;
   window.updateTodo = updateTodo;
   window.deleteTodo = deleteTodo;
+  window.deleteEvent = deleteEvent;
   window.fetchEventTodos = fetchEventTodos;
   window.getTodo = getTodo;
 

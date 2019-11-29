@@ -4,6 +4,7 @@ import * as EventAPIUtil from "../util/event_api_util";
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
+export const REMOVE_EVENT = "REMOVE_EVENT";
 // export const RECEIVE_USER_RESERVATION_EVENT =
 //          "RECEIVE_USER_RESERVATION_EVENT";
 
@@ -22,6 +23,17 @@ const receiveUserEvents = events => ({
     events
 });
 
+const removeEvent = event => ({
+    type: REMOVE_EVENT,
+    event
+})
+
+export const deleteEvent = id => dispatch => {
+    return EventAPIUtil.deleteEvent(id)
+        .then(event => dispatch(removeEvent(event)))
+        .catch(err => console.log(err));
+}
+
 
 export const getEvents = () => dispatch =>
     EventAPIUtil.getEvents()
@@ -38,8 +50,6 @@ export const getEvent = id => dispatch =>
             }
         })
         .catch(err => console.log(err));
-
-
 
 
 

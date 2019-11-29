@@ -22,6 +22,7 @@ class EventShow extends React.Component{
         };
 
       this.changePage = this.changePage.bind(this);
+      this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount(){
@@ -35,6 +36,7 @@ class EventShow extends React.Component{
       }
 
       this.props.getEvent(this.props.match.params.id);
+      this.props.fetchEventReservations(this.props.match.params.id);
     }
 
     changePage(type) {
@@ -51,6 +53,18 @@ class EventShow extends React.Component{
  
     handleScriptLoad() {
       this.setState({ scriptLoaded: true });
+    }
+
+    handleDelete() {
+      let event = this.props.event.new;
+      let reservations = this.props.reservations;
+      if (reservations.length !== 0) {
+        reservations.map(reservation => {
+          this.props.destroyReservation(reservation._id);
+        });
+      }
+      this.props.deleteEvent(event._id)
+        .then(() => this.props.history.push("/"));
     }
 
     render(){
@@ -73,6 +87,7 @@ class EventShow extends React.Component{
 
         let editLink;
         let todoList
+        let cancelEvent;
 
         if (this.props.event.new.user === this.props.session.user.id) {
               editLink = (
@@ -88,6 +103,17 @@ class EventShow extends React.Component{
                     value="todos"
                   >
                     To-do List
+                </div>
+              </div>
+              )
+              cancelEvent = (
+                <div className="sidebar-nav">
+                  <div
+                    onClick={this.handleDelete}
+                    className="sidebar-nav-label"
+                    // value="todos"
+                  >
+                    Cancel Event
                 </div>
               </div>
               )
@@ -160,6 +186,7 @@ class EventShow extends React.Component{
                     </div>
                     {todoList}
                     <div className="sidebar-nav">{editLink}</div>
+                    {cancelEvent}
                   </div>
                 </div>
               </div>

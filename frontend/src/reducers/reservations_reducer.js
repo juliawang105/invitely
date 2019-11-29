@@ -5,6 +5,8 @@ import {
   RECEIVE_EVENT_RESERVATIONS,
   REMOVE_RESERVATION
 } from "../actions/reservation_actions";
+import { REMOVE_EVENT } from "../actions/event_actions";
+
 
 const ReservationsReducer = (state = { 
   all: {}, user: {}, event: [], new: undefined
@@ -12,6 +14,24 @@ const ReservationsReducer = (state = {
   Object.freeze(state);
   let newState = Object.assign({}, state);
   switch (action.type) {
+    case REMOVE_EVENT:
+      const event = action.event.data;
+      let idx2;
+      const BreakException2 = {};
+
+      try {
+        Object.values(newState.all).forEach((pojo, i) => {
+          if (pojo.event === event._id) {
+            idx2 = i;
+            throw BreakException2;
+          }
+        });
+      } catch (e) {
+        if (e !== BreakException2) throw e;
+      }
+
+      newState.all.splice(idx2, 1);
+      return newState;
     case RECEIVE_RESERVATIONS:
       newState.all = action.reservations.data;
       return newState;
@@ -32,7 +52,6 @@ const ReservationsReducer = (state = {
         newState.event.unshift(invite);
       }
       return newState;
-
 
 
     case REMOVE_RESERVATION: 

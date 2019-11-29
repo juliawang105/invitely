@@ -17,3 +17,7 @@ export const updateEvent = data => {
 export const getUserEvents = id => {
   return axios.get(`/api/events/user/${id}`);
 };
+
+export const deleteEvent = id => {
+  return axios.delete(`/api/events/${id}`)
+};

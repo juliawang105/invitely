@@ -83,6 +83,13 @@ router.post("/", //create post
     }
 );
 
+router.delete("/:id", (req, res) => {
+    Event.findByIdAndRemove(req.params.id, function (err, event) {
+        if (err)
+            return res.status(500).send("There was a problem deleting the event.");
+        res.status(200).send(event);
+    });
+});
 
 
 module.exports = router;
