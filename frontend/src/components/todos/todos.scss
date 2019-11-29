@@ -1,0 +1,45 @@
+.todos {
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 37vw;
+}
+
+.todo-item {
+  margin: 1vw 1vw 0vw 1vw;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 1.5vw;
+  overflow-wrap: break-word;
+  width: 26vw;
+  padding: 1vw;
+  display: flex; 
+  justify-content: space-between;
+}
+
+// .todo-item > input {
+//   // padding-right: 10px;
+//   cursor: pointer;
+// }
+
+input[type="checkbox"]:hover, input[type="checkbox"]:focus, input[type="checkbox"]:active {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 500ms ease;
+}
+
+.todo-body {
+  padding-left: 6px;
+  font-weight: 560;
+  font-size: 1.5vw;
+}
+
+.todos-title {
+  font-size: 2vw;
+  padding-top: 1vw;
+}
+
+

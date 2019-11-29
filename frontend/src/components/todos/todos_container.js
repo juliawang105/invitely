@@ -5,6 +5,7 @@ import {fetchEventTodos,
         updateTodo,
         deleteTodo,
 } from "../../actions/todo_actions";
+import "./todos.scss";
 
 const mSTP = (state, ownProps) => {
   return {

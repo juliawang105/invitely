@@ -32,13 +32,19 @@ class TodoItem extends React.Component {
     let todo = this.props.todo;
     // console.log(this.state);
     return (
-      <div>
+      <div className="todo-item">
+        <div>
           <input
             name="done"
             type="checkbox"
             checked={this.state.done}
-            onChange={this.changeStatus} />
-        {todo.body}
+            onChange={this.changeStatus} 
+            className="todo-checkbox"
+          />
+          <span className="todo-body"> 
+            {todo.body}
+          </span>
+        </div>
         <div onClick={() => this.props.deleteTodo(todo._id)} className="x">
           <i className="fas fa-times"></i>
         </div>

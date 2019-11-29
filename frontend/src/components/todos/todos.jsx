@@ -64,7 +64,8 @@ class Todo extends React.Component {
     });
 
     return (
-      <div>
+      <div className="todos">
+        <h2 className="todos-title bold">To-do List</h2>
         <div className="reservation-form-box">
           <form
             onSubmit={this.createTodo}

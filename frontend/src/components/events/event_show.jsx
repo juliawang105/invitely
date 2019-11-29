@@ -87,7 +87,7 @@ class EventShow extends React.Component{
                     className="sidebar-nav-label"
                     value="todos"
                   >
-                    Tasks
+                    To-do List
                 </div>
               </div>
               )
