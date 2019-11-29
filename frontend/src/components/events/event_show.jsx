@@ -37,6 +37,7 @@ class EventShow extends React.Component{
 
       this.props.getEvent(this.props.match.params.id);
       this.props.fetchEventReservations(this.props.match.params.id);
+      this.props.fetchEventTodos(this.props.match.params.id);
     }
 
     changePage(type) {
@@ -66,8 +67,15 @@ class EventShow extends React.Component{
       let posts = this.props.posts.all;
       if (posts.length !== 0) {
         posts.map(post => {
-          console.log(post)
+          // console.log(post)
           this.props.deletePost(post._id);
+        });
+      }
+      let todos = this.props.todos.event;
+      if (todos.length !== 0) {
+        todos.map(todo => {
+          // console.log(todo)
+          this.props.deleteTodo(todo._id);
         });
       }
       this.props.deleteEvent(event._id)

@@ -54,7 +54,7 @@ class Todo extends React.Component {
       return null;
     }
 
-    let todos = this.props.todos;
+    let todos = this.props.todos.event;
 
     todos.sort(function (x, y) {
       // true values first
@@ -76,7 +76,7 @@ class Todo extends React.Component {
               value={this.state.todo.body}
               onChange={this.handleInput()}
               className="reservation-text-box"
-              placeholder="Add your task"
+              placeholder="Add a task"
             />
             <input
               type="submit"

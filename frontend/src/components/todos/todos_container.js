@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
   return {
     event: state.events.new,
     user: state.session.user,
-    todos: state.todos.event
+    todos: state.todos
   };
 };
 
