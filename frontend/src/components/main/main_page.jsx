@@ -1,12 +1,16 @@
 import React from "react";
 import "./main_page.css";
 import { Link } from 'react-router-dom';
+import { login } from "../../actions/session_actions";
+import { connect } from "react-redux";
+
 // import ScrollTrigger from "../../dist/ScrollTrigger.js";
 
 class MainPage extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
+  }
 
   componentDidMount() {
     // let trigger = new ScrollTrigger();
@@ -15,6 +19,11 @@ class MainPage extends React.Component {
     if (navbar) {
       navbar.classList.remove("orange");
     }
+  }
+
+  loginDemoUser() {
+    let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
+    this.props.login(demoUser);
   }
 
   render() {
@@ -113,6 +122,10 @@ class MainPage extends React.Component {
                 <Link to="/login">
                   <h2>Log In</h2>
                 </Link>
+              </div>
+              <br/>
+              <div className="button-box" onClick={e => this.loginDemoUser()}>
+                  <h2>Try Demo</h2>
               </div>
             </div>
           </div>
@@ -227,4 +240,14 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+
+const mapStateToProps = state => {
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: user => dispatch(login(user))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
