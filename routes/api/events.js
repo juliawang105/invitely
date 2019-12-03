@@ -17,12 +17,10 @@ router.get("/", (req, res) => { //event index
 });
 
 router.get("/user/:user_id", (req, res) => { //user show page 
-   Event.find({ user: req.params.user_id
-        , end_time: { $gte: Date.now() }
+    Event.find({ user: req.params.user_id, end_time: { $gte: Date.now() }
     })
      .then(events => res.json(events))
      .catch(err => res.status(400).json(err));
-
 });
 
 router.patch("/:id", (req, res, next ) => {
