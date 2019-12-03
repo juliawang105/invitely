@@ -45,6 +45,8 @@
   -webkit-transition-property: transform;
   transition-property: transform;
   background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  /* min-width: 350px; */
 }
 
 .user-event-details:hover, .user-event-details:focus, .user-event-details:active {
@@ -71,12 +73,12 @@
   justify-content: center;
   text-align: start;
   font-weight: bold;
+  min-width: 66px;
 }
 
 .text-title > h3 {
   font-weight: bold;
   padding-right: 5px;
- 
 }
 
 .text-info{
@@ -86,7 +88,7 @@
   display: flex;
   justify-content: flex-start;
   text-align: start;
-  
+  min-width: 300px;
 }
 
 .user-event a{
