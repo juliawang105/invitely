@@ -37,24 +37,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const root = document.getElementById("root");
 
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.getEvents = getEvents;
-  window.getEvent = getEvent; 
-  window.createEvent = createEvent; 
-  window.updateEvent = updateEvent; 
-  window.fetchEventPosts = fetchEventPosts;
-  window.createPost = createPost;
-  window.updatePost = updatePost;
-  window.destroyReservation = destroyReservation;
-  window.reviseReservation = reviseReservation;
-  window.createTodo = createTodo;
-  window.updateTodo = updateTodo;
-  window.deleteTodo = deleteTodo;
-  window.deleteEvent = deleteEvent;
-  window.fetchEventTodos = fetchEventTodos;
-  window.getTodo = getTodo;
+  // window.store = store;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.getEvents = getEvents;
+  // window.getEvent = getEvent; 
+  // window.createEvent = createEvent; 
+  // window.updateEvent = updateEvent; 
+  // window.fetchEventPosts = fetchEventPosts;
+  // window.createPost = createPost;
+  // window.updatePost = updatePost;
+  // window.destroyReservation = destroyReservation;
+  // window.reviseReservation = reviseReservation;
+  // window.createTodo = createTodo;
+  // window.updateTodo = updateTodo;
+  // window.deleteTodo = deleteTodo;
+  // window.deleteEvent = deleteEvent;
+  // window.fetchEventTodos = fetchEventTodos;
+  // window.getTodo = getTodo;
 
   ReactDOM.render(<Root store={store} />, root);
 });
