@@ -1,8 +1,8 @@
 .user-show {
   display: flex;
   /* width: 100vw; */
-  height: 100vh;
   justify-content: center;
+  height: 100%;
 }
 
 .user-show-box{
@@ -10,7 +10,17 @@
   padding-top: 50px;
   display: flex;
   justify-content: center;
+}
 
+.user-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url("grey.gif");
+  background-size: cover;
+  z-index: -1;
 }
 
 .invite-host{

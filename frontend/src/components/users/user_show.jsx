@@ -64,6 +64,7 @@ class Users extends React.Component {
 
     return (
       <div className="user-show">
+        <div className="user-background"></div>
         <div className="user-show-box">
 
           <div className="invite-host">
