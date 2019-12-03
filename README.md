@@ -9,7 +9,7 @@ Invitely is implemented using MERN stack (MongoDB, Express.js, React.js & Redux,
 # Features 
 ### Automatic Invitations 
 
-![invite](https://i.pinimg.com/originals/59/94/41/599441e27013bdf91bd4a78ee1b2f902.gif)
+![invite](https://i.pinimg.com/originals/e9/19/13/e91913f8fa7cd847feaef12da6e8cc61.gif)
 
 ### RSVP Real-Time Updates 
 To make tracking of attendees easier, Invitely allows real-time RSVP updates. 
