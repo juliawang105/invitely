@@ -64,7 +64,7 @@ class CreateEvent extends React.Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      console.log(response);
+      // console.log(response);
       this.setState({
         image_url: response.data.Location
       });

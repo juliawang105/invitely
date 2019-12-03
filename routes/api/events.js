@@ -27,7 +27,7 @@ router.get("/user/:user_id", (req, res) => { //user show page
 
 router.patch("/:id", (req, res, next ) => {
     const { errors, isValid } = validateEventInput(req.body);
-    console.log(req)
+    // console.log(req);
 
     if (!isValid) {
         return res.status(400).json(errors);
