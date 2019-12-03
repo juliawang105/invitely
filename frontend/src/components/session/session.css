@@ -142,4 +142,11 @@
   background: rgba(0, 0, 0, 0.5);
   opacity: 0.9;
   border-radius: 3px;
+  transition: 300ms ease;
+}
+
+.demo:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: 300ms ease;
 }
