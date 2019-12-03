@@ -9,14 +9,16 @@ mongoose.set("useFindAndModify", false)
 
 // router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
-router.get("/", (req, res) => { //event index
+// event index
+router.get("/", (req, res) => { 
     Event.find()
       .sort({ date: -1 })
       .then(events => res.json(events))
       .catch(err => res.status(400).json(err));
 });
 
-router.get("/user/:user_id", (req, res) => { //user show page 
+// user show page
+router.get("/user/:user_id", (req, res) => {  
     Event.find({ user: req.params.user_id, end_time: { $gte: Date.now() }
     })
      .then(events => res.json(events))

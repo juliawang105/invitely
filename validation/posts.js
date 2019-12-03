@@ -7,11 +7,11 @@ module.exports = function validatePostInput(data){
     data.body = validText(data.body)? data.body : "";
 
     if(Validator.isEmpty(data.body)){
-        errors.body = "Create a body for your event! "
+        errors.body = "Create a body for your event! ";
     };
  
     return { 
         errors, 
         isValid: Object.keys(errors).length === 0
     };
-}
+};

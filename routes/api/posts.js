@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => { //post show
    Post.findById(req.params.id)
         .then(post => res.json(post))
         .catch(err => res.status(400).json(err));
-})
+});
 
 router.post(
   "/event/:event_id", //create post
