@@ -120,6 +120,10 @@
   font-weight: bold;
 }
 
+.invite-host {
+  width: 50vw;
+}
+
 .text-info{
   margin: 10px;
   width: 32vw;
