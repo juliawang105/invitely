@@ -26,19 +26,20 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props
-      .fetchEventPosts(this.props.match.params.id)
-      .then(() => this.setState({ loaded: true }));
+    this.props.fetchEventPosts(this.props.match.params.id)
+    .then(() => this.props.getEvent(this.props.match.params.id)
+      .then(() => this.props.fetchEventReservations(this.props.match.params.id) 
+        .then(() => this.props.fetchEventTodos(this.props.match.params.id) 
+          .then(() => this.setState({ loaded: true }))
+        )
+      )
+    );
 
     let navbar = document.querySelector(".nav-bar");
 
     if (navbar) {
       navbar.className += " orange";
     }
-
-    this.props.getEvent(this.props.match.params.id);
-    this.props.fetchEventReservations(this.props.match.params.id);
-    this.props.fetchEventTodos(this.props.match.params.id);
   }
 
   componentDidUpdate(prevProps) {
@@ -92,6 +93,10 @@ class EventShow extends React.Component {
     let event = this.props.event.new;
     let posts = this.props.posts;
     if (!event) {
+      return null;
+    }
+
+    if (!this.state.loaded) {
       return null;
     }
 
