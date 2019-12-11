@@ -66,7 +66,7 @@
 }
 
 .invited-event .user-event-details {
-  background-color: rgb(255, 226, 132, 0.8);
+  background-color: rgba(255, 234, 166, 0.8);
   transition: 300ms ease;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .invited-event .user-event-details:hover {
-  background-color: rgb(255, 226, 132, 1);
+  background-color: rgba(255, 234, 166, 1);
   transition: 300ms ease;
 }
 
