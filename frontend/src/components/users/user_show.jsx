@@ -27,7 +27,6 @@ class Users extends React.Component {
         .fetchUserReservations(this.props.user.email)
         .then(res => {
           let reservations = res.reservations.data;
-          let j = 1
 
           if (reservations.length < 1) {
             this.setState({ loaded: true });            
