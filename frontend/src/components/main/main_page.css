@@ -298,3 +298,7 @@
   -webkit-animation-direction: normal, alternate;
   animation-direction: normal, alternate;
 }
+
+.main-image {
+  border-radius: 40px;
+}
