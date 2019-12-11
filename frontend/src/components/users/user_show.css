@@ -77,8 +77,8 @@
 }
 
 .user-event-details:hover, .user-event-details:focus, .user-event-details:active {
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
   background-color: rgba(0, 0, 0, 0.07);
   transition: 500ms ease;
 }
