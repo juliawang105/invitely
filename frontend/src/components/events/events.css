@@ -213,6 +213,7 @@ body:hover {
 .event-info-item {
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
+    max-width: 24vw;
 }
 
 .event-info-item.event-body {

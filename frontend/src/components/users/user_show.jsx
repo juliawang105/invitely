@@ -68,10 +68,10 @@ class Users extends React.Component {
         <div className="user-show-box">
 
           <div className="invite-host">
-            <h1>Invited Events</h1>
+            <h1>My Invitations</h1>
             {inviteEvents.map(event => {
               return (
-                <div className="user-event" key={event._id}>
+                <div className="user-event invited-event" key={event._id}>
                   <Link to={`/events/${event._id}`}>
                     <div className="user-event-details">
                       <div className="text">
@@ -89,7 +89,7 @@ class Users extends React.Component {
                       <div className="text">
                         <div className="text-title">When</div>
                         <div className="text-info">
-                          {new Date(event.time).toDateString()}{" "}
+                          {new Date(event.time).toDateString()}{", "}
                           {new Date(event.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                         </div>
                       </div>
@@ -101,10 +101,10 @@ class Users extends React.Component {
           </div>
           
           <div className="invite-host">
-            <h1>Hosted Events</h1>
+            <h1>My Hosted Events</h1>
             {hostedEvents.map(event => {
               return (
-                <div className="user-event" key={event._id + 1}>
+                <div className="user-event hosted-event" key={event._id + 1}>
                   <Link to={`/events/${event._id}`}>
                     <div className="user-event-details">
                       <div className="text">
@@ -120,7 +120,7 @@ class Users extends React.Component {
                       <div className="text">
                         <div className="text-title">When</div>
                         <div className="text-info">
-                          {new Date(event.time).toDateString()}{" "}
+                          {new Date(event.time).toDateString()}{", "}
                           {new Date(event.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                         </div>
                       </div>

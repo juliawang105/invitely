@@ -56,8 +56,28 @@
   transition-property: transform;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  overflow-wrap: normal;
+
   /* min-width: 350px; */
+}
+
+.hosted-event .user-event-details {
+  background-color: rgba(255, 218, 170, 0.8);
+  transition: 300ms ease;
+}
+
+.invited-event .user-event-details {
+  background-color: rgb(255, 226, 132, 0.8);
+  transition: 300ms ease;
+}
+
+.hosted-event .user-event-details:hover {
+  background-color: rgba(255, 218, 170, 1);
+  transition: 300ms ease;
+}
+
+.invited-event .user-event-details:hover {
+  background-color: rgb(255, 226, 132, 1);
+  transition: 300ms ease;
 }
 
 .user-event-details:hover, .user-event-details:focus, .user-event-details:active {
@@ -85,21 +105,26 @@
   text-align: start;
   font-weight: bold;
   min-width: 66px;
+  font-size: 1vw;
 }
 
 .text-title > h3 {
   font-weight: bold;
   padding-right: 5px;
+
 }
 
 .text-info{
   margin: 10px;
-  width: 20vw;
+  width: 32vw;
+  min-width: 500px;
   padding-right: 15px;
   display: flex;
   justify-content: flex-start;
   text-align: start;
   min-width: 300px;
+  overflow-wrap: none;
+  font-size: 1vw;
 }
 
 .user-event a{

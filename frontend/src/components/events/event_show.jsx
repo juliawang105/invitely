@@ -224,11 +224,12 @@ class EventShow extends React.Component {
                 <div className="event-text">
                   <div className="event-name-item bold">{event.name}</div>
 
-                  <div className="event-info-item">
+                  <div className="event-info-item event-location-item">
                     <a
                       href={`https://www.google.com/maps/dir//${parseString(
                         event.location
                       )}`}
+                      target="_blank"
                     >
                       <i className="fas fa-map-marker-alt event-icon"></i>{" "}
                       {event.location}
@@ -241,6 +242,7 @@ class EventShow extends React.Component {
                       )}&dates=${parseTime}/${parseEndTime}&details=${parseString(
                         event.body
                       )}&location=${parseString(event.location)}&trp=true`}
+                      target="_blank"
                     >
                       <i className="far fa-clock event-icon"></i>
                       <span className="times">
