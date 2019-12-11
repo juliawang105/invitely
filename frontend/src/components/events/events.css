@@ -170,7 +170,7 @@ body:hover {
     top: 45px;
     transition: 600ms ease;
     /* border: 1px solid red; */
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
 }
 
 .event-text {
