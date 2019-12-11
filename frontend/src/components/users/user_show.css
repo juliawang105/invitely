@@ -26,7 +26,11 @@
   justify-content: center;
 }
 
-.user-event-details{
+.inline {
+
+}
+
+.user-event-details {
   /* width: 40vw; */
   text-align: center;
   padding-top: 15px;
@@ -54,13 +58,30 @@
   transition: 500ms ease;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 0% 35% 20% 20% 20%;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". left right right right";
+}
+
+.left { 
+  grid-area: left;
+  margin-left: 10px;
+  left: 0px;
+}
+
+.right { 
+  grid-area: right; 
+}
+
 .text {
   color: black;
   font-size: 14pt;
   display: flex;
   align-items: initial;
   justify-content: flex-end;
-  word-break: break-all
+  overflow-wrap: normal;
 }
 
 .text-title{

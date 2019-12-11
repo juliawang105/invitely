@@ -84,8 +84,8 @@ app.post('/api/send_email', (req, res) => {
 // configure the keys for accessing AWS
 AWS.config.update({
   region: "us-west-1",
-  accessKeyId: process.env.accessKeyId,
-  secretAccessKey: process.env.secretKey,
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
   ServerSideEncryption: "AES256",
 });
 
@@ -100,7 +100,7 @@ const uploadFile = (buffer, name, type) => {
   const params = {
     ACL: 'public-read',
     Body: buffer,
-    Bucket: process.env.bucketName,
+    Bucket: keys.bucketName,
     ContentType: type.mime,
     Key: `${name}.${type.ext}`
   };
