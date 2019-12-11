@@ -194,8 +194,8 @@ body:hover {
     transition-property: transform;
 }
 .event-text a:hover, .event-text a:focus, .event-text a:active, .map-box a:hover, .map-box a:focus, .map-box a:active {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
     color: rgba(0, 0, 0, 0.5)
 }
 
@@ -259,6 +259,18 @@ body:hover {
     color: rgba(0, 0, 0, 0)
 }
 
+.inline-block {
+    display: inline-block;
+    max-width: 21.5vw;
+}
+
+.event-info-item .event-location-item {
+    display: flex;
+}
+
+.font-larger {
+    font-size: 1.2em;
+}
 
 
 
