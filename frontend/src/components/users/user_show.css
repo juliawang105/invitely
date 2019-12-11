@@ -1,15 +1,14 @@
 .user-show {
   display: flex;
-  /* width: 100vw; */
   justify-content: center;
   height: 100%;
 }
 
 .user-show-box{
-  height: 100%;
-  padding-top: 50px;
   display: flex;
   justify-content: center;
+  height: 100%;
+  padding-top: 50px;
 }
 
 .user-background {
@@ -24,11 +23,11 @@
 }
 
 .invite-host{
- height: 100vh;
- min-width: 40vw;
- display: flex;
- flex-direction: column;
- align-items: center;
+  height: 100vh;
+  min-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-event{
@@ -37,7 +36,6 @@
 }
 
 .user-event-details{
-  /* width: 45vw; */
   text-align: center;
   padding-top: 15px;
   margin: 10px;
@@ -56,8 +54,6 @@
   transition-property: transform;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-
-  /* min-width: 350px; */
 }
 
 .hosted-event .user-event-details {
@@ -111,7 +107,17 @@
 .text-title > h3 {
   font-weight: bold;
   padding-right: 5px;
+}
 
+.user-event a{
+   text-decoration: none
+}
+
+.invite-host > h1 {
+  font-size: 3vw;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-weight: bold;
 }
 
 .text-info{
@@ -125,15 +131,4 @@
   min-width: 300px;
   overflow-wrap: none;
   font-size: 1vw;
-}
-
-.user-event a{
-   text-decoration: none
-}
-
-.invite-host > h1 {
-  font-size: 3vw;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  font-weight: bold;
 }
