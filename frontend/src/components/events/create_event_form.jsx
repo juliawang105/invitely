@@ -38,11 +38,12 @@ class CreateEvent extends React.Component {
     if (navbar) {
       navbar.className += " orange";
     }
-    
-    this.setState({
-      file: null,
-      image_url: ""
-    });
+    if (this.props.formType === "Create Event") {
+      this.setState({
+        file: null,
+        image_url: ""
+      });
+    }
 
     this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.current,
         {"types": ["geocode"]});
@@ -202,7 +203,7 @@ class CreateEvent extends React.Component {
 
 
 
-
+    debugger;
 
 
 
@@ -318,7 +319,10 @@ class CreateEvent extends React.Component {
               />
             </div>
             <div className="event-input">
-              <input type="file" onChange={this.handleFileUpload} />
+              <input 
+                type="file" 
+                onChange={this.handleFileUpload}
+              />
             </div>
             <div className="event-input">
               <textarea
