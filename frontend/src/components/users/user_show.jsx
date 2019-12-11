@@ -28,6 +28,11 @@ class Users extends React.Component {
         .then(res => {
           let reservations = res.reservations.data;
           let j = 1
+
+          if (reservations.length < 1) {
+            this.setState({ loaded: true });            
+          }
+
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event)
             .then(() => {
