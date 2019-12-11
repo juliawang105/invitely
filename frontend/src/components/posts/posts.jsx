@@ -49,7 +49,6 @@ class Posts extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let post = this.state.post;
-    console.log(post);
     this.props.createPost(post);
     this.setState({ post: {body: ""} });
   }

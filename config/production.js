@@ -3,5 +3,6 @@ module.exports = {
   secretOrKey: process.env.secretOrKey,
   accessKeyId: process.env.accessKeyId,
   secretAccessKey: process.env.secretAccessKey,
-  bucketName: process.env.bucketName
+  bucketName: process.env.bucketName,
+  accessKey: process.env.accessKey
 };

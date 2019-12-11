@@ -31,7 +31,7 @@ class Users extends React.Component {
           for (let i = 0; i < reservations.length; i++) {
             this.props.getEvent(reservations[i].event)
             }
-          })
+          });
       })
       .then(() => {
         this.setState({ loaded: true });
@@ -64,20 +64,20 @@ class Users extends React.Component {
 
     return (
       <div className="user-show">
+        <div className="user-background"></div>
         <div className="user-show-box">
 
           <div className="invite-host">
-            <h1>Invited Events</h1>
+            <h1>My Invitations</h1>
             {inviteEvents.map(event => {
               return (
-                <div className="user-event" key={event._id}>
+                <div className="user-event invited-event" key={event._id}>
                   <Link to={`/events/${event._id}`}>
                     <div className="user-event-details">
                       <div className="grid-container">
                         <div className="left">
                           <img height="auto" width="150px" src={`${event.image_url}`} />
                         </div>
-
                         <div className="right">
                           <div className="text">
                             <div className="text-title">Event</div>
@@ -106,17 +106,16 @@ class Users extends React.Component {
           </div>
           
           <div className="invite-host">
-            <h1>Hosted Events</h1>
+            <h1>My Hosted Events</h1>
             {hostedEvents.map(event => {
               return (
-                <div className="user-event" key={event._id + 1}>
+                <div className="user-event hosted-event" key={event._id + 1}>
                   <Link to={`/events/${event._id}`}>
                     <div className="user-event-details">
                       <div className="grid-container">
                         <div className="left">
                           <img src={`${event.image_url}`} />
                         </div>
-
                         <div className="right">
                           <div className="text">
                             <div className="text-title">Event</div>

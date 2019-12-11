@@ -19,5 +19,5 @@ export const getUserEvents = id => {
 };
 
 export const deleteEvent = id => {
-  return axios.delete(`/api/events/${id}`)
+  return axios.delete(`/api/events/${id}`);
 };

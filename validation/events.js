@@ -34,7 +34,7 @@ module.exports = function validateEventInput(data){
     
     data.location = validText(data.location)? data.location : "";
     if(Validator.isEmpty(data.location)){
-        errors.location = "Add a location for your event!"
+        errors.location = "Add a location for your event!";
     };
 
     return { 

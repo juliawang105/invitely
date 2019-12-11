@@ -1,16 +1,25 @@
 .user-show {
   display: flex;
-  /* width: 100vw; */
-  height: 100vh;
   justify-content: center;
+  height: 100%;
 }
 
 .user-show-box{
-  height: 100%;
-  padding-top: 50px;
   display: flex;
   justify-content: center;
+  height: 100%;
+  padding-top: 50px;
+}
 
+.user-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url("grey.gif");
+  background-size: cover;
+  z-index: -1;
 }
 
 .invite-host {
@@ -26,9 +35,6 @@
   justify-content: center;
 }
 
-.inline {
-
-}
 
 .user-event-details {
   /* width: 40vw; */
@@ -49,11 +55,32 @@
   -webkit-transition-property: transform;
   transition-property: transform;
   background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.hosted-event .user-event-details {
+  background-color: rgba(255, 218, 170, 0.8);
+  transition: 300ms ease;
+}
+
+.invited-event .user-event-details {
+  background-color: rgba(255, 234, 166, 0.8);
+  transition: 300ms ease;
+}
+
+.hosted-event .user-event-details:hover {
+  background-color: rgba(255, 218, 170, 1);
+  transition: 300ms ease;
+}
+
+.invited-event .user-event-details:hover {
+  background-color: rgba(255, 234, 166, 1);
+  transition: 300ms ease;
 }
 
 .user-event-details:hover, .user-event-details:focus, .user-event-details:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
   background-color: rgba(0, 0, 0, 0.07);
   transition: 500ms ease;
 }
@@ -100,22 +127,13 @@ img {
   justify-content: center;
   text-align: start;
   font-weight: bold;
+  min-width: 66px;
+  font-size: 1vw;
 }
 
 .text-title > h3 {
   font-weight: bold;
   padding-right: 5px;
- 
-}
-
-.text-info{
-  margin: 10px;
-  width: 20vw;
-  padding-right: 15px;
-  display: flex;
-  justify-content: flex-start;
-  text-align: start;
-  
 }
 
 .user-event a{
@@ -127,4 +145,21 @@ img {
   padding-top: 15px;
   padding-bottom: 10px;
   font-weight: bold;
+}
+
+.invite-host {
+  width: 50vw;
+}
+
+.text-info{
+  margin: 10px;
+  width: 32vw;
+  min-width: 500px;
+  padding-right: 15px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+  min-width: 300px;
+  overflow-wrap: none;
+  font-size: 1vw;
 }

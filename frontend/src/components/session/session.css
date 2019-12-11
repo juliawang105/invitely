@@ -132,4 +132,22 @@
   line-height: 2em;
   font-style: italic;
   font-size: 12px;
+  margin-bottom: ;
+}
+
+.demo {
+  color: white;
+  font-style: italic;
+  padding: 0.7em;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  border-radius: 3px;
+  transition: 300ms ease;
+}
+
+.demo:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: 300ms ease;
 }

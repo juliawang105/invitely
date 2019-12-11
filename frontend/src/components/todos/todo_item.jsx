@@ -45,7 +45,7 @@ class TodoItem extends React.Component {
             {todo.body}
           </span>
         </div>
-        <div onClick={() => this.props.deleteTodo(todo._id)} className="x">
+        <div onClick={() => this.props.deleteTodo(todo._id)} className="x-todo">
           <i className="fas fa-times"></i>
         </div>
       </div>

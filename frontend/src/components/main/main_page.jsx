@@ -1,12 +1,16 @@
 import React from "react";
 import "./main_page.css";
 import { Link } from 'react-router-dom';
+import { login } from "../../actions/session_actions";
+import { connect } from "react-redux";
+
 // import ScrollTrigger from "../../dist/ScrollTrigger.js";
 
 class MainPage extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
+  }
 
   componentDidMount() {
     // let trigger = new ScrollTrigger();
@@ -15,6 +19,11 @@ class MainPage extends React.Component {
     if (navbar) {
       navbar.classList.remove("orange");
     }
+  }
+
+  loginDemoUser() {
+    let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
+    this.props.login(demoUser);
   }
 
   render() {
@@ -26,7 +35,8 @@ class MainPage extends React.Component {
           </h1>
           <div className="peek">
             <div className="down-arrow hvr-hang">
-              <i className="fas fa-sort-down"></i>
+              <i className="fas fa-arrow-down"></i> Scroll Down for More Info{" "}
+              <i className="fas fa-arrow-down"></i>
             </div>
           </div>
         </div>
@@ -41,14 +51,18 @@ class MainPage extends React.Component {
               </div>
             </div>
             <div>
-              <img src="pic_001.jpeg" alt="2" className="main-image" />
+              <img
+                src="pic_001.jpeg"
+                alt="2"
+                className="main-image round-image"
+              />
               {/* <img src="gif_004.gif" alt="2" className="main-image" /> */}
               {/* <img src="gif_008.gif" alt="2" className="main-image" /> */}
             </div>
           </div>
           <div className="peek alt">
             <div className="down-arrow hvr-hang">
-              <i className="fas fa-sort-down"></i>
+              <i className="fas fa-arrow-down"></i>
             </div>
           </div>
         </div>
@@ -57,7 +71,11 @@ class MainPage extends React.Component {
           <div className="section">
             <div>
               {/* <img src="pic_005.jpg" alt="3" className="main-image" /> */}
-              <img src="gif_001.gif" alt="3" className="main-image" />
+              <img
+                src="gif_001.gif"
+                alt="3"
+                className="main-image round-image"
+              />
             </div>
             <div className="text-box alt">
               <h2 className="sub-header">Invite</h2>
@@ -68,7 +86,7 @@ class MainPage extends React.Component {
           </div>
           <div className="peek">
             <div className="down-arrow hvr-hang">
-              <i className="fas fa-sort-down"></i>
+              <i className="fas fa-arrow-down"></i>
             </div>
           </div>
         </div>
@@ -82,7 +100,11 @@ class MainPage extends React.Component {
               </div>
             </div>
             <div>
-              <img src="pic_002.jpeg" alt="pic_02" className="main-image" />
+              <img
+                src="pic_002.jpeg"
+                alt="pic_02"
+                className="main-image round-image"
+              />
               {/* <img src="gif_002.gif" alt="4" className="main-image" /> */}
             </div>
           </div>
@@ -114,6 +136,10 @@ class MainPage extends React.Component {
                   <h2>Log In</h2>
                 </Link>
               </div>
+              <br />
+              <div className="button-box" onClick={e => this.loginDemoUser()}>
+                <h2>Try Demo</h2>
+              </div>
             </div>
           </div>
           <div className="peek alt">
@@ -128,11 +154,7 @@ class MainPage extends React.Component {
           <div className="section">
             <div className="dev-box">
               <a href="https://www.linkedin.com/in/isom-durm/">
-                <img
-                  src="dev-isom.jpg"
-                  alt="Isom Durm"
-                  className="dev-image"
-                />
+                <img src="dev-isom.jpg" alt="Isom Durm" className="dev-image" />
               </a>
               <div className="sub-tagline">
                 <a href="https://www.linkedin.com/in/isom-durm/">Isom Durm</a>
@@ -227,4 +249,12 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: user => dispatch(login(user))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(MainPage);

@@ -39,7 +39,7 @@ class CreateReservation extends React.Component {
     let event_email = email;
     let event_url = `invitely.herokuapp.com/#/events/${eventId}`;
 
-    console.log({event_name, event_location, event_time, event_email, event_url, eventId, email});
+    // console.log({event_name, event_location, event_time, event_email, event_url, eventId, email});
 
     fetch("/api/send_email", {
       method: "POST",
