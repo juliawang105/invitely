@@ -66,14 +66,14 @@ class Users extends React.Component {
     if (hostedEvents.length === 0) {
       noEventMessage = 
         <div className="user-event invited-event">
-          No Events Yet!
+          No Events Yet
         </div>
     }
     let noneInvitedMessage
     if (inviteEvents.length === 0) {
       noneInvitedMessage = 
         <div className="user-event invited-event">
-          No Invites Yet!
+          No Invites Yet
         </div>
     }
 
