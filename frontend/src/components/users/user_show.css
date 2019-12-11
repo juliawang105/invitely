@@ -37,11 +37,9 @@
 
 
 .user-event-details {
-  /* width: 40vw; */
   text-align: center;
   padding-top: 1vw;
-  margin: 10px;
-  /*margin-right: 50px;*/
+  margin: 1vw;
   padding-bottom: 1vw;
   display: flex;
   width: 42vw;
@@ -100,7 +98,6 @@
 
 .text {
   color: black;
-  font-size: 14pt;
   display: flex;
   align-items: initial;
   justify-content: flex-end;
