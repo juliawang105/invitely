@@ -222,6 +222,11 @@ body:hover {
     padding-right: 1vw;
 }
 
+
+.event-info-item a {
+    margin-right: 30px;
+}
+
 .hosted {
     font-size: 0.8vw;
     font-style: italic;
