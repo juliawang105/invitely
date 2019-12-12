@@ -98,13 +98,12 @@
   padding: 0.7vw 0;
   border-radius: 2px;
   opacity: 0.9;
-  transition: 200ms ease;
+  transition: 300ms ease;
   line-height: 1.2em;
 }
 
 .session-form-items a:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: 200ms ease;
+  transition: 300ms ease;
   opacity: 1;
 }
 
