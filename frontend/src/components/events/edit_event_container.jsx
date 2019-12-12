@@ -50,8 +50,6 @@ class EditEvent extends React.Component{
             return null;
         }
 
-    
-
         let edit;
         let reservations=this.props.reservations.event;
 

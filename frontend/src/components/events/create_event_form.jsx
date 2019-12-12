@@ -198,18 +198,6 @@ class CreateEvent extends React.Component {
     let header;
 
 
-
-
-
-
-
-    debugger;
-
-
-
-
-
-
     if(this.props.formType === 'Create Event'){
       button = (
         <button
