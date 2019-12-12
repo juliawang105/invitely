@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { getEvent } from "../../actions/event_actions";
-import { fetchEventPosts, createPost } from "../../actions/post_actions";
+import { fetchEventPosts, createPost, deletePost } from "../../actions/post_actions";
 import Posts from './posts';
 
 
@@ -16,7 +16,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
   getEvent: id => dispatch(getEvent(id)),
   fetchEventPosts: id => dispatch(fetchEventPosts(id)),
-  createPost: data => dispatch(createPost(data))
+  createPost: data => dispatch(createPost(data)),
+  deletePost: id => dispatch(deletePost(id))
 });
 
 export default connect(mSTP, mDTP)(Posts);

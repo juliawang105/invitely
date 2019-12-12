@@ -67,7 +67,11 @@ class Posts extends React.Component {
         
         <ul className="posts-list">
           {posts.map(post => {
-            return <PostItem post={post} key={post._id} className="post-item-box" />;
+            return <PostItem post={post} 
+              key={post._id} 
+              className="post-item-box"
+              delete = {this.props.deletePost}
+              user = {this.props.user} />;
           })}
         </ul>
           

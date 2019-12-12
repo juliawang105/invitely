@@ -44,6 +44,9 @@
 
 .post-content {
   margin: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bold {
