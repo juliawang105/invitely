@@ -77,6 +77,36 @@
   flex-direction: column;
 }
 
+.session-form-items .session-form-title {
+  color: white;
+  text-align: center;
+  font-size: 2.5vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  padding: 1vw 0;
+  border-radius: 2px;
+}
+
+.session-form-items a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-size: 1vw;
+  margin: 1vw 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 0.7vw 0;
+  border-radius: 2px;
+  opacity: 0.9;
+  transition: 300ms ease;
+  line-height: 1.2em;
+}
+
+.session-form-items a:hover {
+  transition: 300ms ease;
+  opacity: 1;
+}
+
 .session-form-item {
   width: 300px;
   /* background: rgba(255, 255, 255, 0.7); */

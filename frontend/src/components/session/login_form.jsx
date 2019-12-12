@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./session.css";
 
 class LoginForm extends React.Component {
@@ -79,6 +79,8 @@ class LoginForm extends React.Component {
       <div className="session-form-container">
         <form className="session-form fade-in-down" onSubmit={this.handleSubmit}>
           <div className="session-form-items">
+            <div className="session-form-title">Log In</div>
+            <Link to="/signup">Don't have an account? <br/> Sign up</Link>
             <input
               type="text"
               value={this.state.email}
