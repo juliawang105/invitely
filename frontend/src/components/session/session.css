@@ -80,10 +80,10 @@
 .session-form-items .session-form-title {
   color: white;
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 36px;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0.9;
-  padding: 1vw 0;
+  padding: 20px 0;
   border-radius: 2px;
 }
 
@@ -91,11 +91,11 @@
   text-decoration: none;
   color: white;
   text-align: center;
-  font-size: 1vw;
-  margin: 1vw 0;
+  font-size: 18px;
+  margin: 10px 0;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  padding: 0.7vw 0;
+  padding: 10px 0;
   border-radius: 2px;
   opacity: 0.9;
   transition: 300ms ease;
@@ -135,11 +135,10 @@
 }
 
 .session-form-items input[type="submit"] {
-  margin-top: 10px;
+  margin: 10px 0;
   background-color: rgba(255, 255, 255, 0.9);
   border: none;
   font-weight: bold;
-  margin-bottom: 6px;
   padding: 10px;
   border: none;
   border-radius: 2px;
