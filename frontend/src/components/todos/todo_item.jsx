@@ -12,7 +12,6 @@ class TodoItem extends React.Component {
   changeStatus(e) {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // debugger;
     
     let task = {
       event: this.state.event,
