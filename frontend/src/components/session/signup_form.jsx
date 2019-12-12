@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./session.css";
 
 class SignupForm extends React.Component {
@@ -86,8 +86,15 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <form className="session-form fade-in-down" onSubmit={this.handleSubmit}>
+        <form
+          className="session-form fade-in-down"
+          onSubmit={this.handleSubmit}
+        >
           <div className="session-form-items">
+            <div className="session-form-title">Sign Up</div>
+            <Link to="/login">
+              Already have an account? <br /> Log In
+            </Link>
             <input
               type="text"
               value={this.state.firstName}
@@ -137,7 +144,7 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
             <div className="demo" onClick={e => this.loginDemoUser()}>
               Try Demo
-          </div>
+            </div>
           </div>
         </form>
       </div>
