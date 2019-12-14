@@ -153,23 +153,23 @@ class MainPage extends React.Component {
           <br />
           <div className="section">
             <div className="dev-box">
-              <a href="https://www.linkedin.com/in/isom-durm/">
+              <a href="https://www.linkedin.com/in/isom-durm/" target="_blank">
                 <img src="dev-isom.jpg" alt="Isom Durm" className="dev-image" />
               </a>
               <div className="sub-tagline">
-                <a href="https://www.linkedin.com/in/isom-durm/">Isom Durm</a>
+                <a href="https://www.linkedin.com/in/isom-durm/" target="_blank">Isom Durm</a>
                 <div className="dev-links">
-                  <a href="https://github.com/isomdurm">
+                  <a href="https://github.com/isomdurm" target="_blank">
                     <i className="fab fa-github-alt"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/isom-durm/">
+                  <a href="https://www.linkedin.com/in/isom-durm/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div className="dev-box">
-              <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+              <a href="https://www.linkedin.com/in/julia-wang-b1981231/" target="_blank">
                 <img
                   src="dev-julia-wang.jpg"
                   alt="Jula Wang"
@@ -177,21 +177,21 @@ class MainPage extends React.Component {
                 />
               </a>
               <div className="sub-tagline">
-                <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+                <a href="https://www.linkedin.com/in/julia-wang-b1981231/" target="_blank">
                   Julia Wang
                 </a>
                 <div className="dev-links">
-                  <a href="https://github.com/juliawang105">
+                  <a href="https://github.com/juliawang105" target="_blank">
                     <i className="fab fa-github-alt"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/julia-wang-b1981231/">
+                  <a href="https://www.linkedin.com/in/julia-wang-b1981231/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div className="dev-box">
-              <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+              <a href="https://www.linkedin.com/in/fion-pang-429172154/" target="_blank">
                 <img
                   src="dev-fion-pang.jpg"
                   alt="Fion Pang"
@@ -199,21 +199,21 @@ class MainPage extends React.Component {
                 />
               </a>
               <div className="sub-tagline">
-                <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+                <a href="https://www.linkedin.com/in/fion-pang-429172154/" target="_blank">
                   Fion Pang
                 </a>
                 <div className="dev-links">
-                  <a href="https://github.com/fion-p">
+                  <a href="https://github.com/fion-p" target="_blank">
                     <i className="fab fa-github-alt"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/fion-pang-429172154/">
+                  <a href="https://www.linkedin.com/in/fion-pang-429172154/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div className="dev-box">
-              <a href="https://www.linkedin.com/in/dannaxu/">
+              <a href="https://www.linkedin.com/in/dannaxu/" target="_blank">
                 <img
                   src="dev-danna-xu.jpg"
                   alt="Danna Xu"
@@ -221,12 +221,12 @@ class MainPage extends React.Component {
                 />
               </a>
               <div className="sub-tagline">
-                <a href="https://www.linkedin.com/in/dannaxu/">Danna Xu</a>
+                <a href="https://www.linkedin.com/in/dannaxu/" target="_blank">Danna Xu</a>
                 <div className="dev-links">
-                  <a href="https://github.com/danna-aa">
+                  <a href="https://github.com/danna-aa" target="_blank">
                     <i className="fab fa-github-alt"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/dannaxu/">
+                  <a href="https://www.linkedin.com/in/dannaxu/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
@@ -235,7 +235,7 @@ class MainPage extends React.Component {
           </div>
 
           <h2 className="sub-header">
-            <a href="https://github.com/juliawang105/invitely">
+            <a href="https://github.com/juliawang105/invitely" target="_blank">
               <i className="fas fa-paper-plane"></i> Invitely{" "}
               {/* <i className="fab fa-github-alt"></i> */}
             </a>
