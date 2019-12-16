@@ -93,7 +93,7 @@ class SignupForm extends React.Component {
           <div className="session-form-items">
             <div className="session-form-title">Sign Up</div>
             <Link to="/login">
-              Already have an account? <br /> Log In
+              Already have an account? <br /> Log in
             </Link>
             <input
               type="text"
