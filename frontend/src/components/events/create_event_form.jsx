@@ -307,10 +307,17 @@ class CreateEvent extends React.Component {
               />
             </div>
             <div className="event-input">
-              <input 
-                type="file" 
-                onChange={this.handleFileUpload}
-              />
+              <div className="file-upload">
+                <div className="file">
+                  <h1 className="file-label">Add an image to your event</h1>
+                  <input 
+                    type="file" 
+                    onChange={this.handleFileUpload}
+                    title="Event Image"
+                    id="file-input"
+                  />
+                </div>
+              </div>
             </div>
             <div className="event-input">
               <textarea
