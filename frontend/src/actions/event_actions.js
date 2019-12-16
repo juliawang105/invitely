@@ -31,7 +31,7 @@ const removeEvent = event => ({
 export const deleteEvent = id => dispatch => {
     return EventAPIUtil.deleteEvent(id)
         .then(event => dispatch(removeEvent(event)))
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
 }
 
 
@@ -40,7 +40,7 @@ export const getEvents = () => dispatch =>
         .then(events => {
             dispatch(receiveEvents(events));
         })
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
 
 export const getEvent = id => dispatch =>
     EventAPIUtil.getEvent(id)
@@ -49,7 +49,7 @@ export const getEvent = id => dispatch =>
               dispatch(receiveEvent(event));
             }
         })
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
 
 
 
@@ -66,12 +66,12 @@ export const getEvent = id => dispatch =>
 export const createEvent = event => dispatch =>
          EventAPIUtil.createEvent(event)
            .then(event => dispatch(receiveEvent(event)))
-           .catch(err => console.log(err));
+        //    .catch(err => console.log(err));
 
 export const updateEvent = event => dispatch =>
     EventAPIUtil.updateEvent(event)
         .then(event => dispatch(receiveEvent(event)))
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
 
 
 export const fetchUserEvents = id => dispatch =>

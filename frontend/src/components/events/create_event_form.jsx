@@ -196,8 +196,9 @@ class CreateEvent extends React.Component {
     let emailInput;
     let guestListHeader;
     let header;
-
-
+    let date = new Date(Date.now()).toISOString().slice(0, 10).toString() + "T00:00:00"
+    // debugger;
+    console.log(date)
     if(this.props.formType === 'Create Event'){
       button = (
         <button
@@ -294,6 +295,8 @@ class CreateEvent extends React.Component {
                 type="datetime-local"
                 value={this.state.time}
                 placeholder="Event Time"
+                min={date}
+                // min="2019-12-16T16:15:23"
                 // required
               />
             </div>
@@ -303,6 +306,7 @@ class CreateEvent extends React.Component {
                 type="datetime-local"
                 value={this.state.end_time}
                 placeholder="End Time"
+                min={date}
                 // required
               />
             </div>
