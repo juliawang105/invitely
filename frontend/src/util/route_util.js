@@ -23,14 +23,14 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
   />
 );
 
-const NewUser = ({ component: Component, loggedIn, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      loggedIn ? <Redirect to="/login" /> : <Component {...props} />
-    }
-  />
-);
+// const NewUser = ({ component: Component, loggedIn, ...rest }) => (
+//   <Route
+//     {...rest}
+//     render={props =>
+//       loggedIn ? <Redirect to="/login" /> : <Component {...props} />
+//     }
+//   />
+// );
 
 const mapStateToProps = state => ({ loggedIn: state.session.isAuthenticated });
 
@@ -38,4 +38,4 @@ export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
 
-export const NewUserRoute = withRouter(connect(mapStateToProps)(NewUser));
+// export const NewUserRoute = withRouter(connect(mapStateToProps)(NewUser));
