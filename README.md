@@ -2,6 +2,8 @@
 
 [Live Site](https://invitely.herokuapp.com/)
 
+![splash](https://i.pinimg.com/originals/0d/23/92/0d2392265c0e899bf6b4a1f4f79f55a9.gif)
+
 ## Background and Overview 
 Invitely is an online event planning and organizational app that allows for easy management for hosts and for guests. This user-friendly app takes the stress out of planning and leaves only the joy and excitement for gathering. 
 
