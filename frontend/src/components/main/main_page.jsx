@@ -30,7 +30,9 @@ class MainPage extends React.Component {
     console.log('hit')
     let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
     this.props.login(demoUser)
-    this.props.history.push('/users/loggedin')
+    .then( () => {
+      this.props.history.push('/users/loggedin')
+    })
      
   }
 
