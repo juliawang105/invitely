@@ -35,6 +35,11 @@ class EventShow extends React.Component {
       )
     );
 
+    let home = document.getElementById("home");
+    if (home) {
+      console.log(home);
+    }
+
     let navbar = document.querySelector(".nav-bar");
 
     if (navbar) {
@@ -49,7 +54,45 @@ class EventShow extends React.Component {
   }
 
   changePage(type) {
-    this.setState({ showing: type });
+    
+    let todos = document.getElementById("todos");
+    let guests = document.getElementById("guests");
+    let home = document.getElementById("home");
+    if (type === "guests") {
+      guests.style.fontWeight = "700";
+      guests.style.opacity = "0.4";
+
+      todos.style.fontWeight = "400";
+      todos.style.opacity = "1";
+
+      home.style.fontWeight = "400";
+      home.style.opacity = "1";
+      this.setState({ showing: type });
+
+    } else if ( type === "home") {
+      home.style.fontWeight = "700";
+      home.style.opacity = "0.4";
+
+      guests.style.fontWeight = "400";
+      guests.style.opacity = "1";
+
+      todos.style.fontWeight = "400";
+      todos.style.opacity = "1";
+      this.setState({ showing: type });
+
+    } else if (type === "todos") {
+      todos.style.fontWeight = "700";
+      todos.style.opacity = "0.4";
+
+      home.style.fontWeight = "400";
+      home.style.opacity = "1";
+
+      guests.style.fontWeight = "400";
+      guests.style.opacity = "1";
+
+      this.setState({ showing: type });
+    }
+    
   }
 
   handleScriptCreate() {
@@ -100,6 +143,14 @@ class EventShow extends React.Component {
       return null;
     }
 
+    if (this.state.showing === "home") {
+      let home = document.getElementById("home");
+      if (home) {
+        home.style.fontWeight = "700";
+        home.style.opacity = "0.4";
+      }
+    }
+
     let body;
     if (this.state.showing === "home" && this.state.loaded) {
       body = <PostsContainer />;
@@ -129,7 +180,9 @@ class EventShow extends React.Component {
             className="sidebar-nav-label"
             value="todos"
           >
-            To-do List
+            <span id="todos">
+              To-do List
+            </span>
           </div>
         </div>
       );
@@ -187,6 +240,11 @@ class EventShow extends React.Component {
       end.toDateString() +
       " " +
       end.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+    const style = {
+      fontWeight: '700',
+      opacity: 0.4
+    }
     return (
       <div className="event-show-box">
         <div className="nav-color"></div>
@@ -202,7 +260,9 @@ class EventShow extends React.Component {
                     className="sidebar-nav-label"
                     value="home"
                   >
-                    Discussion
+                    <span id="home" style={style}>
+                      Discussion
+                    </span>
                   </div>
                 </div>
 
@@ -212,7 +272,9 @@ class EventShow extends React.Component {
                     className="sidebar-nav-label"
                     value="guests"
                   >
-                    Guests
+                    <span id="guests">
+                      Guests
+                    </span>
                   </div>
                 </div>
                 {todoList}

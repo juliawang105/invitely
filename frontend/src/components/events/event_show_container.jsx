@@ -9,6 +9,7 @@ import {
   fetchEventTodos,
   deleteTodo,
 } from "../../actions/todo_actions";
+import "./events.css";
 
 const mSTP = (state, ownProps) => {
     return {
