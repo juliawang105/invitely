@@ -62,11 +62,15 @@ class EventShow extends React.Component {
       guests.style.fontWeight = "700";
       guests.style.opacity = "0.4";
 
-      todos.style.fontWeight = "400";
-      todos.style.opacity = "1";
-
+      
       home.style.fontWeight = "400";
       home.style.opacity = "1";
+
+      if (todos) {
+        todos.style.fontWeight = "400";
+        todos.style.opacity = "1";
+      }
+
       this.setState({ showing: type });
 
     } else if ( type === "home") {
@@ -76,8 +80,11 @@ class EventShow extends React.Component {
       guests.style.fontWeight = "400";
       guests.style.opacity = "1";
 
-      todos.style.fontWeight = "400";
-      todos.style.opacity = "1";
+      if (todos) {
+        todos.style.fontWeight = "400";
+        todos.style.opacity = "1";
+      }
+
       this.setState({ showing: type });
 
     } else if (type === "todos") {
