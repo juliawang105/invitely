@@ -1,6 +1,6 @@
 import React from "react";
 import "./main_page.css";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { login } from "../../actions/session_actions";
 import { connect } from "react-redux";
 
@@ -9,6 +9,11 @@ import { connect } from "react-redux";
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
+    // this.state = {
+    //   email: "",
+    //   password: "",
+    //   errors: {}
+    // };
     this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
@@ -22,8 +27,11 @@ class MainPage extends React.Component {
   }
 
   loginDemoUser() {
+    console.log('hit')
     let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
-    this.props.login(demoUser);
+    this.props.login(demoUser)
+    this.props.history.push('/users/loggedin')
+     
   }
 
   render() {
@@ -249,6 +257,11 @@ class MainPage extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors.session
+  };
+};
 
 
 const mapDispatchToProps = dispatch => {
@@ -257,4 +270,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(MainPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainPage));

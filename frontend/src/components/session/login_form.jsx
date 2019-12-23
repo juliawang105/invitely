@@ -42,6 +42,7 @@ class LoginForm extends React.Component {
   loginDemoUser() {
     let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
     this.props.login(demoUser);
+    console.log(this.props.history)
   }
 
   handleSubmit(e) {
