@@ -169,6 +169,7 @@
 }
 
 .button-box:hover {
+  cursor: pointer;
   background-color: rgba(220, 220, 220, 0.5);
   transition: 500ms ease;
 }
