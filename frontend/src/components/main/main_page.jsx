@@ -33,10 +33,6 @@ class MainPage extends React.Component {
     .then( () => {
       this.props.history.push('/users/loggedin')
     })
-<<<<<<< HEAD
-     
-=======
->>>>>>> e2b16eb6d0d23a2ddfe847c90c876b11736b0948
   }
 
   render() {

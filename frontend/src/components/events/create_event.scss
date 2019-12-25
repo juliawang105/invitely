@@ -261,6 +261,18 @@ input[type=file] {
 .custom-file-input::-ms-value {
   display: none;
 }
+.custom-file-input::-ms-value {
+  color: #172918;
+  color: #2e4d30;
+  color: #48724b;
+  color: #609063;
+  color: #81c585;
+
+}
+// ["#172918", "#2e4d30", "#48724b", "#609063", "#81c585"] "#7dbbbe"
+// ["rgb(49, 32, 17)", "rgb(68, 54, 41)", "rgb(116, 85, 56)", "rgb(153, 118, 85)", "rgb(195, 156, 119)"]
+
+
 
 // .file-custom:after {
 //     content: "Choose file...";
@@ -309,3 +321,4 @@ input[type=file] {
 //     filter: alpha(opacity=0);
 //     opacity: 0;
 // }
+

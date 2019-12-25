@@ -2,7 +2,7 @@
 
 [Live Site](https://invitely.herokuapp.com/)
 
-![splash](https://i.pinimg.com/originals/0d/23/92/0d2392265c0e899bf6b4a1f4f79f55a9.gif)
+![splash](https://i.pinimg.com/originals/2b/86/34/2b86345e1ab0d4035886a390e4387cde.gif)
 
 ## Background and Overview 
 Invitely is an online event planning and organizational app that allows for easy management for hosts and for guests. This user-friendly app takes the stress out of planning and leaves only the joy and excitement for gathering. 
@@ -56,7 +56,7 @@ const EventsReducer = (
 ```
 ### To-Do List 
 The to-do list feature allows hosts to see what still needs to be completed for the event and check off completed tasks.
-![todo](https://i.pinimg.com/originals/bf/e2/fa/bfe2fa4ac20b2720af12355ee05d9179.gif)
+![todo](https://i.pinimg.com/originals/d4/82/cc/d482ccbe6462dc8b55fcf9d6444cd972.gif)
 
 
 ### Discussion 
