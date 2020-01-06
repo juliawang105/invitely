@@ -27,7 +27,7 @@ class MainPage extends React.Component {
   }
 
   loginDemoUser() {
-    console.log('hit')
+    // console.log('hit')
     let demoUser = { email: 'invitelydemo@gmail.com', password: 'password' };
     this.props.login(demoUser)
     .then( () => {

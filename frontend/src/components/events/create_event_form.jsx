@@ -198,7 +198,7 @@ class CreateEvent extends React.Component {
     let header;
     let date = new Date(Date.now()).toISOString().slice(0, 10).toString() + "T00:00:00"
     // debugger;
-    console.log(date)
+    // console.log(date)
     if(this.props.formType === 'Create Event'){
       button = (
         <button
