@@ -58,8 +58,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "socket.io": "^2.3.0",
-    "validator": "^12.1.0",
-    "webpack": "^4.41.2"
+    "validator": "^12.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
