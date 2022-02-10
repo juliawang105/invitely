@@ -45,7 +45,7 @@
     "material-ui-search-bar": "^0.4.2",
     "mongoose": "^5.8.0",
     "multiparty": "^4.2.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react": "^16.12.0",
