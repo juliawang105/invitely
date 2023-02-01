@@ -43,7 +43,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "material-ui-search-bar": "^0.4.2",
-    "mongoose": "^5.8.0",
+    "mongoose": "^5.13.15",
     "multiparty": "^4.2.1",
     "node-sass": "^4.13.0",
     "passport": "^0.4.1",
